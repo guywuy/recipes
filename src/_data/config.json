@@ -1,0 +1,17 @@
+{
+  "name": "Don't Worry Chicken Curry",
+  "shortDesc": "Recipes to use",
+  "url": "",
+  "lang": "en",
+  "syntaxTheme": "prism-material-light.css",
+  "permalinkClass": ["permalink"],
+  "iframeClass": ["iframes-wrapper"],
+  "codeClass": ["code-wrapper"],
+  "figureClass": ["figure"],
+  "paths": {
+    "src": "src",
+    "blogdir": "blog",
+    "includes": "components",
+    "output": "dist"
+  }
+}

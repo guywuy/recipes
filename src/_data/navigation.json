@@ -1,0 +1,24 @@
+{
+  "items": [
+    {
+      "text": "Home",
+      "url": "/",
+      "external": false
+    },
+    {
+      "text": "Blog",
+      "url": "/blog/",
+      "external": false
+    },
+    {
+      "text": "Blender Sauces",
+      "url": "/hand-blender-sauces/",
+      "external": false
+    },
+    {
+      "text": "Bread",
+      "url": "/bread/",
+      "external": false
+    }
+  ]
+}
