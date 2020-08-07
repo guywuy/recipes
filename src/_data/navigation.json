@@ -1,13 +1,8 @@
 {
   "items": [
     {
-      "text": "Home",
+      "text": "DW",
       "url": "/",
-      "external": false
-    },
-    {
-      "text": "Blog",
-      "url": "/blog/",
       "external": false
     },
     {

@@ -3,7 +3,6 @@
   "shortDesc": "Recipes to use",
   "url": "",
   "lang": "en",
-  "syntaxTheme": "prism-material-light.css",
   "permalinkClass": ["permalink"],
   "iframeClass": ["iframes-wrapper"],
   "codeClass": ["code-wrapper"],

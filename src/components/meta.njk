@@ -22,10 +22,6 @@
 <meta property="twitter:url" content="{{ currentUrl }}"/>
 <meta property="twitter:site" content="{{ siteTitle }}"/>
 
-{% if config.authorHandle %}
-  <meta name="twitter:creator" content="@{{ config.authorHandle | replace('@', '') }}"/>
-{% endif %}
-
 <meta name="description" content="{{ pageDesc }}"/>
 <meta name="twitter:description" content="{{ pageDesc }}"/>
 <meta property="og:description" content="{{ pageDesc }}"/>
@@ -39,8 +35,4 @@
 {% else %}
   <meta property="og:image" content="{{ config.url }}/cover.png"/>
   <meta name="twitter:image" content="{{ config.url }}/cover.png"/>
-{% endif %}
-
-{% if config.paymentPointer %}
-  <meta name="monetization" content="{{ config.paymentPointer }}"/>
 {% endif %}

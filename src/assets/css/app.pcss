@@ -14,24 +14,24 @@ main {
   flex-direction: column;
   justify-content: center;
   margin: 0 auto;
-  padding: 100px 32px;
-}
-
-header {
-  margin-bottom: 64px;
+  padding: 50px 32px;
 }
 
 a {
   display: inline-block;
 }
 
-nav > a + a {
-  margin-left: 16px;
+nav > a {
+  padding: 0.5em;
+  margin-bottom: 0.5em;
+  margin-right: 0.5em;
+  color: var(--primary-dark);
 }
+
 
 a[aria-current='page'],
 a[aria-current='page']:hover {
-  color: var(--ne-global-foreground);
+  color: var(--highlight);
 }
 
 *:not(:hover) > .permalink {
@@ -74,4 +74,32 @@ h1 {
 
 h2 {
   color: var(--accent-color);
+}
+
+.accent {
+  color: var(--accent-color);
+}
+
+header {
+  margin-bottom: 34px;
+}
+
+@media (min-width:40em) {
+  .home-title-span {
+    display:inline-block; padding-left: 5ch; margin-top: 0.5em;
+  }
+
+  main {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+
+  header {
+    margin-bottom: 64px;
+  }
+}
+
+hr {
+  width: 8ch;
+  margin: 1.5em auto;
 }
