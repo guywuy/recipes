@@ -1,0 +1,267 @@
+---
+layout: page
+title: Hand Blender Sauces
+---
+
+<article x-data="cbdAmounts()">
+    <h2>
+        Cashew Balsamic Dressing
+    </h2>
+
+    <p>
+        Prep time: <strong>5 minutes</strong>.
+    </p>
+
+    <p>
+        Makes about <strong
+        @click="toggleEditingState"
+        x-text="isEditing ? 235 : format(235)"
+        class="editable">235</strong>
+        <span x-show="isEditing"> &times; </span>
+        <input
+            type="number"
+            name="num1"
+            id="num1"
+            x-model="modifier"
+            x-show="isEditing"
+            @click.away="toggleEditingState"
+            @keydown.enter="disableEditing"
+            @keydown.window.escape="disableEditing"
+            x-ref="input"
+            class="numberInput"
+        >
+        <strong x-show="isEditing" x-text="'= ' + format(235)" class="highlight"></strong>
+        ml.
+    </p>
+
+    <ul>
+        <li><strong x-text="format(2.5)" :class="{ 'highlight': isEditing }">2.5</strong> tablespoons soy sauce (<strong x-text="format(38)" :class="{ 'highlight': isEditing }">38</strong>ml)</li>
+        <li><strong x-text="format(1.5)" :class="{ 'highlight': isEditing }">1.5</strong> tablespoons balsamic vinegar (<strong x-text="format(23)" :class="{ 'highlight': isEditing }">23</strong>ml) </li>
+        <li><strong x-text="format(2)" :class="{ 'highlight': isEditing }">2</strong> tablespoons water (<strong x-text="format(30)" :class="{ 'highlight': isEditing }">30</strong>ml)</li>
+        <li><strong x-text="format(120)" :class="{ 'highlight': isEditing }">120</strong>ml neutral-tasting oil, such as high-oleic safflower or avocado oil</li>
+        <li><strong x-text="format(40)" :class="{ 'highlight': isEditing }">40</strong>g cashews</li>
+    </ul>
+
+    <p>
+        Place all the ingredients in a wide-mouthed Mason jar or cup that will fit an immersion blender without splashing. Pulse a few times to blend until the cashews are in small pieces but still chunky.
+    </p>
+
+    <p>
+        Place a lid on the jar. For best results, set aside for at least one hour to allow the flavours to develop. The dressing will keep in the refrigerator for one to two weeks.
+    </p>
+</article>
+
+<hr/>
+
+<article x-data="gtdAmounts()">
+
+    <h2>Ginger Tahini Dressing</h2>
+
+    <p>
+        Prep time: <strong>5 minutes</strong>.
+    </p>
+
+    <p>
+        Makes about <strong
+        @click="toggleEditingState"
+        x-text="isEditing ? 235 : format(235)"
+        class="editable">235</strong>
+        <span x-show="isEditing"> &times; </span>
+        <input
+            type="number"
+            name="num2"
+            id="num2"
+            x-model="modifier"
+            x-show="isEditing"
+            @click.away="toggleEditingState"
+            @keydown.enter="disableEditing"
+            @keydown.window.escape="disableEditing"
+            x-ref="input"
+            class="numberInput"
+        >
+        <strong x-show="isEditing" x-text="'= ' + format(235)" class="highlight"></strong>
+        ml.
+    </p>
+
+    <ul>
+        <li><strong x-text="format(60)" :class="{ 'highlight': isEditing }">60</strong>g tahini</li>
+        <li><strong x-text="format(2)" :class="{ 'highlight': isEditing }">2</strong> tablespoons white miso paste (<strong x-text="format(30)" :class="{ 'highlight': isEditing }">30</strong>g)</li>
+        <li><strong x-text="format(1)" :class="{ 'highlight': isEditing }">1</strong> 2-inch piece ginger, peeled and thinly sliced</li>
+        <li><strong x-text="format(2)" :class="{ 'highlight': isEditing }">2</strong> teaspoons rice vinegar (<strong x-text="format(10)" :class="{ 'highlight': isEditing }">10</strong>ml)</li>
+        <li><strong x-text="format(1)" :class="{ 'highlight': isEditing }">1</strong> teaspoon soy sauce (<strong x-text="format(5)" :class="{ 'highlight': isEditing }">5</strong>ml)</li>
+        <li><strong x-text="format(120)" :class="{ 'highlight': isEditing }">120</strong>ml warm water</li>
+    </ul>
+
+    <p>
+        Place all the ingredients in a wide-mouth Mason jar or cup that will fit an immersion blender without splashing. Blend, working the blender into the pieces of ginger until smooth. Add additional water as needed to reach the desired consistency.
+    </p>
+
+    <p>
+        Place a lid on the jar. For best results, set aside for at least one hour to allow the flavors to develop. The dressing will keep in the refrigerator for one to two weeks.
+    </p>
+</article>
+
+<hr/>
+
+<article x-data="msAmounts()">
+    <h2>Moroccan Sauce</h2>
+    
+    <p>
+        Prep time: <strong>7 minutes</strong>.
+    </p>
+
+    <p>
+        Makes about <strong
+        @click="toggleEditingState"
+        x-text="isEditing ? 165 : format(165)"
+        class="editable">165</strong>
+        <span x-show="isEditing"> &times; </span>
+        <input
+            type="number"
+            name="num3"
+            id="num3"
+            x-model="modifier"
+            x-show="isEditing"
+            @click.away="toggleEditingState"
+            @keydown.enter="disableEditing"
+            @keydown.window.escape="disableEditing"
+            x-ref="input"
+            class="numberInput"
+        >
+        <strong x-show="isEditing" x-text="'= ' + format(165)" class="highlight"></strong>
+        ml.
+    </p>
+
+    <ul>
+        <li><strong x-text="format(1)" :class="{ 'highlight': isEditing }">1</strong> 2-inch piece fresh ginger, peeled and sliced into thin rounds</li>
+        <li><strong x-text="format(3)" :class="{ 'highlight': isEditing }">3</strong> medium cloves garlic</li>
+        <li><strong x-text="format(1)" :class="{ 'highlight': isEditing }">1</strong> 3-to-4-inch piece fresh turmeric, peeled, or <strong x-text="format(1)" :class="{ 'highlight': isEditing }">1</strong> teaspoon ground turmeric (optional)</li>
+        <li><strong x-text="format(2)" :class="{ 'highlight': isEditing }">2</strong> teaspoons paprika (<strong x-text="format(10)" :class="{ 'highlight': isEditing }">10</strong>g)</li>
+        <li><strong x-text="format(1)" :class="{ 'highlight': isEditing }">1</strong> teaspoon ground cumin (<strong x-text="format(5)" :class="{ 'highlight': isEditing }">5</strong>g)</li>
+        <li><strong x-text="format(1)" :class="{ 'highlight': isEditing }">1</strong> teaspoon ground coriander (<strong x-text="format(5)" :class="{ 'highlight': isEditing }">5</strong>g)</li>
+        <li><strong x-text="format(0.5)" :class="{ 'highlight': isEditing }">0.5</strong> teaspoons ground cinnamon (<strong x-text="format(2.5)" :class="{ 'highlight': isEditing }">2.5</strong>g)</li>
+        <li><strong x-text="format(0.25)" :class="{ 'highlight': isEditing }">0.25</strong> teaspoons ground cloves (<strong x-text="format(1.2)" :class="{ 'highlight': isEditing }">1.2</strong>g)</li>
+        <li>Dash of freshly grated nutmeg</li>
+        <li><strong x-text="format(0.25)" :class="{ 'highlight': isEditing }">0.25</strong> teaspoons ground white or black pepper (<strong x-text="format(1.2)" :class="{ 'highlight': isEditing }">1.2</strong>g)</li>
+        <li><strong x-text="format(10)" :class="{ 'highlight': isEditing }">10</strong> sprigs cilantro, stems and leaves coarsely chopped</li>
+        <li><strong x-text="format(60)" :class="{ 'highlight': isEditing }">60</strong>ml extra-virgin olive oil</li>
+        <li><strong x-text="format(60)" :class="{ 'highlight': isEditing }">60</strong>ml water</li>
+        <li><strong x-text="format(0.5)" :class="{ 'highlight': isEditing }">0.5</strong> teaspoons salt (<strong x-text="format(2.5)" :class="{ 'highlight': isEditing }">2.5</strong>g)</li>
+        <li>Dash of cayenne pepper, or to taste (optional)</li>
+    </ul>
+
+    <p>
+        Place all the ingredients in a wide-mouth Mason jar or cup that will fit an immersion blender without splashing. Blend, working the blender in the jar until the garlic, ginger and turmeric are smooth.
+    </p>
+    
+    <p>
+        Place a lid on the jar. For best results, set aside for at least one hour to allow the flavors to develop. The dressing will keep in the refrigerator for up to two weeks.
+    </p>
+</article>
+
+<hr/>
+
+<article>
+    <h2>Thai Peanut Sauce</h2>
+    
+    <p>
+        Prep time: <strong>5 minutes</strong>.
+    </p>
+
+    <p>
+        Makes about 400ml.
+    </p>
+
+    <ul>
+        <li>1 large orange, 4 small clementines or 2 large tangerines, peeled, seeded and cut into 1-inch pieces</li>
+        <li>1 1/2-inch piece fresh ginger, peeled</li>
+        <li>1 teaspoon fresh lime juice (5ml)</li>
+        <li>114g peanut butter (no sugar added)</li>
+        <li>1 teaspoon unseasoned rice vinegar (5ml)</li>
+        <li>2 tablespoons water (30ml)</li>
+        <li>1 tablespoon soy sauce (15ml)</li>
+        <li>1/4 teaspoon salt (1.2g)</li>
+        <li>1/4 to 1/2 teaspoon cayenne pepper, or to taste (1.8g)</li>
+    </ul>
+    
+    <p>
+        Place all the ingredients in a wide-mouth Mason jar or cup that will fit an immersion blender without splashing. Blend until the orange is fully blended and the sauce is thick and creamy. Adjust seasoning to taste.
+    </p>
+    
+    <p>
+        Place a lid on the jar. Allow the flavors to develop for one hour or more in the refrigerator. The dressing will keep for about a week.
+    </p>
+</article>
+
+
+<script>
+    function cbdAmounts() {
+      return {
+        modifier: 1,
+        modified() { return this.modifier != 1 },
+        isEditing: false,
+        toggleEditingState() {
+            this.isEditing = !this.isEditing;
+
+            if (this.isEditing) {
+                this.$nextTick(() => {
+                    this.$refs.input.focus();
+                });
+            }
+        },
+        disableEditing() {
+            this.isEditing = false;
+        },
+        format(amount) {
+          let newAmount = amount * this.modifier;
+          return newAmount <= 20 ? newAmount.toPrecision(3) / 1 : Math.round(newAmount);
+        }
+      }
+    };
+    function gtdAmounts() {
+      return {
+        modifier: 1,
+        modified() { return this.modifier != 1 },
+        isEditing: false,
+        toggleEditingState() {
+            this.isEditing = !this.isEditing;
+
+            if (this.isEditing) {
+                this.$nextTick(() => {
+                    this.$refs.input.focus();
+                });
+            }
+        },
+        disableEditing() {
+            this.isEditing = false;
+        },
+        format(amount) {
+          let newAmount = amount * this.modifier;
+          return newAmount <= 20 ? newAmount.toPrecision(3) / 1 : Math.round(newAmount);
+        }
+      }
+    };
+    function msAmounts() {
+      return {
+        modifier: 1,
+        modified() { return this.modifier != 1 },
+        isEditing: false,
+        toggleEditingState() {
+            this.isEditing = !this.isEditing;
+
+            if (this.isEditing) {
+                this.$nextTick(() => {
+                    this.$refs.input.focus();
+                });
+            }
+        },
+        disableEditing() {
+            this.isEditing = false;
+        },
+        format(amount) {
+          let newAmount = amount * this.modifier;
+          return newAmount <= 20 ? newAmount.toPrecision(3) / 1 : Math.round(newAmount);
+        }
+      }
+    };
+</script>

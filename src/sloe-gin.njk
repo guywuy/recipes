@@ -1,16 +1,18 @@
 ---
-layout: page
+layout: recipe
 title: Sloe Gin
+sources:
+  - Parents
 ---
 
 <h2>Ingredients</h2>
 
 <ul>
     <li>
-        <span
+        <strong
         @click="toggleEditingState"
         x-text="isEditing ? 225 : format(225)"
-        class="editable bold">225</span>
+        class="editable bold">225</strong>
         <span x-show="isEditing"> &times; </span>
         <input
             type="number"
@@ -24,12 +26,12 @@ title: Sloe Gin
             x-ref="input"
             class="numberInput"
         >
-        <span x-show="isEditing" x-text="'= ' + format(225)" class="highlight bold"></span>
+        <strong x-show="isEditing" x-text="'= ' + format(225)" class="highlight bold"></strong>
         grams sloes
     </li>
-    <li><span x-text="format(85)" class="bold" :class="{ 'highlight': isEditing }">85</span> grams sugar</li>
-    <li><span x-text="format(350)" class="bold" :class="{ 'highlight': isEditing }">350</span> ml gin</li>
-    <li><span x-text="format(1)" class="bold" :class="{ 'highlight': isEditing }">1</span> capful amaretto</li>
+    <li><strong x-text="format(85)" :class="{ 'highlight': isEditing }">85</strong> grams sugar</li>
+    <li><strong x-text="format(350)" :class="{ 'highlight': isEditing }">350</strong> ml gin</li>
+    <li><strong x-text="format(1)" :class="{ 'highlight': isEditing }">1</strong> capful amaretto</li>
 </ul>
 
 <hr/>
@@ -48,14 +50,3 @@ title: Sloe Gin
 <ol>
     <li>If you wash and freeze the sloes, you can make it at your leisure. ( If you freeze them on a flat tray, they shouldn't stick together so much )</li>
 </ol>
-
-<hr/>
-
-<details>
-    <summary>Sources</summary>
-    <ul>
-        <li>
-            Parents
-        </li>
-    </ul>
-</details>
