@@ -9,6 +9,11 @@
       "text": "🍞 Bread",
       "url": "/bread/",
       "external": false
+    },
+    {
+      "text": "🍷 Sloe Gin",
+      "url": "/sloe-gin/",
+      "external": false
     }
   ]
 }
