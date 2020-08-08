@@ -1,0 +1,36 @@
+{
+    "short_name": "Recipes",
+    "name": "Don't Worry Chicken Curry",
+    "description": "Recipes to live by",
+    "icons": [
+      {
+        "src": "icon-192.png",
+        "type": "image/png",
+        "sizes": "192x192"
+      },
+      {
+        "src": "icon-512.png",
+        "type": "image/png",
+        "sizes": "512x512"
+      }
+    ],
+    "start_url": "/",
+    "background_color": "#00573B",
+    "display": "standalone",
+    "scope": "/",
+    "theme_color": "#00573B",
+    "shortcuts": [
+      {
+        "name": "How's weather today?",
+        "short_name": "Bread",
+        "description": "Sourdough loaves",
+        "url": "/bread"
+      },
+      {
+        "name": "Hand Blender Sauces",
+        "short_name": "Sauces",
+        "description": "Easy Sauces",
+        "url": "/hand-blender-sauces"
+      }
+    ]
+}
