@@ -6,7 +6,7 @@
       <a href="/"><strong>DW<span class="accent">CC</span></strong></a>
     </nav>
   </header>
-  <main tabindex="-1">
+  <main tabindex="-1" x-data="amounts()">
 
     {% if title %}
       <h1>{{ title }}</h1>
@@ -14,4 +14,30 @@
 
     {{ content | safe }}
   </main>
+
+  <script>
+    function amounts() {
+      return {
+        modifier: 1,
+        modified() { return this.modifier != 1 },
+        isEditing: false,
+        toggleEditingState() {
+            this.isEditing = !this.isEditing;
+
+            if (this.isEditing) {
+                this.$nextTick(() => {
+                    this.$refs.input.focus();
+                });
+            }
+        },
+        disableEditing() {
+            this.isEditing = false;
+        },
+        format(amount) {
+          let newAmount = amount * this.modifier;
+          return newAmount <= 20 ? newAmount : Math.round(newAmount);
+        }
+      }
+    }
+  </script>
 {% endblock %}

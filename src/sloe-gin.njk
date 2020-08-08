@@ -6,10 +6,30 @@ title: Sloe Gin
 <h2>Ingredients</h2>
 
 <ul>
-    <li>225 grams sloes</li>
-    <li>85 grams sugar</li>
-    <li>350 ml gin</li>
-    <li>1 capful amaretto</li>
+    <li>
+        <span
+        @click="toggleEditingState"
+        x-text="isEditing ? 225 : format(225)"
+        class="editable bold">225</span>
+        <span x-show="isEditing"> &times; </span>
+        <input
+            type="number"
+            name="sloes"
+            id="sloes"
+            x-model="modifier"
+            x-show="isEditing"
+            @click.away="toggleEditingState"
+            @keydown.enter="disableEditing"
+            @keydown.window.escape="disableEditing"
+            x-ref="input"
+            class="numberInput"
+        >
+        <span x-show="isEditing" x-text="'= ' + format(225)" class="highlight bold"></span>
+        grams sloes
+    </li>
+    <li><span x-text="format(85)" class="bold" :class="{ 'highlight': isEditing }">85</span> grams sugar</li>
+    <li><span x-text="format(350)" class="bold" :class="{ 'highlight': isEditing }">350</span> ml gin</li>
+    <li><span x-text="format(1)" class="bold" :class="{ 'highlight': isEditing }">1</span> capful amaretto</li>
 </ul>
 
 <hr/>

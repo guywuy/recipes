@@ -21,7 +21,7 @@
     "theme_color": "#00573B",
     "shortcuts": [
       {
-        "name": "How's weather today?",
+        "name": "Sourdough Bread",
         "short_name": "Bread",
         "description": "Sourdough loaves",
         "url": "/bread"

@@ -1,7 +1,5 @@
 - Add transform to headings to add id attribute (if not already there)
-- Page layout to have 'paper-y' bg texture/colour
-- Add transforms to markdown (or just use njk) to add 'dw-controller' 'dw-controlled' functionality - for changing amounts of ingredients. (If possible, any ingredient can be controller). Changed amounts to be highlight colour. Controller to be dash underlined, padded. Maybe show warning about times should be changed accordingly.
-- Create manifest file to make pwa 'installable'
+- Improve homepage layout
 - Use details/summary element more
 
 
