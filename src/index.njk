@@ -9,4 +9,14 @@ title: Don't Worry Chicken Curry
     <span class="accent home-title-span">Chicken Curry</span>
 </h1>
 
-<p><strong>Tried and tested recipes to enjoy</strong> 🍌</p>
+<p class="mb-16"><strong>Tried and tested recipes to enjoy</strong> 🍌</p>
+
+{% if navigation.items %}
+<nav>
+    {% for item in navigation.items %}
+    <a href="{{ item.url }}">
+        {{ item.text }}
+    </a>
+    {% endfor %}
+</nav>
+{% endif %}

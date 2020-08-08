@@ -5,7 +5,7 @@ module.exports = function(content, outputPath) {
     let minified = htmlmin.minify(content, {
       useShortDoctype: true,
       removeComments: true,
-      collapseWhitespace: false,
+      collapseWhitespace: true,
       minifyCSS: true,
     })
     return minified

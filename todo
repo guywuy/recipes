@@ -1,3 +1,15 @@
-- Add transform to headings to add id attribute
-- Front matter to include links for headings at top of post (or sticky at side)
-- Homepage to include list of posts?
+- Add transform to headings to add id attribute (if not already there)
+- Homepage to include list of posts? Could be page layout nav only has homepage link (and maybe hamburger menu of all links) And homepage has list under intro - list items with emojis
+- Page layout to have 'paper-y' bg texture/colour
+- Add transforms to markdown (or just use njk) to add 'dw-controller' 'dw-controlled' functionality - for changing amounts of ingredients. (If possible, any ingredient can be controller). Changed amounts to be highlight colour. Controller to be dash underlined, padded. Maybe show warning about times should be changed accordingly.
+- Create manifest file to make pwa 'installable'
+- Change README
+- Don't inline theme css for prod. Reduce theme css.
+- Use details/summary element more
+
+
+
+## Content
+- Sloe gin
+- Piccallily
+- Ferment (sauerkraut)

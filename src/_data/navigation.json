@@ -1,17 +1,12 @@
 {
   "items": [
     {
-      "text": "DW",
-      "url": "/",
-      "external": false
-    },
-    {
-      "text": "Blender Sauces",
+      "text": "🍯 Blender Sauces",
       "url": "/hand-blender-sauces/",
       "external": false
     },
     {
-      "text": "Bread",
+      "text": "🍞 Bread",
       "url": "/bread/",
       "external": false
     }
