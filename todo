@@ -1,8 +1,5 @@
-- Improve homepage layout - list of recipes to be column
 - Tags of ingredients to make recipes searchable? Combobox/autocomplete/select on homepage?
-- Change input to range slider
-- Make span into component? So can update any quantity item.
-- Check web manifest
+- Make input into component? So can update any quantity item.
 
 
 ## Content

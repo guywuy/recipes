@@ -182,6 +182,13 @@ hr {
 .mb-12 { margin-bottom: var(--space-12); }
 .mb-16 { margin-bottom: var(--space-16); }
 
+.editable-amount {
+  display: inline-block;
+  position: relative;
+}
+.editable-amount--editing {
+  padding-bottom: 50px;
+}
 .editable {
   display: inline-block;
   padding: 0.25em 0.5em;
@@ -189,6 +196,11 @@ hr {
   border: 2px dashed var(--accent);
 }
 
+.rangeInput {
+  position: absolute;
+  left: 0;
+  top:calc(100% - 50px);
+}
 .numberInput {
   width: 6ch;
   padding: 0.25em 0.5em;
@@ -217,5 +229,96 @@ hr {
 
   nav > ul {
     flex-direction: row;
+  }
+}
+
+
+
+input[type=range] {
+  width: 100%;
+  min-width: 220px;
+  margin: 18px 0;
+  background-color: transparent;
+  -webkit-appearance: none;
+  }
+  input[type=range]:focus {
+  outline: none;
+  }
+  input[type=range]::-webkit-slider-runnable-track {
+    background: var(--accent);
+    border: 0;
+    border-radius: 1px;
+    width: 100%;
+    height: 4px;
+    cursor: pointer;
+  }
+  input[type=range]::-moz-range-track {
+    background: var(--accent);
+    border: 0;
+    border-radius: 1px;
+    width: 100%;
+    height: 4px;
+    cursor: pointer;
+  }
+  input[type=range]::-moz-range-thumb {
+  width: 28px;
+  height: 40px;
+  background: transparent center / 40px no-repeat;
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 443.63 443.63'%3E%3Cpath d='M332.17 188.53c18.44 35.52 29.43 75.48 29.43 107.82 0 77.2-62.58 139.79-139.78 139.79s-139.79-62.6-139.79-139.8c0-32.33 10.99-72.3 29.43-107.81a513.15 513.15 0 0028.85-66.55C154.96 80.22 185.95 39 221.82 39c35.86 0 66.85 41.22 81.51 82.98a511.73 511.73 0 0028.84 66.55zm-44.92 113.66c0-36.14-29.29-94.04-65.43-94.04s-65.44 57.9-65.44 94.04a65.44 65.44 0 00130.87 0z' fill='%239ad14b'/%3E%3Cpath d='M221.82 208.15c36.14 0 65.43 57.9 65.43 94.04a65.43 65.43 0 11-130.87 0c0-36.14 29.3-94.04 65.44-94.04z' fill='%23b27214'/%3E%3Cpath d='M260.9 326.2a7.5 7.5 0 01-6.9-10.43 34.61 34.61 0 002.75-13.58c0-12.43-5.98-30.7-14.54-44.44a74.33 74.33 0 00-7.89-10.59 7.5 7.5 0 1111.11-10.08 89.2 89.2 0 019.5 12.73c10.22 16.39 16.82 36.95 16.82 52.38 0 6.73-1.32 13.26-3.93 19.43a7.5 7.5 0 01-6.91 4.57z' fill='%23fff'/%3E%3Cg fill='%23333'%3E%3Cpath d='M221.82 200.64c-19.07 0-37.76 13.14-52.64 37-12.52 20.09-20.3 44.82-20.3 64.55 0 40.21 32.72 72.93 72.94 72.93 40.21 0 72.93-32.72 72.93-72.94 0-19.72-7.77-44.45-20.3-64.54-14.87-23.86-33.57-37-52.63-37zm0 159.48a58 58 0 01-57.94-57.94c0-32.6 27.08-86.54 57.94-86.54s57.94 53.94 57.94 86.54a58 58 0 01-57.94 57.94z'/%3E%3Cpath d='M338.83 185.07a507.65 507.65 0 01-28.43-65.58C296 78.47 265.84 37.1 229.32 32.02V7.5a7.5 7.5 0 10-15 0v24.52c-36.52 5.08-66.7 46.45-81.09 87.47a507.76 507.76 0 01-28.42 65.58c-18.96 36.51-30.28 78.11-30.28 111.28 0 81.21 66.08 147.28 147.29 147.28S369.1 377.56 369.1 296.35c0-33.17-11.32-74.77-30.27-111.28zM221.82 428.63c-72.94 0-132.29-59.34-132.29-132.28 0-30.88 10.7-69.9 28.59-104.37a522.96 522.96 0 0029.27-67.52c13.17-37.55 42.08-77.96 74.43-77.96 32.34 0 61.25 40.41 74.43 77.96a522.73 522.73 0 0029.27 67.52c17.9 34.48 28.58 73.5 28.58 104.37 0 72.94-59.34 132.28-132.28 132.28z'/%3E%3C/g%3E%3Ccircle cx='221.87' cy='231.41' r='7.5' fill='%23fff'/%3E%3C/svg%3E");
+  border: none;
+  cursor: pointer;
+  -webkit-appearance: none;
+  }
+  input[type=range]::-webkit-slider-thumb {
+    width: 28px;
+    height: 40px;
+    background: transparent center / 40px no-repeat;
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 443.63 443.63'%3E%3Cpath d='M332.17 188.53c18.44 35.52 29.43 75.48 29.43 107.82 0 77.2-62.58 139.79-139.78 139.79s-139.79-62.6-139.79-139.8c0-32.33 10.99-72.3 29.43-107.81a513.15 513.15 0 0028.85-66.55C154.96 80.22 185.95 39 221.82 39c35.86 0 66.85 41.22 81.51 82.98a511.73 511.73 0 0028.84 66.55zm-44.92 113.66c0-36.14-29.29-94.04-65.43-94.04s-65.44 57.9-65.44 94.04a65.44 65.44 0 00130.87 0z' fill='%239ad14b'/%3E%3Cpath d='M221.82 208.15c36.14 0 65.43 57.9 65.43 94.04a65.43 65.43 0 11-130.87 0c0-36.14 29.3-94.04 65.44-94.04z' fill='%23b27214'/%3E%3Cpath d='M260.9 326.2a7.5 7.5 0 01-6.9-10.43 34.61 34.61 0 002.75-13.58c0-12.43-5.98-30.7-14.54-44.44a74.33 74.33 0 00-7.89-10.59 7.5 7.5 0 1111.11-10.08 89.2 89.2 0 019.5 12.73c10.22 16.39 16.82 36.95 16.82 52.38 0 6.73-1.32 13.26-3.93 19.43a7.5 7.5 0 01-6.91 4.57z' fill='%23fff'/%3E%3Cg fill='%23333'%3E%3Cpath d='M221.82 200.64c-19.07 0-37.76 13.14-52.64 37-12.52 20.09-20.3 44.82-20.3 64.55 0 40.21 32.72 72.93 72.94 72.93 40.21 0 72.93-32.72 72.93-72.94 0-19.72-7.77-44.45-20.3-64.54-14.87-23.86-33.57-37-52.63-37zm0 159.48a58 58 0 01-57.94-57.94c0-32.6 27.08-86.54 57.94-86.54s57.94 53.94 57.94 86.54a58 58 0 01-57.94 57.94z'/%3E%3Cpath d='M338.83 185.07a507.65 507.65 0 01-28.43-65.58C296 78.47 265.84 37.1 229.32 32.02V7.5a7.5 7.5 0 10-15 0v24.52c-36.52 5.08-66.7 46.45-81.09 87.47a507.76 507.76 0 01-28.42 65.58c-18.96 36.51-30.28 78.11-30.28 111.28 0 81.21 66.08 147.28 147.29 147.28S369.1 377.56 369.1 296.35c0-33.17-11.32-74.77-30.27-111.28zM221.82 428.63c-72.94 0-132.29-59.34-132.29-132.28 0-30.88 10.7-69.9 28.59-104.37a522.96 522.96 0 0029.27-67.52c13.17-37.55 42.08-77.96 74.43-77.96 32.34 0 61.25 40.41 74.43 77.96a522.73 522.73 0 0029.27 67.52c17.9 34.48 28.58 73.5 28.58 104.37 0 72.94-59.34 132.28-132.28 132.28z'/%3E%3C/g%3E%3Ccircle cx='221.87' cy='231.41' r='7.5' fill='%23fff'/%3E%3C/svg%3E");
+    border: none;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -18px;
+  }
+
+  input[type=range]::-ms-track {
+    background: transparent;
+    border-color: transparent;
+    border-width: 18px 0;
+    color: transparent;
+    width: 100%;
+    height: 4px;
+    cursor: pointer;
+  }
+  input[type=range]::-ms-fill-lower {
+    background: var(--accent);
+    border: 0;
+    border-radius: 2px;
+  }
+  input[type=range]::-ms-fill-upper {
+    background: var(--accent);
+    border: 0;
+    border-radius: 2px;
+  }
+  input[type=range]::-ms-thumb {
+    width: 40px;
+    height: 40px;
+    background: var(--primary);
+    border: 3.7px solid var(--accent);
+    border-radius: 40px;
+    cursor: pointer;
+    margin-top: 0px;
+    /*Needed to keep the Edge thumb centred*/
+  }
+  input[type=range]:focus::-ms-fill-lower {
+    background: var(--accent);
+  }
+  input[type=range]:focus::-ms-fill-upper {
+    background: var(--accent);
+  }
+  @supports (-ms-ime-align:auto) {
+  /* Pre-Chromium Edge only styles, selector taken from hhttps://stackoverflow.com/a/32202953/7077589 */
+  input[type=range] {
+    margin: 0;
+    /*Edge starts the margin from the thumb, not the track as other browsers do*/
   }
 }
