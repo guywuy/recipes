@@ -1,0 +1,30 @@
+{% macro editableAmount(name, default) %}
+<span class="editable-amount" :class="{ 'editable-amount--editing': (isEditing && editingName == {{ name }}) }">
+    <strong
+    @click="enableEditing({{ name }})"
+    x-text="format( {{ default }} )"
+    class="editable"
+    :class="{ 'highlight': isEditing }"
+    > {{ default }} </strong>
+    <input
+        type="range"
+        name="{{ name }}"
+        min="0.1"
+        max="2.5"
+        step="0.01"
+        id="{{ name }}"
+        x-model="modifier"
+        x-show="isEditing && editingName == {{ name }}"
+        @click.away="disableEditing"
+        @keydown.enter="disableEditing"
+        @keydown.window.escape="disableEditing"
+        x-ref="input"
+        class="rangeInput"
+        x-cloak
+    >
+</span>
+{% endmacro %}
+
+{% macro controlledAmount(default) %}
+<strong x-text="format({{ default }})" :class="{ 'highlight': isEditing }">{{ default }}</strong>
+{% endmacro %}

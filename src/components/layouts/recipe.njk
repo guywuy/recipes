@@ -4,7 +4,7 @@
 
   {% include "header.njk" %}
 
-  <main tabindex="-1" x-data="amounts()">
+  <main tabindex="-1">
 
     {% if title %}
       <h1>{{ title }}</h1>
@@ -35,14 +35,14 @@
         modifier: 1,
         modified() { return this.modifier != 1 },
         isEditing: false,
-        toggleEditingState() {
-            this.isEditing = !this.isEditing;
+        editingName: '',
+        enableEditing(name) {
+            this.isEditing = true;
+            this.editingName = name;
 
-            if (this.isEditing) {
-                this.$nextTick(() => {
-                    this.$refs.input.focus();
-                });
-            }
+            this.$nextTick(() => {
+                this.$refs.input.focus();
+            });
         },
         disableEditing() {
             this.isEditing = false;

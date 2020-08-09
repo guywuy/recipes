@@ -3,7 +3,9 @@ layout: recipe
 title: Hand Blender Sauces
 ---
 
-<article x-data="cbdAmounts()">
+{% from "editableAmounts.njk" import editableAmount, controlledAmount %}
+
+<article x-data="amounts()">
     <h2>
         Cashew Balsamic Dressing
     </h2>
@@ -13,31 +15,13 @@ title: Hand Blender Sauces
     </p>
 
     <p>
-        Makes about <strong
-        @click="toggleEditingState"
-        x-text="isEditing ? 235 : format(235)"
-        class="editable">235</strong>
-        <span x-show="isEditing"> &times; </span>
-        <input
-            type="number"
-            name="num1"
-            id="num1"
-            x-model="modifier"
-            x-show="isEditing"
-            @click.away="toggleEditingState"
-            @keydown.enter="disableEditing"
-            @keydown.window.escape="disableEditing"
-            x-ref="input"
-            class="numberInput"
-        >
-        <strong x-show="isEditing" x-text="'= ' + format(235)" class="highlight"></strong>
-        ml.
+        Makes about {{ editableAmount('cbd', 235) }} ml.
     </p>
 
     <ul>
-        <li><strong x-text="format(2.5)" :class="{ 'highlight': isEditing }">2.5</strong> tablespoons soy sauce (<strong x-text="format(38)" :class="{ 'highlight': isEditing }">38</strong>ml)</li>
+        <li>{{ controlledAmount(2.5) }} tablespoons soy sauce (<strong x-text="format(38)" :class="{ 'highlight': isEditing }">38</strong>ml)</li>
         <li><strong x-text="format(1.5)" :class="{ 'highlight': isEditing }">1.5</strong> tablespoons balsamic vinegar (<strong x-text="format(23)" :class="{ 'highlight': isEditing }">23</strong>ml) </li>
-        <li><strong x-text="format(2)" :class="{ 'highlight': isEditing }">2</strong> tablespoons water (<strong x-text="format(30)" :class="{ 'highlight': isEditing }">30</strong>ml)</li>
+        <li>{{ controlledAmount(2) }} tablespoons water (<strong x-text="format(30)" :class="{ 'highlight': isEditing }">30</strong>ml)</li>
         <li><strong x-text="format(120)" :class="{ 'highlight': isEditing }">120</strong>ml neutral-tasting oil, such as high-oleic safflower or avocado oil</li>
         <li><strong x-text="format(40)" :class="{ 'highlight': isEditing }">40</strong>g cashews</li>
     </ul>
@@ -53,7 +37,7 @@ title: Hand Blender Sauces
 
 <hr/>
 
-<article x-data="gtdAmounts()">
+<article x-data="amounts()">
 
     <h2>Ginger Tahini Dressing</h2>
 
@@ -62,34 +46,16 @@ title: Hand Blender Sauces
     </p>
 
     <p>
-        Makes about <strong
-        @click="toggleEditingState"
-        x-text="isEditing ? 235 : format(235)"
-        class="editable">235</strong>
-        <span x-show="isEditing"> &times; </span>
-        <input
-            type="number"
-            name="num2"
-            id="num2"
-            x-model="modifier"
-            x-show="isEditing"
-            @click.away="toggleEditingState"
-            @keydown.enter="disableEditing"
-            @keydown.window.escape="disableEditing"
-            x-ref="input"
-            class="numberInput"
-        >
-        <strong x-show="isEditing" x-text="'= ' + format(235)" class="highlight"></strong>
-        ml.
+        Makes about {{ editableAmount('gtd', 235) }} ml.
     </p>
 
     <ul>
-        <li><strong x-text="format(60)" :class="{ 'highlight': isEditing }">60</strong>g tahini</li>
-        <li><strong x-text="format(2)" :class="{ 'highlight': isEditing }">2</strong> tablespoons white miso paste (<strong x-text="format(30)" :class="{ 'highlight': isEditing }">30</strong>g)</li>
-        <li><strong x-text="format(1)" :class="{ 'highlight': isEditing }">1</strong> 2-inch piece ginger, peeled and thinly sliced</li>
-        <li><strong x-text="format(2)" :class="{ 'highlight': isEditing }">2</strong> teaspoons rice vinegar (<strong x-text="format(10)" :class="{ 'highlight': isEditing }">10</strong>ml)</li>
-        <li><strong x-text="format(1)" :class="{ 'highlight': isEditing }">1</strong> teaspoon soy sauce (<strong x-text="format(5)" :class="{ 'highlight': isEditing }">5</strong>ml)</li>
-        <li><strong x-text="format(120)" :class="{ 'highlight': isEditing }">120</strong>ml warm water</li>
+        <li>{{ controlledAmount(60) }}g tahini</li>
+        <li>{{ controlledAmount(2) }} tablespoons white miso paste ({{ controlledAmount(30) }}g)</li>
+        <li>{{ controlledAmount(1) }} 2-inch piece ginger, peeled and thinly sliced</li>
+        <li>{{ controlledAmount(2) }} teaspoons rice vinegar ({{ controlledAmount(10) }}ml)</li>
+        <li>{{ controlledAmount(1) }} teaspoon soy sauce ({{ controlledAmount(5) }}ml)</li>
+        <li>{{ controlledAmount(120) }}ml warm water</li>
     </ul>
 
     <p>
@@ -103,7 +69,7 @@ title: Hand Blender Sauces
 
 <hr/>
 
-<article x-data="msAmounts()">
+<article x-data="amounts()">
     <h2>Moroccan Sauce</h2>
     
     <p>
@@ -111,42 +77,24 @@ title: Hand Blender Sauces
     </p>
 
     <p>
-        Makes about <strong
-        @click="toggleEditingState"
-        x-text="isEditing ? 165 : format(165)"
-        class="editable">165</strong>
-        <span x-show="isEditing"> &times; </span>
-        <input
-            type="number"
-            name="num3"
-            id="num3"
-            x-model="modifier"
-            x-show="isEditing"
-            @click.away="toggleEditingState"
-            @keydown.enter="disableEditing"
-            @keydown.window.escape="disableEditing"
-            x-ref="input"
-            class="numberInput"
-        >
-        <strong x-show="isEditing" x-text="'= ' + format(165)" class="highlight"></strong>
-        ml.
+        Makes about {{ editableAmount('ms', 165) }} ml.
     </p>
 
     <ul>
-        <li><strong x-text="format(1)" :class="{ 'highlight': isEditing }">1</strong> 2-inch piece fresh ginger, peeled and sliced into thin rounds</li>
-        <li><strong x-text="format(3)" :class="{ 'highlight': isEditing }">3</strong> medium cloves garlic</li>
-        <li><strong x-text="format(1)" :class="{ 'highlight': isEditing }">1</strong> 3-to-4-inch piece fresh turmeric, peeled, or <strong x-text="format(1)" :class="{ 'highlight': isEditing }">1</strong> teaspoon ground turmeric (optional)</li>
-        <li><strong x-text="format(2)" :class="{ 'highlight': isEditing }">2</strong> teaspoons paprika (<strong x-text="format(10)" :class="{ 'highlight': isEditing }">10</strong>g)</li>
-        <li><strong x-text="format(1)" :class="{ 'highlight': isEditing }">1</strong> teaspoon ground cumin (<strong x-text="format(5)" :class="{ 'highlight': isEditing }">5</strong>g)</li>
-        <li><strong x-text="format(1)" :class="{ 'highlight': isEditing }">1</strong> teaspoon ground coriander (<strong x-text="format(5)" :class="{ 'highlight': isEditing }">5</strong>g)</li>
-        <li><strong x-text="format(0.5)" :class="{ 'highlight': isEditing }">0.5</strong> teaspoons ground cinnamon (<strong x-text="format(2.5)" :class="{ 'highlight': isEditing }">2.5</strong>g)</li>
-        <li><strong x-text="format(0.25)" :class="{ 'highlight': isEditing }">0.25</strong> teaspoons ground cloves (<strong x-text="format(1.2)" :class="{ 'highlight': isEditing }">1.2</strong>g)</li>
+        <li>{{ controlledAmount(1) }} 2-inch piece fresh ginger, peeled and sliced into thin rounds</li>
+        <li>{{ controlledAmount(3) }} medium cloves garlic</li>
+        <li>{{ controlledAmount(1) }} 3-to-4-inch piece fresh turmeric, peeled, or {{ controlledAmount(1) }} teaspoon ground turmeric (optional)</li>
+        <li>{{ controlledAmount(2) }} teaspoons paprika ({{ controlledAmount(10) }}g)</li>
+        <li>{{ controlledAmount(1) }} teaspoon ground cumin ({{ controlledAmount(5) }}g)</li>
+        <li>{{ controlledAmount(1) }} teaspoon ground coriander ({{ controlledAmount(5) }}g)</li>
+        <li>{{ controlledAmount(0.5) }} teaspoons ground cinnamon ({{ controlledAmount(2.5) }}g)</li>
+        <li>{{ controlledAmount(2.5) }} teaspoons ground cloves ({{ controlledAmount(1.2) }}g)</li>
         <li>Dash of freshly grated nutmeg</li>
-        <li><strong x-text="format(0.25)" :class="{ 'highlight': isEditing }">0.25</strong> teaspoons ground white or black pepper (<strong x-text="format(1.2)" :class="{ 'highlight': isEditing }">1.2</strong>g)</li>
-        <li><strong x-text="format(10)" :class="{ 'highlight': isEditing }">10</strong> sprigs cilantro, stems and leaves coarsely chopped</li>
-        <li><strong x-text="format(60)" :class="{ 'highlight': isEditing }">60</strong>ml extra-virgin olive oil</li>
-        <li><strong x-text="format(60)" :class="{ 'highlight': isEditing }">60</strong>ml water</li>
-        <li><strong x-text="format(0.5)" :class="{ 'highlight': isEditing }">0.5</strong> teaspoons salt (<strong x-text="format(2.5)" :class="{ 'highlight': isEditing }">2.5</strong>g)</li>
+        <li>{{ controlledAmount(2.5) }} teaspoons ground white or black pepper ({{ controlledAmount(1.2) }}g)</li>
+        <li>{{ controlledAmount(10) }} sprigs cilantro, stems and leaves coarsely chopped</li>
+        <li>{{ controlledAmount(60) }}ml extra-virgin olive oil</li>
+        <li>{{ controlledAmount(60) }}ml water</li>
+        <li>{{ controlledAmount(0.5) }} teaspoons salt ({{ controlledAmount(2.5) }}g)</li>
         <li>Dash of cayenne pepper, or to taste (optional)</li>
     </ul>
 
@@ -192,76 +140,3 @@ title: Hand Blender Sauces
         Place a lid on the jar. Allow the flavors to develop for one hour or more in the refrigerator. The dressing will keep for about a week.
     </p>
 </article>
-
-
-<script>
-    function cbdAmounts() {
-      return {
-        modifier: 1,
-        modified() { return this.modifier != 1 },
-        isEditing: false,
-        toggleEditingState() {
-            this.isEditing = !this.isEditing;
-
-            if (this.isEditing) {
-                this.$nextTick(() => {
-                    this.$refs.input.focus();
-                });
-            }
-        },
-        disableEditing() {
-            this.isEditing = false;
-        },
-        format(amount) {
-          let newAmount = amount * this.modifier;
-          return newAmount <= 20 ? newAmount.toPrecision(3) / 1 : Math.round(newAmount);
-        }
-      }
-    };
-    function gtdAmounts() {
-      return {
-        modifier: 1,
-        modified() { return this.modifier != 1 },
-        isEditing: false,
-        toggleEditingState() {
-            this.isEditing = !this.isEditing;
-
-            if (this.isEditing) {
-                this.$nextTick(() => {
-                    this.$refs.input.focus();
-                });
-            }
-        },
-        disableEditing() {
-            this.isEditing = false;
-        },
-        format(amount) {
-          let newAmount = amount * this.modifier;
-          return newAmount <= 20 ? newAmount.toPrecision(3) / 1 : Math.round(newAmount);
-        }
-      }
-    };
-    function msAmounts() {
-      return {
-        modifier: 1,
-        modified() { return this.modifier != 1 },
-        isEditing: false,
-        toggleEditingState() {
-            this.isEditing = !this.isEditing;
-
-            if (this.isEditing) {
-                this.$nextTick(() => {
-                    this.$refs.input.focus();
-                });
-            }
-        },
-        disableEditing() {
-            this.isEditing = false;
-        },
-        format(amount) {
-          let newAmount = amount * this.modifier;
-          return newAmount <= 20 ? newAmount.toPrecision(3) / 1 : Math.round(newAmount);
-        }
-      }
-    };
-</script>
