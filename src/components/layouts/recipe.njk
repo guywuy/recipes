@@ -51,7 +51,7 @@
         },
         format(amount) {
           let newAmount = amount * this.modifier;
-          return newAmount <= 20 ? newAmount : Math.round(newAmount);
+          return newAmount <= 20 ? newAmount.toPrecision(3) / 1 : Math.round(newAmount);
         }
       }
     }

@@ -1,9 +1,11 @@
-- Add transform to headings to add id attribute (if not already there)
-- Improve homepage layout
-- Use details/summary element more
-
+- Improve homepage layout - list of recipes to be column
+- Tags of ingredients to make recipes searchable? Combobox/autocomplete/select on homepage?
+- Change input to range slider
+- Make span into component? So can update any quantity item.
+- Check web manifest
 
 
 ## Content
 - Piccallily
 - Ferment (sauerkraut)
+- Vegan Flapjack
