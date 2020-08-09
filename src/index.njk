@@ -13,10 +13,14 @@ title: Don't Worry Chicken Curry
 
 {% if navigation.items %}
 <nav>
-    {% for item in navigation.items %}
-    <a href="{{ item.url }}">
-        {{ item.text }}
-    </a>
-    {% endfor %}
+    <ul>
+        {% for item in navigation.items %}
+        <li>
+            <a href="{{ item.url }}" class="nav-link">
+                {{ item.text }}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
 </nav>
 {% endif %}

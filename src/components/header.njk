@@ -1,16 +1,36 @@
-<header>
-  {% if navigation.items %}
-    <nav>
-      {% for item in navigation.items %}
-        {% set isCurrent = '' %}
+<header x-data="nav()">
+  <a href="/" class="homelink">🏠 <strong>DW<span class="accent">CC</span></strong></a>
 
-        {% if page.url == item.url %}
-          {% set isCurrent = ' aria-current="page"' %}
-        {% endif %}
-        <a href="{{ item.url }}"{{ isCurrent | safe }}>
-          <b>{{ item.text }}</b>
-        </a>
-      {% endfor %}
+  <button class="nav-toggle" @click="toggleNav" x-cloak>👨🏼‍🍳</button>
+
+  {% if navigation.items %}
+    <nav x-show.transition.origin.top.right="isOpen" x-cloak>
+      <ul>
+          {% for item in navigation.items %}
+
+          {% set isCurrent = '' %}
+
+          {% if page.url == item.url %}
+            {% set isCurrent = ' aria-current="page"' %}
+          {% endif %}
+          <li>
+              <a href="{{ item.url }}" class="nav-link"{{ isCurrent | safe }}>
+                  {{ item.text }}
+              </a>
+          </li>
+          {% endfor %}
+      </ul>
     </nav>
   {% endif %}
 </header>
+
+<script>
+  function nav() {
+    return {
+      isOpen: false,
+      toggleNav: function() {
+        this.isOpen = !this.isOpen
+      },
+    }
+  }
+</script>
