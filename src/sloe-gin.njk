@@ -3,6 +3,9 @@ layout: recipe
 title: Sloe Gin
 sources:
   - Parents
+type: Drink
+ingredients:
+  - Sloe berries
 ---
 
 {% from "editableAmounts.njk" import editableAmount, controlledAmount %}
@@ -12,9 +15,9 @@ sources:
 
     <ul>
         <li>{{ editableAmount('sloe', 255) }} grams sloes</li>
-        <li>{{ controlledAmount(85) }} grams sugar</li>
+        <li>{{ controlledAmount(72) }} - {{ controlledAmount(85) }} grams sugar - depending on desired sweetness</li>
         <li>{{ editableAmount('gin', 350) }} ml gin</li>
-        <li>{{ controlledAmount(1) }} capful amaretto</li>
+        <li>{{ controlledAmount(1) }} capful amaretto (or almond essence) - optional</li>
     </ul>
 
     <hr/>

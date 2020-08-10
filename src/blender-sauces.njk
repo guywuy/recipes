@@ -1,6 +1,13 @@
 ---
 layout: recipe
 title: Hand Blender Sauces
+type: Sauce
+ingredients:
+  - Cashew nuts
+  - Tahini
+  - Soy sauce
+  - Ginger
+  - Miso paste
 ---
 
 {% from "editableAmounts.njk" import editableAmount, controlledAmount %}
@@ -88,10 +95,10 @@ title: Hand Blender Sauces
         <li>{{ controlledAmount(1) }} teaspoon ground cumin ({{ controlledAmount(5) }}g)</li>
         <li>{{ controlledAmount(1) }} teaspoon ground coriander ({{ controlledAmount(5) }}g)</li>
         <li>{{ controlledAmount(0.5) }} teaspoons ground cinnamon ({{ controlledAmount(2.5) }}g)</li>
-        <li>{{ controlledAmount(2.5) }} teaspoons ground cloves ({{ controlledAmount(1.2) }}g)</li>
+        <li>{{ controlledAmount(2.5) }} teaspoons ground cloves ({{ controlledAmount(12) }}g)</li>
         <li>Dash of freshly grated nutmeg</li>
-        <li>{{ controlledAmount(2.5) }} teaspoons ground white or black pepper ({{ controlledAmount(1.2) }}g)</li>
-        <li>{{ controlledAmount(10) }} sprigs cilantro, stems and leaves coarsely chopped</li>
+        <li>{{ controlledAmount(2.5) }} teaspoons ground white or black pepper ({{ controlledAmount(12) }}g)</li>
+        <li>{{ controlledAmount(10) }} sprigs coriander, stems and leaves coarsely chopped</li>
         <li>{{ controlledAmount(60) }}ml extra-virgin olive oil</li>
         <li>{{ controlledAmount(60) }}ml water</li>
         <li>{{ controlledAmount(0.5) }} teaspoons salt ({{ controlledAmount(2.5) }}g)</li>
@@ -109,7 +116,7 @@ title: Hand Blender Sauces
 
 <hr/>
 
-<article>
+<article x-data="amounts()">
     <h2>Thai Peanut Sauce</h2>
     
     <p>
@@ -117,19 +124,19 @@ title: Hand Blender Sauces
     </p>
 
     <p>
-        Makes about 400ml.
+        Makes about {{ editableAmount('ms', 400) }} ml.
     </p>
 
     <ul>
-        <li>1 large orange, 4 small clementines or 2 large tangerines, peeled, seeded and cut into 1-inch pieces</li>
-        <li>1 1/2-inch piece fresh ginger, peeled</li>
-        <li>1 teaspoon fresh lime juice (5ml)</li>
-        <li>114g peanut butter (no sugar added)</li>
-        <li>1 teaspoon unseasoned rice vinegar (5ml)</li>
-        <li>2 tablespoons water (30ml)</li>
-        <li>1 tablespoon soy sauce (15ml)</li>
-        <li>1/4 teaspoon salt (1.2g)</li>
-        <li>1/4 to 1/2 teaspoon cayenne pepper, or to taste (1.8g)</li>
+        <li>{{ controlledAmount(1) }} large orange, {{ controlledAmount(4) }} small clementines or {{ controlledAmount(2) }} large tangerines, peeled, seeded and cut into 1-inch pieces</li>
+        <li>{{ controlledAmount(1) }} 1/2-inch piece fresh ginger, peeled</li>
+        <li>{{ controlledAmount(1) }} teaspoon fresh lime juice ({{ controlledAmount(5) }}ml)</li>
+        <li>{{ controlledAmount(114) }}g peanut butter (no sugar added)</li>
+        <li>{{ controlledAmount(1) }} teaspoon unseasoned rice vinegar ({{ controlledAmount(5) }}ml)</li>
+        <li>{{ controlledAmount(2) }} tablespoons water ({{ controlledAmount(30) }}ml)</li>
+        <li>{{ controlledAmount(1) }} tablespoon soy sauce ({{ controlledAmount(15) }}ml)</li>
+        <li>{{ controlledAmount(0.25) }} teaspoon salt ({{ controlledAmount(1.2) }}g)</li>
+        <li>{{ controlledAmount(0.25) }} to {{ controlledAmount(0.5) }} teaspoon cayenne pepper, or to taste ({{ controlledAmount(1.8) }}g)</li>
     </ul>
     
     <p>
