@@ -1,0 +1,77 @@
+---
+layout: recipe
+title: piccalilli
+type: Pickle
+ingredients:
+  - Cauliflower
+sources:
+  - https://www.waitrose.com/home/recipes/recipe_directory/p/piccalilli.html
+  - youtube various
+---
+
+{% from "editableAmounts.njk" import editableAmount, controlledAmount %}
+
+<article x-data="amounts()">
+
+    <h2>Ingredients</h2>
+
+    <p>
+        Makes {{ editableAmount('waitrose', 1.7) }}kg.
+    </p>
+
+    <p><strong>Brine</strong></p>
+
+    <ul>
+        <li>{{ controlledAmount(2) }}litres water</li>
+        <li>{{ controlledAmount(100) }}g salt</li>
+    </ul>
+
+    <p><strong>Piccalilli</strong></p>
+
+    <ul>
+        <li>{{ controlledAmount(700) }}ml Malt vinegar</li>
+        <li>{{ controlledAmount(2) }}tbsp Coriander seeds</li>
+        <li>{{ editableAmount('cauliflower', 600) }}g Cauliflower, broken into 2-3cm florets</li>
+        <li>{{ controlledAmount(2) }} Onions, peeled and finely chopped</li>
+        <li>{{ controlledAmount(3) }}tbsp English mustard powder</li>
+        <li>{{ controlledAmount(3) }}tbsp Plain flour</li>
+        <li>{{ controlledAmount(1) }}tbsp Turmeric</li>
+        <li>{{ controlledAmount(2) }}tsp Ground ginger</li>
+        <li>{{ controlledAmount(150) }}ml Cider vinegar (can be white for better colour)</li>
+        <li>{{ controlledAmount(100) }}g French beans, trimmed and cut into 1cm slices</li>
+        <li>{{ controlledAmount(0.5) }} a cucumber, quartered lengthways and cut into 1cm slices</li>
+        <li>{{ controlledAmount(2) }} Garlic cloves, peeled and sliced</li>
+        <li>{{ controlledAmount(100) }} - {{ controlledAmount(200) }}g sugar (depending on sweet tooth)</li>
+    </ul>
+
+    <hr/>
+
+    <h2>Method</h2>
+
+    <p><strong>Prepare overnight</strong></p>
+    <ol>
+        <li>Put the chopped vegetables (except garlic) in a big bowl, and add the brine. Mix and leave to soak overnight.</li>
+        <li>After soaking and when ready to cook, strain the vegetables and rinse well.</li>
+    </ol>
+
+    <p><strong>Make the piccalilli</strong></p>
+    <ol>
+        <li>Place the malt vinegar and coriander seeds in a large preserving pan and bring to a boil. Add the vegetables and simmer for 5 minutes until slightly softened but still crunchy.</li>
+        <li>Meanwhile, put the mustard, flour, turmeric and ginger in a small bowl and gradually whisk in the cider vinegar until smooth.</li>
+        <li>Add the garlic and sugar to the pan and stir over the heat for 2–3 minutes until the sugar has dissolved. Drain over a large bowl to collect the vinegar.</li>
+        <li>Put the mustard mixture in the pan and bring to the boil. Gradually add the drained malt vinegar and simmer for 10 minutes, until thick enough to coat the back of the spoon.</li>
+        <li>Add the drained vegetables and take off the heat. Spoon into sterilised jars – if they’re not kilner jars, cover them with plastic discs and elastic bands rather than metal lids, which can sometimes react with the vinegar.</li>
+        <li>Leave to age gracefully in a cupboard! 👴🏽 3 months is best.</li>
+    </ol>
+
+    <hr/>
+
+    <h2>Notes</h2>
+
+    <ul>
+        <li>The vegetables are swappable - you can use runner beans, peas, marrow, carrots, anything that has <em>crunch</em>.</li>
+        <li>You can (optionally) skip the overnight salting, but the vegetables might be less crunchy without, and you should add salt in the mix if so.</li>
+        <li>It can be eaten straight away, but will be better after a month, and even better after 3 👌🏼</li>
+    </ul>
+
+</article>
