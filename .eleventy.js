@@ -30,6 +30,23 @@ module.exports = function (eleventyConfig) {
   })
 
   /**
+   * Add custom collections
+   *
+   * @link https://www.11ty.dev/docs/collections/#collection-api-methods
+   */
+  // eleventyConfig.addCollection("recipeTypes", function(collectionApi) {
+  //   let allRecipes = collectionApi.getAll().filter( i => i.template == 'recipe');
+  //   console.log(allRecipes);
+  //   // let ingredients = new Set(allRecipes.map(item => {
+  //   //   return item.data.ingredients;
+  //   // }));
+  //   // allRecipes.forEach(item => {
+  //   //   if (item.data.type) mapped[item.data.type].push(item);
+  //   // })
+  //   return [];
+  // });
+
+  /**
    * Add filters
    *
    * @link https://www.11ty.io/docs/filters/
