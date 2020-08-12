@@ -3,8 +3,10 @@
 - Add postcss nested (and import?)
 - Add status of 'quantity changed' and inform about e.g. cooking times, with reset?
 - Make range 80vw for small screens.
-- Use 'type' to organise
 - Add cooking/prep times - at top of recipe. Prep time. Cook time.
+
+- Update recipe method steps of ingredients to show amount needed on tap (tooltip type). Dotted underline of item
+- Look at datalist for range - to provide notches. If not possible, have number input for amount as well as range slider - to calculate modifier based on original amount.
 
 
 ## Content
