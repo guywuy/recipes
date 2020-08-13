@@ -312,3 +312,28 @@ input[type=range]:focus::-ms-fill-upper {
     /*Edge starts the margin from the thumb, not the track as other browsers do*/
   }
 }
+
+.tooltipped {
+  display: inline-block;
+  padding: 0.1em 0.2em;
+  position: relative;
+  background: none;
+  border: none;
+  border-bottom: 1px dotted var(--accent);
+}
+.tooltip {
+  display: none;
+  position: absolute;
+  background-color: #fff;
+  top: calc(-100% - 14px);
+  left: 50%;
+  padding: .3em;
+  border-radius: 5px;
+  width: max-content;
+  transform: translateX(-50%);
+}
+
+.tooltipped:focus .tooltip,
+.tooltipped:hover .tooltip {
+  display: inline-block;
+}

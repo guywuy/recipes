@@ -1,11 +1,11 @@
-{% macro editableAmount(name, default) %}
+{% macro editableAmount(name, defaultAmount) %}
 <span class="editable-amount" :class="{ 'editable-amount--editing': (isEditing && editingName == {{ name }}) }">
     <strong
     @click="enableEditing({{ name }})"
-    x-text="format( {{ default }} )"
+    x-text="format( {{ defaultAmount }} )"
     class="editable"
     :class="{ 'highlight': isEditing }"
-    > {{ default }} </strong>
+    > {{ defaultAmount }} </strong>
     <input
         type="range"
         name="{{ name }}"
@@ -25,6 +25,11 @@
 </span>
 {% endmacro %}
 
-{% macro controlledAmount(default) %}
-<strong x-text="format({{ default }})" :class="{ 'highlight': isEditing }">{{ default }}</strong>
+{% macro controlledAmount(defaultAmount) %}
+<strong x-text="format({{ defaultAmount }})" :class="{ 'highlight': isEditing }">{{ defaultAmount }}</strong>
+{% endmacro %}
+
+{% macro tooltipAmount(ingredient, defaultAmount, unit) %}
+{# <strong x-text="format({{ defaultAmount }})" :class="{ 'highlight': isEditing }">{{ defaultAmount }}</strong> #}
+<button class="tooltipped">{{ ingredient }} <span class="tooltip">{{ controlledAmount(defaultAmount) }}{{ unit }}</button></span>
 {% endmacro %}

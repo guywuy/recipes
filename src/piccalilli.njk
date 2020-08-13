@@ -10,7 +10,7 @@ sources:
   - youtube various
 ---
 
-{% from "editableAmounts.njk" import editableAmount, controlledAmount %}
+{% from "editableAmounts.njk" import editableAmount, controlledAmount, tooltipAmount %}
 
 <article x-data="amounts()">
 
@@ -54,15 +54,15 @@ sources:
 
     <p><strong>Prepare overnight</strong></p>
     <ol>
-        <li>Put the chopped vegetables (except garlic) in a big bowl, add the salt and spread around the vegetables well. Cover the bowl and leave overnight, or for several hours.</li>
+        <li>Put the chopped vegetables (except garlic) in a big bowl, add the {{ tooltipAmount('salt', 100, 'g')}} and spread around the vegetables well. Cover the bowl and leave overnight, or for several hours.</li>
         <li>After the salt has worked it's salty magic, strain the vegetables and rinse well with water.</li>
     </ol>
 
     <p><strong>Make the piccalilli</strong></p>
     <ol>
-        <li>Place the malt vinegar and coriander seeds in a large preserving pan and bring to a boil. Add the vegetables and simmer for 5 minutes until slightly softened but still crunchy.</li>
-        <li>Meanwhile, put the mustard, flour, turmeric and ginger in a small bowl and gradually whisk in the cider vinegar until smooth.</li>
-        <li>Add the garlic and sugar to the pan and stir over the heat for 2–3 minutes until the sugar has dissolved. Drain over a large bowl to collect the vinegar.</li>
+        <li>Place the {{ tooltipAmount('malt vinegar', 700, 'ml')}} and {{ tooltipAmount('coriander seeds', 2, 'tbsp') }} in a large preserving pan and bring to a boil. Add the vegetables and simmer for 5 minutes until slightly softened but still crunchy.</li>
+        <li>Meanwhile, put the {{ tooltipAmount('mustard', 3, 'tbsp') }}, {{ tooltipAmount('flour', 3, 'tbsp') }}, {{ tooltipAmount('turmeric', 1, 'tbsp') }} and {{ tooltipAmount('ginger', 2, 'tsp') }} in a small bowl and gradually whisk in the {{ tooltipAmount('cider vinegar', 150, 'ml') }} until smooth.</li>
+        <li>Add the {{ tooltipAmount('garlic', 2, 'cloves') }} and {{ tooltipAmount('sugar', 150, 'g') }} to the pan and stir over the heat for 2–3 minutes until the sugar has dissolved. Drain over a large bowl to collect the vinegar.</li>
         <li>Put the mustard mixture in the pan and bring to the boil. Gradually add the drained malt vinegar and simmer for 10 minutes, until thick enough to coat the back of the spoon.</li>
         <li>Add the drained vegetables and take off the heat. Spoon into sterilised jars – if they’re not kilner jars, cover them with plastic discs and elastic bands rather than metal lids, which can sometimes react with the vinegar.</li>
         <li>Leave to age gracefully in a cupboard! 👴🏽 3 months is best.</li>
