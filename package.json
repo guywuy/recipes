@@ -34,6 +34,7 @@
     "eleventy-plugin-pwa": "1.0.8",
     "html-minifier": "4.0.0",
     "markdown-it": "11.0.0",
+    "postcss-nested": "^4.2.3",
     "postcss-preset-env": "6.7.0",
     "postcss-reporter": "6.0.1",
     "slugify": "1.4.4",

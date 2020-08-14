@@ -1,0 +1,88 @@
+input[type=range] {
+  width: 100%;
+  min-width: 220px;
+  margin: 18px 0;
+  background-color: transparent;
+  -webkit-appearance: none;
+  &:focus {
+    outline: none;
+  }
+  &::-webkit-slider-runnable-track {
+    background: var(--accent);
+    border: 0;
+    border-radius: 1px;
+    width: 100%;
+    height: 4px;
+    cursor: pointer;
+  }
+  &::-moz-range-track {
+    background: var(--accent);
+    border: 0;
+    border-radius: 1px;
+    width: 100%;
+    height: 4px;
+    cursor: pointer;
+  }
+  &::-moz-range-thumb {
+    width: 28px;
+    height: 40px;
+    background: transparent center / 40px no-repeat;
+    background-image: url("../../img/avocado.svg");
+    border: none;
+    cursor: pointer;
+    -webkit-appearance: none;
+  }
+  &::-webkit-slider-thumb {
+    width: 28px;
+    height: 40px;
+    background: transparent center / 40px no-repeat;
+    background-image: url("../../img/avocado.svg");
+    border: none;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -18px;
+  }
+  
+  &::-ms-track {
+    background: transparent;
+    border-color: transparent;
+    border-width: 18px 0;
+    color: transparent;
+    width: 100%;
+    height: 4px;
+    cursor: pointer;
+  }
+  &::-ms-fill-lower {
+    background: var(--accent);
+    border: 0;
+    border-radius: 2px;
+  }
+  &::-ms-fill-upper {
+    background: var(--accent);
+    border: 0;
+    border-radius: 2px;
+  }
+  &::-ms-thumb {
+    width: 40px;
+    height: 40px;
+    background: var(--primary);
+    border: 3.7px solid var(--accent);
+    border-radius: 40px;
+    cursor: pointer;
+    margin-top: 0px;
+    /*Needed to keep the Edge thumb centred*/
+  }
+  &:focus::-ms-fill-lower {
+    background: var(--accent);
+  }
+  &:focus::-ms-fill-upper {
+    background: var(--accent);
+  }
+}
+@supports (-ms-ime-align:auto) {
+  /* Pre-Chromium Edge only styles, selector taken from hhttps://stackoverflow.com/a/32202953/7077589 */
+  input[type=range] {
+    margin: 0;
+    /*Edge starts the margin from the thumb, not the track as other browsers do*/
+  }
+}

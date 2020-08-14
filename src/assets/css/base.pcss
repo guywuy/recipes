@@ -1,0 +1,84 @@
+[x-cloak] { display: none; }
+
+body {
+  font-family: 'Literata', sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  line-height: 1.4;
+  min-height: 100vh;
+  padding: 0;
+  background-color: #eaeceb;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='12' viewBox='0 0 20 12'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23d3c1ef' fill-opacity='0.29'%3E%3Cpath d='M9.8 12L0 2.2V.8l10 10 10-10v1.4L10.2 12h-.4zm-4 0L0 6.2V4.8L7.2 12H5.8zm8.4 0L20 6.2V4.8L12.8 12h1.4zM9.8 0l.2.2.2-.2h-.4zm-4 0L10 4.2 14.2 0h-1.4L10 2.8 7.2 0H5.8z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+main {
+  max-width: 75ch;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-grow: 1;
+  margin: 0 auto;
+  padding: 30px 32px 100px;
+}
+
+h1, h2, h3, h4, h5 {
+  line-height: 1.2;
+}
+
+a {
+  display: inline-flex;
+}
+
+hr {
+  width: 8ch;
+  margin: 1.5em auto;
+}
+
+.iframes-wrapper {
+  margin: 40px 0;
+}
+
+.turbolinks-progress-bar {
+  height: 5px;
+  top: 4px;
+  left: 4px;
+  right: 20px;
+  border-radius: 5px;
+  background-color: var(--accent, #34f);
+}
+
+figure {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+ol>li {
+  margin-bottom: 1em;
+}
+
+ul>li {
+  margin-bottom: 0.5em;
+}
+
+summary {
+  font-weight: bold;
+}
+
+h1 {
+  color: var(--primary);
+}
+
+h2 {
+  color: var(--accent);
+}
+
+.permalink {
+  text-decoration: none;
+  margin-left: var(--space-1);
+  color: inherit;
+  display: none;
+  &:hover {
+    display: inline-block;
+  }
+}

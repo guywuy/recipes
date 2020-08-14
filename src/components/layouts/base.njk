@@ -11,10 +11,8 @@
      {% block head %}{% endblock %}
 
     {% if env.IS_DEV %}
-      <link rel="stylesheet" href="/assets/css/recipe-theme.css" />
       <link rel="stylesheet" href="/assets/css/app.css" />
     {% else %}
-      <style>{% include "../../../dist/assets/css/recipe-theme.css" %}</style>
       <style>{% include "../../../dist/assets/css/app.css" %}</style>
     {% endif %}
 
