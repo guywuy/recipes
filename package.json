@@ -1,13 +1,13 @@
 {
-  "name": "xity-starter",
+  "name": "dont-worry-chicken-curry",
   "version": "1.2.0",
   "private": true,
-  "description": "A blog-ready 11ty starter based on PostCSS and Parcel, with a RSS feed and Native Elements.",
-  "author": "Mattia Astorino",
+  "description": "A collection of recipes",
+  "author": "Guywuy",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/equinusocio/xity-starter"
+    "url": "https://github.com/guywuy/recipes"
   },
   "scripts": {
     "clean": "run-s clean:*",

@@ -6,18 +6,17 @@
   {% if navigation.items %}
     <nav x-show.transition.origin.top.right="isOpen" x-cloak>
       <ul>
-          {% for item in navigation.items %}
+          {% for recipe in collections.recipes %}
+            {% set isCurrent = '' %}
 
-          {% set isCurrent = '' %}
-
-          {% if page.url == item.url %}
-            {% set isCurrent = ' aria-current="page"' %}
-          {% endif %}
-          <li>
-              <a href="{{ item.url }}" class="nav-link"{{ isCurrent | safe }}>
-                  {{ item.text }}
-              </a>
-          </li>
+            {% if page.url == recipe.data.url %}
+              {% set isCurrent = ' aria-current="page"' %}
+            {% endif %}
+            <li>
+                <a href="{{ recipe.url }}" class="nav-link"{{ isCurrent | safe }}>
+                {{ recipe.data.icon }} {{ recipe.data.nav_title if recipe.data.nav_title else recipe.data.title }}
+                </a>
+            </li>
           {% endfor %}
       </ul>
     </nav>

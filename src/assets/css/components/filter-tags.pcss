@@ -1,0 +1,31 @@
+.filter-tags {
+  padding: 0;
+  margin-left: none;
+  display: flex;
+  overflow: auto;
+  list-style: none;
+}
+
+.filter-tag {
+  display: flex;
+  align-items: center;
+  margin-right: var(--space);
+  padding: var(--space-2);
+  color: var(--primary);
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 5px;
+
+  label {
+    color: var(--primary);
+    border-bottom: 2px dotted currentColor;
+  }
+  input {
+    margin-right: var(--space-2);
+    &:checked {
+      & + label {
+        color: var(--highlight);
+      }
+    }
+  }
+}

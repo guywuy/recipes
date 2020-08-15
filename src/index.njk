@@ -11,27 +11,47 @@ title: Don't Worry Chicken Curry
 
 <p class="mb-16"><strong>Tried and tested recipes to enjoy</strong> 🍌</p>
 
-{% if navigation.items %}
-<nav>
-    <ul>
-        {% for item in navigation.items %}
-        <li>
-            <a href="{{ item.url }}" class="nav-link">
-                {{ item.text }}
-            </a>
+<section x-data="tags()">
+    <ul class="mb-6 filter-tags">
+        <li class="filter-tag">
+            <input type="radio" name="filter" value="all" id="all" x-model="filter">
+            <label for="all">
+                All
+            </label>
+        </li>
+        {% for type in collections.tagList %}
+        <li class="filter-tag">
+            <input type="radio" name="filter" value="{{ type }}" id="{{ type }}" x-model="filter">
+            <label for="{{ type }}">
+                {{ type | title }}
+            </label>
         </li>
         {% endfor %}
     </ul>
-</nav>
-{% endif %}
 
-{%- for tag, posts in collections %}
-  tag: {{ tag }}, posts: {{ posts | length }}<br/>
-  <ul>
-      {% for post in posts %}
-      <li>
-          {{ post | log }}
-      </li>
-      {% endfor %}
-    </ul>
-{%- endfor %}
+    <nav>
+        <ul>
+            {% for recipe in collections.recipes %}
+            <li x-show="filter == 'all' || filter == '{{ recipe.data.tags }}'">
+                <a href="{{ recipe.url }}" class="nav-link">
+                {{ recipe.data.icon }} {{ recipe.data.nav_title if recipe.data.nav_title else recipe.data.title }}
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </nav>
+</section>
+
+<script>
+    function tags() {
+      return {
+            filter: 'all',
+            removeFilter: function(){
+                return this.filter = null;
+            },
+            setFilter: function(tag){
+                return this.filter = tag;
+            },
+        }
+    }
+</script>

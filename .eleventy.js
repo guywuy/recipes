@@ -34,17 +34,17 @@ module.exports = function (eleventyConfig) {
    *
    * @link https://www.11ty.dev/docs/collections/#collection-api-methods
    */
-  // eleventyConfig.addCollection("recipeTypes", function(collectionApi) {
-  //   let allRecipes = collectionApi.getAll().filter( i => i.template == 'recipe');
-  //   console.log(allRecipes);
-  //   // let ingredients = new Set(allRecipes.map(item => {
-  //   //   return item.data.ingredients;
-  //   // }));
-  //   // allRecipes.forEach(item => {
-  //   //   if (item.data.type) mapped[item.data.type].push(item);
-  //   // })
-  //   return [];
-  // });
+  eleventyConfig.addCollection("recipes", function(collectionApi) {
+    return collectionApi.getAll().filter( i => {
+      return i.data.layout == 'recipe'
+    });
+    // let ingredients = new Set(allRecipes.map(item => {
+    //   return item.data.ingredients;
+    // }));
+    // allRecipes.forEach(item => {
+    //   if (item.data.type) mapped[item.data.type].push(item);
+    // })
+  });
   // eleventyConfig.addCollection("recipeTypes", collection => {
   //   const tagsSet = new Set();
   //   collection.getAll().forEach(item => {
@@ -56,6 +56,34 @@ module.exports = function (eleventyConfig) {
   //   console.log(Array.from(tagsSet).sort());
   //   return Array.from(tagsSet).sort();
   // });
+  eleventyConfig.addCollection("tagList", function(collection) {
+    let tagSet = new Set();
+    collection.getAll().forEach(function(item) {
+      if( "tags" in item.data ) {
+        let tags = item.data.tags;
+
+        tags = tags.filter(function(item) {
+          switch(item) {
+            // this list should match the `filter` list in tags.njk
+            case "all":
+            case "nav":
+            case "post":
+            case "posts":
+              return false;
+          }
+
+          return true;
+        });
+
+        for (const tag of tags) {
+          tagSet.add(tag);
+        }
+      }
+    });
+
+    // returning an array in addCollection works in Eleventy 0.5.3
+    return [...tagSet];
+  });
 
   /**
    * Add filters

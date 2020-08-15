@@ -1,24 +1,8 @@
 {
   "items": [
     {
-      "text": "🍯 Blender Sauces",
-      "url": "/blender-sauces/",
-      "external": false
-    },
-    {
-      "text": "🍞 Sourdough Bread",
-      "url": "/sourdough-bread/",
-      "external": false
-    },
-    {
-      "text": "🥒 Piccalilli",
-      "url": "/piccalilli/",
-      "external": false
-    },
-    {
-      "text": "🍷 Sloe Gin",
-      "url": "/sloe-gin/",
-      "external": false
+      "text": "Types",
+      "url": "/tags/"
     }
   ]
 }
