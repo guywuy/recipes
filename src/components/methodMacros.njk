@@ -1,0 +1,5 @@
+{% macro doneToggle() %}
+<span x-data="{ done: false }" class="done-toggle">
+    <input type="checkbox" name="done" x-model="done"> <input type="time" name="time" x-show="done" value="">
+</span>
+{% endmacro %}
