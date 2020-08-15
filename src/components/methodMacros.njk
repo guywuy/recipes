@@ -1,5 +1,5 @@
 {% macro doneToggle() %}
-<span x-data="{ done: false }" class="done-toggle">
-    <input type="checkbox" name="done" x-model="done"> <input type="time" name="time" x-show="done" value="">
+<span x-data="{ done: false, timeDone: '', }" class="done-toggle">
+    <input type="checkbox" name="done" x-model="done" @click="if (!timeDone) timeDone = `${new Date().getHours()}:${new Date().getMinutes()}`"> <input type="time" name="time" x-show="done" x-model="timeDone">
 </span>
 {% endmacro %}
