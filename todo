@@ -6,6 +6,8 @@
 
 - Look at datalist for range - to provide notches. If not possible, have number input for amount as well as range slider - to calculate modifier based on original amount.
 - Check print media if recipe is to be printed - hide js things
+- Time input for method steps.
+- Notes user enterable notes - not persistable.
 
 ## Content
 - Ferment (sauerkraut)

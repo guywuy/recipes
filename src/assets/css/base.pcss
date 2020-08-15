@@ -19,7 +19,7 @@ main {
   justify-content: center;
   flex-grow: 1;
   margin: 0 auto;
-  padding: 30px 32px 100px;
+  padding: 30px 18px 100px;
 }
 
 h1, h2, h3, h4, h5 {
@@ -59,6 +59,20 @@ ol>li {
 
 ul>li {
   margin-bottom: 0.5em;
+}
+
+ol, ul {
+  li {
+    ol, ul {
+      padding-top: 0.4em;
+    }
+  }
+}
+
+@media screen and (max-width: 40em) {
+  ol, ul {
+    padding-inline-start: 1em;
+  }
 }
 
 summary {

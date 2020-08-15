@@ -25,8 +25,13 @@ title: Don't Worry Chicken Curry
 </nav>
 {% endif %}
 
-<ul>
-    {%- for post in collections.recipeTypes -%}
-      <li>{{ post }}</li>
-    {%- endfor -%}
-</ul>
+{%- for tag, posts in collections %}
+  tag: {{ tag }}, posts: {{ posts | length }}<br/>
+  <ul>
+      {% for post in posts %}
+      <li>
+          {{ post | log }}
+      </li>
+      {% endfor %}
+    </ul>
+{%- endfor %}

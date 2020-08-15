@@ -45,6 +45,17 @@ module.exports = function (eleventyConfig) {
   //   // })
   //   return [];
   // });
+  // eleventyConfig.addCollection("recipeTypes", collection => {
+  //   const tagsSet = new Set();
+  //   collection.getAll().forEach(item => {
+  //     if (!item.data.tags) return;
+  //     item.data.tags
+  //       .filter(tag => !['post', 'all'].includes(tag))
+  //       .forEach(tag => tagsSet.add(tag));
+  //   });
+  //   console.log(Array.from(tagsSet).sort());
+  //   return Array.from(tagsSet).sort();
+  // });
 
   /**
    * Add filters
