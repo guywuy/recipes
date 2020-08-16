@@ -1,8 +1,12 @@
 {
   "items": [
     {
-      "text": "Types",
-      "url": "/tags/"
+      "text": "🧾 Recipe List",
+      "url": "/#list"
+    },
+    {
+      "text": "🔍 Search by ingredient",
+      "url": "/#search"
     }
   ]
 }
