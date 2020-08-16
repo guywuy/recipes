@@ -6,16 +6,9 @@
   {% if navigation.items %}
     <nav x-show.transition.origin.top.right="isOpen" x-cloak>
       <ul>
-          {% for recipe in collections.recipes %}
-            {% set isCurrent = '' %}
-
-            {% if page.url == recipe.data.url %}
-              {% set isCurrent = ' aria-current="page"' %}
-            {% endif %}
+        {% for item in navigation.items %}
             <li>
-                <a href="{{ recipe.url }}" class="nav-link"{{ isCurrent | safe }}>
-                {{ recipe.data.icon }} {{ recipe.data.nav_title if recipe.data.nav_title else recipe.data.title }}
-                </a>
+                <a href="{{ item.url }}" class="nav-link">{{ item.text }}</a>
             </li>
           {% endfor %}
       </ul>

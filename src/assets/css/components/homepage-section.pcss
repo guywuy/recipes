@@ -1,0 +1,51 @@
+.homepage-section {
+  min-height: 100vh;
+  padding: var(--space) 0;
+  display: grid;
+  justify-content: center;
+
+  &:first-child {
+    place-content: center;
+  }
+
+  &__links {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: calc(var(--space) * -1);
+    margin-right: calc(var(--space) * -1);
+    align-items: stretch;
+    overflow: hidden;
+  }
+
+  &__link {
+    color: var(--accent);
+    font-size: 1em;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    margin: var(--space);
+    text-decoration: none;
+  }
+
+  @media (min-width:40em) {
+    .home-title-span {
+      display:inline-block;
+      padding-left: 5ch;
+      margin-top: 0.5em;
+    }
+  }
+
+  nav > ul {
+    display: grid;
+    gap: 1em;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    & > li {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+  }
+}

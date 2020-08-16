@@ -35,30 +35,15 @@ module.exports = function (eleventyConfig) {
    * @link https://www.11ty.dev/docs/collections/#collection-api-methods
    */
   eleventyConfig.addCollection("recipes", function(collectionApi) {
-    return collectionApi.getAll().filter( i => {
+    return collectionApi.getAllSorted().filter( i => {
       return i.data.layout == 'recipe'
     });
-    // let ingredients = new Set(allRecipes.map(item => {
-    //   return item.data.ingredients;
-    // }));
-    // allRecipes.forEach(item => {
-    //   if (item.data.type) mapped[item.data.type].push(item);
-    // })
+
   });
-  // eleventyConfig.addCollection("recipeTypes", collection => {
-  //   const tagsSet = new Set();
-  //   collection.getAll().forEach(item => {
-  //     if (!item.data.tags) return;
-  //     item.data.tags
-  //       .filter(tag => !['post', 'all'].includes(tag))
-  //       .forEach(tag => tagsSet.add(tag));
-  //   });
-  //   console.log(Array.from(tagsSet).sort());
-  //   return Array.from(tagsSet).sort();
-  // });
-  eleventyConfig.addCollection("tagList", function(collection) {
+
+  eleventyConfig.addCollection("tagList", function(collectionApi) {
     let tagSet = new Set();
-    collection.getAll().forEach(function(item) {
+    collectionApi.getAll().forEach(function(item) {
       if( "tags" in item.data ) {
         let tags = item.data.tags;
 
@@ -85,6 +70,20 @@ module.exports = function (eleventyConfig) {
     return [...tagSet];
   });
 
+  eleventyConfig.addCollection("ingredientList", function(collectionApi) {
+    let ingredientSet = new Set();
+    collectionApi.getAll().forEach(function(item) {
+      if( "ingredients" in item.data ) {
+        let ingredients = item.data.ingredients;
+        for (const ingredient of ingredients) {
+          ingredientSet.add(ingredient);
+        }
+      }
+    });
+
+    return [...ingredientSet];
+  });
+
   /**
    * Add filters
    *
@@ -108,8 +107,9 @@ module.exports = function (eleventyConfig) {
    * Add Plugins
    * @link https://github.com/okitavera/eleventy-plugin-pwa
    */
-  eleventyConfig.addPlugin(pwaPlugin)
-
+  if (process.env.ELEVENTY_ENV === 'production') {
+    eleventyConfig.addPlugin(pwaPlugin)
+  }
 
   /**
    * Override BrowserSync Server options
