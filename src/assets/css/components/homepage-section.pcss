@@ -1,0 +1,24 @@
+.homepage-section {
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+
+  &__links {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: calc(var(--space) * -1);
+    margin-right: calc(var(--space) * -1);
+    align-items: stretch;
+    overflow: hidden;
+  }
+
+  &__link {
+    color: var(--accent);
+    font-size: 1em;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    margin: var(--space);
+    text-decoration: none;
+  }
+}

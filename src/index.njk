@@ -3,43 +3,54 @@ layout: 'home'
 title: Don't Worry Chicken Curry
 ---
 
-<h1 style="margin-bottom: 2em;">
-    Don't Worry
-    <br>
-    <span class="accent home-title-span">Chicken Curry</span>
-</h1>
+<section class="homepage-section">
+    <div>
+        <h1 style="margin-bottom: 2em;">
+            Don't Worry
+            <br>
+            <span class="accent home-title-span">Chicken Curry</span>
+        </h1>
 
-<p class="mb-16"><strong>Tried and tested recipes to enjoy</strong> 🍌</p>
+        <p class="mb-16"><strong>Tried and tested recipes to enjoy</strong> 🍌</p>
 
-<section x-data="tags()">
-    <ul class="mb-6 filter-tags">
-        <li class="filter-tag">
-            <input type="radio" name="filter" value="all" id="all" x-model="filter">
-            <label for="all">
-                All
-            </label>
-        </li>
-        {% for type in collections.tagList %}
-        <li class="filter-tag">
-            <input type="radio" name="filter" value="{{ type }}" id="{{ type }}" x-model="filter">
-            <label for="{{ type }}">
-                {{ type | title }}
-            </label>
-        </li>
-        {% endfor %}
-    </ul>
+        <p class="homepage-section__links">
+            <a href="#list" class="homepage-section__link">🧾 Recipe List</a>
+            <a href="#search" class="homepage-section__link">🔍 Search by ingredient</a>
+        </p>
+    </div>
+</section>
 
-    <nav>
-        <ul>
-            {% for recipe in collections.recipes %}
-            <li x-show="filter == 'all' || filter == '{{ recipe.data.tags }}'">
-                <a href="{{ recipe.url }}" class="nav-link">
-                {{ recipe.data.icon }} {{ recipe.data.nav_title if recipe.data.nav_title else recipe.data.title }}
-                </a>
+<section x-data="tags()" class="homepage-section" id="list">
+    <div>
+        <ul class="mb-6 filter-tags">
+            <li class="filter-tag">
+                <input type="radio" name="filter" value="all" id="all" x-model="filter">
+                <label for="all">
+                    All
+                </label>
+            </li>
+            {% for type in collections.tagList %}
+            <li class="filter-tag">
+                <input type="radio" name="filter" value="{{ type }}" id="{{ type }}" x-model="filter">
+                <label for="{{ type }}">
+                    {{ type | title }}
+                </label>
             </li>
             {% endfor %}
         </ul>
-    </nav>
+
+        <nav>
+            <ul>
+                {% for recipe in collections.recipes %}
+                <li x-show="filter == 'all' || filter == '{{ recipe.data.tags }}'">
+                    <a href="{{ recipe.url }}" class="nav-link">
+                    {{ recipe.data.icon }} {{ recipe.data.nav_title if recipe.data.nav_title else recipe.data.title }}
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </nav>
+    </div>
 </section>
 
 <script>
@@ -52,6 +63,62 @@ title: Don't Worry Chicken Curry
             setFilter: function(tag){
                 return this.filter = tag;
             },
+        }
+    }
+</script>
+
+<section x-data="search()" class="homepage-section search" id="search">
+    <div>
+        <label for="myIngredient">What can I make with...?</label>
+        <input list="ingredients" id="myIngredient" name="myIngredient" @click.once="fetchRecipes" @input="handleChange($event)" />
+        <datalist id="ingredients">
+        {% for ingredient in collections.ingredientList %}
+            <option value="{{ ingredient }}">
+        {% endfor %}
+        </datalist>
+        <div class="search__no-results"  x-show="isSearching && !matchingRecipes.length">
+            <p>😬👨‍🍳 No recipes with that 🤦‍♂️</p>
+        </div>
+        <ul class="search__results" x-show="isSearching && matchingRecipes">
+            <template x-for="item in matchingRecipes" :key="item.url">
+                <li :data-icon="item.icon">
+                    <a class="nav-link hit-item" :href="item.url">
+                        <h4 x-text="item.icon + ' ' + item.title"></h4>
+                        <ul class="hit-item__ingredients">
+                            <template x-for="ing in item.ingredients" :key="ing">
+                                <li x-text="ing"></li>
+                            </template>
+                        </ul>
+                    </a>
+                </li>
+            </template>
+        </ul>
+    </div>
+</section>
+
+<script>
+    function search() {
+        return {
+            matchingRecipes: [],
+            allRecipes: {},
+            isSearching: false,
+            query: '',
+            fetchRecipes: function(){
+                fetch('/recipe-list.json')
+                .then( r => r.json() )
+                .then( r => this.allRecipes = r.recipes );
+            },
+            handleChange: function(e){
+                if (e.target.value.length < 3) {
+                    return this.isSearching = false;
+                } else {
+                    this.isSearching = true;
+                }
+
+                this.matchingRecipes = this.allRecipes.filter(r => {
+                    return r.ingredients.includes(e.target.value)
+                });
+            }
         }
     }
 </script>
