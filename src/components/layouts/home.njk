@@ -1,5 +1,8 @@
 {% extends 'layouts/base.njk' %}
 
+{% block head %}
+  <meta name="turbolinks-cache-control" content="no-cache">
+{% endblock %}
 {% block content %}
   <main class="pt-0">
     {{ content | safe }}

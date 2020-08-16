@@ -68,10 +68,10 @@ title: Don't Worry Chicken Curry
     }
 </script>
 
-<section x-data="search()" class="homepage-section search" id="search">
+<section x-data="search()" x-init="fetchRecipes" class="homepage-section search" id="search">
     <div>
         <label for="myIngredient">What can I make with...?</label>
-        <input list="ingredients" id="myIngredient" name="myIngredient" @click.once="fetchRecipes" @input="handleChange" x-model="query" />
+        <input list="ingredients" id="myIngredient" name="myIngredient" @input="handleChange" x-model="query" />
         <datalist id="ingredients">
         {% for ingredient in collections.ingredientList %}
             <option value="{{ ingredient }}">
@@ -83,13 +83,13 @@ title: Don't Worry Chicken Curry
         <div class="search__no-input"  x-show="query.length <= 2">
             <p>🤔</p>
         </div>
-        <ul class="search__results" x-show="query.length > 2 && matchingRecipes">
+        <ul class="search__results" x-show="query.length > 2 && matchingRecipes.length">
             <template x-for="item in matchingRecipes" :key="item.url">
-                <li :data-icon="item.icon">
+                <li>
                     <a class="nav-link hit-item" :href="item.url">
                         <h4 x-text="item.icon + ' ' + item.title"></h4>
                         <ul class="hit-item__ingredients">
-                            <template x-for="ing in item.ingredients" :key="ing">
+                            <template x-for="ing in item.ingredients" :key="ing" x-if="matchingRecipes.length">
                                 <li x-text="ing" :class="{ 'bold': ing === query }"></li>
                             </template>
                         </ul>
@@ -113,7 +113,13 @@ title: Don't Worry Chicken Curry
             },
             handleChange: function(e){
                 this.matchingRecipes = this.allRecipes.filter(r => {
-                    return r.ingredients.includes(this.query)
+                    let matched = false;
+                    r.ingredients.forEach(i => {
+                        if (i.includes(this.query)) {
+                            matched = true;
+                        }
+                    })
+                    return matched;
                 });
             }
         }
