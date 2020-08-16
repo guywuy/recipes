@@ -90,7 +90,7 @@ title: Don't Worry Chicken Curry
                         <h4 x-text="item.icon + ' ' + item.title"></h4>
                         <ul class="hit-item__ingredients">
                             <template x-for="ing in item.ingredients" :key="ing" x-if="matchingRecipes.length">
-                                <li x-text="ing" :class="{ 'bold': ing === query }"></li>
+                                <li x-text="ing" :class="{ 'bold': ing.includes(query) }"></li>
                             </template>
                         </ul>
                     </a>
