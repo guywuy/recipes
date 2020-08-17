@@ -20,6 +20,8 @@ title: Don't Worry Chicken Curry
     </div>
 </section>
 
+<hr/>
+
 <section x-data="tags()" class="homepage-section" id="list">
     <div>
         <p class="bold">Type:</p>
@@ -40,7 +42,7 @@ title: Don't Worry Chicken Curry
             {% endfor %}
         </ul>
 
-        <nav>
+        <nav class="mb">
             <ul>
                 {% for recipe in collections.recipes %}
                 <li x-show="filter == 'all' || filter == '{{ recipe.data.tags }}'">
@@ -67,6 +69,8 @@ title: Don't Worry Chicken Curry
         }
     }
 </script>
+
+<hr/>
 
 <section x-data="search()" x-init="fetchRecipes" class="homepage-section search" id="search">
     <div>

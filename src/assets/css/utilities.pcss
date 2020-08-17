@@ -15,6 +15,7 @@
   font-weight: bold;
 }
 
+.mb-0 { margin-bottom: 0; }
 .mb-1 { margin-bottom: var(--space-1); }
 .mb-2 { margin-bottom: var(--space-2); }
 .mb { margin-bottom: var(--space); }
@@ -24,9 +25,11 @@
 .mb-16 { margin-bottom: var(--space-16); }
 
 .p {
+  &-0 { padding: 0; }
+  &b {
+    &-0 { padding-bottom: 0; }
+  }
   &t {
-    &-0 {
-      padding-top: 0;
-    }
+    &-0 { padding-top: 0; }
   }
 }

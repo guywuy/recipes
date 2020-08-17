@@ -1,8 +1,12 @@
 .homepage-section {
-  min-height: 100vh;
-  padding: var(--space) 0;
+  flex-basis: 100vh;
+  min-height: 550px;
+  padding: var(--space-8) var(--space);
   display: grid;
   justify-content: center;
+  border-top: 4px double var(--primary);
+  border-bottom: 4px double var(--primary);
+  overflow: auto;
 
   &:first-child {
     &>div {
@@ -37,6 +41,12 @@
   }
 
   @media (min-width:40em) {
+    border: none;
+
+    & ~ hr {
+      display: none;
+    }
+
     .home-title-span {
       display:inline-block;
       padding-left: 5ch;

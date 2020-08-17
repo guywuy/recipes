@@ -1,0 +1,57 @@
+---
+eleventyExcludeFromCollections: true
+layout: recipe
+title: Braised Chicken with Prunes
+icon: 🐣
+tags: meal
+ingredients:
+  - chicken
+  - prunes
+  - parmesan
+  - cashews
+  - pine nuts
+  - white wine
+sources:
+  - Erika
+  - https://www.thespruceeats.com/chicken-catalan-style-pollo-a-la-catalana-3083360
+  - https://cuinetes.bloks.cat/2012/03/16/pollastre-a-la-catalana/
+  - Common sense
+preptime: 15 mins
+cooktime: 1 hour
+totaltime: ~= 1 hour 15 mins
+---
+
+{% from "editableAmounts.njk" import editableAmount, controlledAmount, tooltipAmount %}
+
+<article x-data="amounts()">
+
+    <h2>Ingredients</h2>
+
+    <p>
+        Makes {{ editableAmount('total', 4) }} good portions.
+    </p>
+
+    <ul>
+        <li>{{ editableAmount(8) }} chicken thighs (approx {{ controlledAmount(0.75) }}kg)</li>
+        <li>1 Parmesan rind</li>
+        <li>{{ controlledAmount(250) }}ml white wine</li>
+        <li>{{ controlledAmount(250) }}ml chicken stock</li>
+    </ul>
+
+    <hr/>
+
+    <h2>Method</h2>
+
+    <ol>
+        <li>Put the chopped vegetables (except garlic) in a big bowl, add the {{ tooltipAmount('salt', 100, 'g')}} and spread around the vegetables well. Cover the bowl and leave overnight, or for several hours.</li>
+    </ol>
+
+    <hr/>
+
+    <h2>Notes</h2>
+
+    <ul>
+        <li>Cashews are optional</li>
+    </ul>
+
+</article>

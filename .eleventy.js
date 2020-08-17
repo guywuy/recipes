@@ -43,7 +43,7 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addCollection("tagList", function(collectionApi) {
     let tagSet = new Set();
-    collectionApi.getAll().forEach(function(item) {
+    collectionApi.getAllSorted().forEach(function(item) {
       if( "tags" in item.data ) {
         let tags = item.data.tags;
 
