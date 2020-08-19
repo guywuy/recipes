@@ -1,5 +1,4 @@
 ---
-eleventyExcludeFromCollections: true
 layout: recipe
 title: Braised Chicken with Prunes
 icon: 🐣
@@ -21,14 +20,14 @@ cooktime: 1 hour
 totaltime: ~= 1 hour 15 mins
 ---
 
-{% from "editableAmounts.njk" import editableAmount, controlledAmount, tooltipAmount %}
+{% from "editableAmounts.njk" import editableAmount, controlledAmount %}
 
 <article x-data="amounts()">
 
     <h2>Ingredients</h2>
 
     <p>
-        Makes {{ editableAmount('total', 4) }} good portions.
+        Makes {{ editableAmount('total', 4) }} good portions. Amounts below are approximate - feel free to add more or less of each.
     </p>
 
     <ul>
@@ -36,6 +35,11 @@ totaltime: ~= 1 hour 15 mins
         <li>1 Parmesan rind</li>
         <li>{{ controlledAmount(250) }}ml white wine</li>
         <li>{{ controlledAmount(250) }}ml chicken stock</li>
+        <li>{{ controlledAmount(120) }}g moist, pitted prunes (or if using dried, soak for a few hours first)</li>
+        <li>2 bay leaves</li>
+        <li>{{ controlledAmount(80) }}g cashews</li>
+        <li>Olive oil</li>
+        <li>{{ controlledAmount(60) }}g pine nuts</li>
     </ul>
 
     <hr/>
@@ -43,7 +47,11 @@ totaltime: ~= 1 hour 15 mins
     <h2>Method</h2>
 
     <ol>
-        <li>Put the chopped vegetables (except garlic) in a big bowl, add the {{ tooltipAmount('salt', 100, 'g')}} and spread around the vegetables well. Cover the bowl and leave overnight, or for several hours.</li>
+        <li>In a casserole dish, heat some olive oil with the parmesan rind.</li>
+        <li>Add the chicken pieces and brown on all sides.</li>
+        <li>Add the cashews, pine nuts, prunes and bay leaves, then add the wine and stock to cover most of the chicken.</li>
+        <li>Cover the pot, and cook on a low heat for 1 hour.</li>
+        <li>Serve with rice or mashed potato and garnish with a few pine nuts.</li>
     </ol>
 
     <hr/>
@@ -52,6 +60,7 @@ totaltime: ~= 1 hour 15 mins
 
     <ul>
         <li>Cashews are optional</li>
+        <li>Amounts are approximate</li>
     </ul>
 
 </article>
