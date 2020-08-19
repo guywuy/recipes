@@ -82,7 +82,8 @@ title: Don't Worry Chicken Curry
         {% endfor %}
         </datalist>
         <div class="search__no-results"  x-show="query.length > 2 && !matchingRecipes.length">
-            <p>😬👨‍🍳 No recipes with that 🤦‍♂️</p>
+            <p>😬👨‍🍳 No recipes with that 🤦‍♂🤷‍♀️</p>
+            <p>Try searching <a :href="'https://www.bbcgoodfood.com/search/recipes?q=' + encodeURIComponent(query)" target="_blank">BBC Good Food</a> for <strong x-text="query"></strong>?</p>
         </div>
         <div class="search__no-input"  x-show="query.length <= 2">
             <p>🤔</p>
@@ -94,7 +95,7 @@ title: Don't Worry Chicken Curry
                         <h4 x-text="item.icon + ' ' + item.title"></h4>
                         <ul class="hit-item__ingredients">
                             <template x-for="ing in item.ingredients" :key="ing" x-if="matchingRecipes.length">
-                                <li x-text="ing" :class="{ 'bold': ing.includes(query) }"></li>
+                                <li x-text="ing" :class="{ 'bold': ing.includes(query.toLowerCase()) }"></li>
                             </template>
                         </ul>
                     </a>
@@ -119,7 +120,7 @@ title: Don't Worry Chicken Curry
                 this.matchingRecipes = this.allRecipes.filter(r => {
                     let matched = false;
                     r.ingredients.forEach(i => {
-                        if (i.includes(this.query)) {
+                        if (i.includes(this.query.toLowerCase())) {
                             matched = true;
                         }
                     })

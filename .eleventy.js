@@ -81,7 +81,7 @@ module.exports = function (eleventyConfig) {
       }
     });
 
-    return [...ingredientSet];
+    return [...ingredientSet].sort();
   });
 
   /**
