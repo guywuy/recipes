@@ -13,7 +13,7 @@ cooktime: 0
 totaltime: 30 mins
 ---
 
-{% from "editableAmounts.njk" import editableAmount, controlledAmount %}
+{% from "editableAmounts.njk" import amountControls, editableAmount, controlledAmount %}
 
 <article x-data="amounts()">
 
@@ -42,5 +42,7 @@ totaltime: 30 mins
     <ul>
         <li>If you wash and freeze the sloes, you can make it at your leisure. ( If you freeze them on a flat tray, they shouldn't stick together so much )</li>
     </ul>
+
+    {{ amountControls() }}
 
 </article>

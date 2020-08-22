@@ -2,20 +2,48 @@
   display: inline-block;
   position: relative;
 
-  &--editing {
-    padding-bottom: 50px;
+  &__amount {
+    display: inline-block;
+    padding: 0.2em 0.5em;
+    border-radius: 0.2em;
+    border: 2px dashed var(--accent);
   }
 
-  .rangeInput {
+  &__controls {
+    position: fixed;
+    width: 100vw;
+    max-width: 800px;
+    left: 50vw;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    bottom: 0;
+    background: #fff;
+    padding-top: var(--space);
+    padding-bottom: var(--space);
+    z-index: 1;
+
+    button {
+      background: none;
+      margin-left: var(--space-2);
+      margin-right: var(--space-2);
+      width: 40px;
+      flex-shrink: 0;
+      height: 40px;
+      border: 2px solid var(--accent);
+      color: var(--accent);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  &__waves {
     position: absolute;
+    width: 100%;
+    bottom: 100%;
     left: 0;
-    top:calc(100% - 50px);
+    pointer-events: none;
   }
-}
-
-.editable {
-  display: inline-block;
-  padding: 0.2em 0.5em;
-  border-radius: 0.2em;
-  border: 2px dashed var(--accent);
 }

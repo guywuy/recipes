@@ -13,7 +13,7 @@ cooktime: 30 mins
 totaltime: ~= 1 hour
 ---
 
-{% from "editableAmounts.njk" import editableAmount, controlledAmount, tooltipAmount %}
+{% from "editableAmounts.njk" import amountControls, editableAmount, controlledAmount, tooltipAmount %}
 
 <article x-data="amounts()">
 
@@ -80,5 +80,7 @@ totaltime: ~= 1 hour
         <li>You can (optionally) skip the overnight salting, but the vegetables might be less crunchy without, and you should add salt in the mix if so.</li>
         <li>It can be eaten straight away, but will be better after a month, and even better after 3 👌🏼</li>
     </ul>
+
+    {{ amountControls() }}
 
 </article>

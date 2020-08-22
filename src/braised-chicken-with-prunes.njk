@@ -20,7 +20,7 @@ cooktime: 1 hour
 totaltime: ~= 1 hour 15 mins
 ---
 
-{% from "editableAmounts.njk" import editableAmount, controlledAmount %}
+{% from "editableAmounts.njk" import amountControls, editableAmount, controlledAmount %}
 
 <article x-data="amounts()">
 
@@ -31,7 +31,7 @@ totaltime: ~= 1 hour 15 mins
     </p>
 
     <ul>
-        <li>{{ editableAmount(8) }} chicken thighs (approx {{ controlledAmount(0.75) }}kg)</li>
+        <li>{{ editableAmount('chicken', 8) }} chicken thighs (approx {{ controlledAmount(0.75) }}kg)</li>
         <li>1 Parmesan rind</li>
         <li>{{ controlledAmount(250) }}ml white wine</li>
         <li>{{ controlledAmount(250) }}ml chicken stock</li>
@@ -62,5 +62,7 @@ totaltime: ~= 1 hour 15 mins
         <li>Cashews are optional</li>
         <li>Amounts are approximate</li>
     </ul>
+
+    {{ amountControls() }}
 
 </article>

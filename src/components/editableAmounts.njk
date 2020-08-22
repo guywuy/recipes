@@ -1,27 +1,11 @@
 {% macro editableAmount(name, defaultAmount) %}
-<span class="editable-amount" :class="{ 'editable-amount--editing': (isEditing && editingName == {{ name }}) }">
+<span class="editable-amount" :class="{ 'editable-amount--editing': isEditing }">
     <strong
-    @click="enableEditing({{ name }})"
+    @click="enableEditing()"
     x-text="format( {{ defaultAmount }} )"
-    class="editable"
+    class="editable-amount__amount"
     :class="{ 'highlight': isEditing }"
     > {{ defaultAmount }} </strong>
-    <input
-        type="range"
-        name="{{ name }}"
-        min="0.1"
-        max="2.5"
-        step="0.01"
-        id="{{ name }}"
-        x-model="modifier"
-        x-show="isEditing && editingName == {{ name }}"
-        @click.away="disableEditing"
-        @keydown.enter="disableEditing"
-        @keydown.window.escape="disableEditing"
-        x-ref="input"
-        class="rangeInput"
-        x-cloak
-    >
 </span>
 {% endmacro %}
 
@@ -30,6 +14,48 @@
 {% endmacro %}
 
 {% macro tooltipAmount(ingredient, defaultAmount, unit) %}
-{# <strong x-text="format({{ defaultAmount }})" :class="{ 'highlight': isEditing }">{{ defaultAmount }}</strong> #}
 <button class="tooltipped">{{ ingredient }} <span class="tooltip">{{ controlledAmount(defaultAmount) }}{{ unit }}</button></span>
+{% endmacro %}
+
+
+{% macro amountControls() %}
+    <div
+        class="editable-amount__controls"
+        x-show="isEditing"
+        @click.away="disableEditing"
+        @keydown.enter="disableEditing"
+        @keydown.window.escape="disableEditing"
+        x-cloak
+    >
+      <button
+          @click.prevent="increment(-0.01)"
+      >
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M0 0h24v24H0z" stroke="none"/>
+              <path d="M12 5v14M18 13l-6 6M6 13l6 6"/>
+          </svg>
+      </button>
+      <input
+          type="range"
+          name="{{ name }}"
+          min="0.1"
+          max="2.5"
+          step="0.01"
+          id="{{ name }}"
+          x-model="modifier"
+          x-ref="input"
+          class="rangeInput"
+      >
+      <button
+          @click.prevent="increment(0.01)"
+      >
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M0 0h24v24H0z" stroke="none"/>
+          <path d="M12 5v14M18 11l-6-6M6 11l6-6"/>
+          </svg>
+      </button>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="editable-amount__waves" :height="30 * modifier" preserveAspectRatio="none" aria-hidden="true">
+        <path fill="#fff" fill-opacity="1" d="M0,288L34.3,250.7C68.6,213,137,139,206,112C274.3,85,343,107,411,144C480,181,549,235,617,229.3C685.7,224,754,160,823,122.7C891.4,85,960,75,1029,96C1097.1,117,1166,171,1234,208C1302.9,245,1371,267,1406,277.3L1440,288L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"></path>
+      </svg>
+    </div>
 {% endmacro %}

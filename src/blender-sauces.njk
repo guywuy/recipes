@@ -14,7 +14,7 @@ cooktime: 5 mins
 totaltime: 10 mins
 ---
 
-{% from "editableAmounts.njk" import editableAmount, controlledAmount %}
+{% from "editableAmounts.njk" import amountControls, editableAmount, controlledAmount %}
 
 <article x-data="amounts()">
     <h2>
@@ -44,6 +44,9 @@ totaltime: 10 mins
     <p>
         Place a lid on the jar. For best results, set aside for at least one hour to allow the flavours to develop. The dressing will keep in the refrigerator for one to two weeks.
     </p>
+
+    {{ amountControls() }}
+
 </article>
 
 <hr/>
@@ -76,6 +79,9 @@ totaltime: 10 mins
     <p>
         Place a lid on the jar. For best results, set aside for at least one hour to allow the flavors to develop. The dressing will keep in the refrigerator for one to two weeks.
     </p>
+
+    {{ amountControls() }}
+
 </article>
 
 <hr/>
@@ -120,6 +126,8 @@ totaltime: 10 mins
     <p>
         <strong><em>Top tip:</em></strong> You can heat this sauce with tomato concentrate, chopped tomatoes, vinegar and sugar to make a tasty, warming ketchup. 🍅
     </p>
+
+    {{ amountControls() }}
 </article>
 
 <hr/>
@@ -146,12 +154,15 @@ totaltime: 10 mins
         <li>{{ controlledAmount(0.25) }} teaspoon salt</li>
         <li>{{ controlledAmount(0.25) }} to {{ controlledAmount(0.5) }} teaspoon cayenne pepper, or to taste</li>
     </ul>
-    
+
     <p>
         Place all the ingredients in a wide-mouth Mason jar or cup that will fit an immersion blender without splashing. Blend until the orange is fully blended and the sauce is thick and creamy. Adjust seasoning to taste.
     </p>
-    
+
     <p>
         Place a lid on the jar. Allow the flavors to develop for one hour or more in the refrigerator. The dressing will keep for about a week.
     </p>
+
+    {{ amountControls() }}
+
 </article>

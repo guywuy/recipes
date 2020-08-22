@@ -15,7 +15,7 @@ cooktime: 25 mins
 totaltime: 50 mins
 ---
 
-{% from "editableAmounts.njk" import editableAmount, controlledAmount as controlled, tooltipAmount %}
+{% from "editableAmounts.njk" import amountControls, editableAmount, controlledAmount as controlled, tooltipAmount %}
 {% from "methodMacros.njk" import doneToggle as dT %}
 
 <article x-data="amounts()">
@@ -70,5 +70,7 @@ totaltime: 50 mins
     <ul>
         <li>You can use salmon instead of white fish, it will just be more salmony. 🙃</li>
     </ul>
+
+    {{ amountControls() }}
 
 </article>

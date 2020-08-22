@@ -1,10 +1,9 @@
-- Add status of 'quantity changed' and inform about e.g. cooking times, with reset?
-- Make range 80vw for small screens.
 - Add cooking/prep times - at top of recipe. Prep time. Cook time.
 - Add favourites list (second section on homepage?) and ability to favourite recipes - save to local storage.
 
 - Check print media if recipe is to be printed - hide js things
 - Move recipe post files to folders for extra categorisation? e.g. /main/chicken-recipe, /drink/sloe-gin etc
+- Add veggie/vegan data?
 
 ## Content
 - Ferment (sauerkraut)

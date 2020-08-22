@@ -39,13 +39,12 @@
         enableEditing(name) {
             this.isEditing = true;
             this.editingName = name;
-
-            this.$nextTick(() => {
-                this.$refs.input.focus();
-            });
         },
         disableEditing() {
             this.isEditing = false;
+        },
+        increment(amount) {
+            return this.modifier = Number(this.modifier) + Number(amount);
         },
         format(amount) {
           let newAmount = amount * this.modifier;
