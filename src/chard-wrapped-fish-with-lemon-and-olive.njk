@@ -15,8 +15,8 @@ cooktime: 25 mins
 totaltime: 50 mins
 ---
 
-{% from "editableAmounts.njk" import editableAmount, controlledAmount, tooltipAmount %}
-{% from "methodMacros.njk" import doneToggle %}
+{% from "editableAmounts.njk" import editableAmount, controlledAmount as controlled, tooltipAmount %}
+{% from "methodMacros.njk" import doneToggle as dT %}
 
 <article x-data="amounts()">
 
@@ -28,19 +28,19 @@ totaltime: 50 mins
 
     <ul>
         <li>{{ editableAmount('fish', 680) }} g skinless, center-cut white fish fillets, such as halibut or cod</li>
-        <li>{{ controlledAmount(2) }} lemons</li>
-        <li>{{ controlledAmount(75) }} g pitted mixed olives, plus 12 whole pitted olives</li>
-        <li>{{ controlledAmount(4) }} tablespoons extra-virgin olive oil</li>
-        <li>{{ controlledAmount(450) }} g coriander leaves, finely chopped</li>
-        <li>{{ controlledAmount(4) }} garlic cloves, finely minced</li>
-        <li>{{ controlledAmount(1) }} teaspoon dried red pepper flakes</li>
-        <li>{{ controlledAmount(5) }} very large Swiss chard leaves (or more as needed), tough ends trimmed</li>
-        <li>{{ controlledAmount(1) }} teaspoon kosher salt, plus more for seasoning</li>
-        <li>{{ controlledAmount(0.25) }} teaspoon freshly ground black pepper, plus more for seasoning</li>
-        <li>{{ controlledAmount(1) }} small onion, diced</li>
-        <li>{{ controlledAmount(1.5) }} tablespoons all-purpose flour</li>
-        <li>{{ controlledAmount(350) }} ml chicken stock</li>
-        <li>{{ controlledAmount(90) }} grams yellow cherry tomatoes, halved</li>
+        <li>{{ controlled(2) }} lemons</li>
+        <li>{{ controlled(75) }} g pitted mixed olives, chopped finely; plus {{ controlled(12) }} whole pitted (nice) olives</li>
+        <li>{{ controlled(4) }} tablespoons extra-virgin olive oil</li>
+        <li>{{ controlled(60) }} g coriander leaves, finely chopped (rough amount)</li>
+        <li>{{ controlled(4) }} garlic cloves, finely minced</li>
+        <li>{{ controlled(1) }} teaspoon dried red pepper flakes</li>
+        <li>{{ controlled(5) }} very large Swiss chard leaves (or more as needed), tough ends trimmed</li>
+        <li>{{ controlled(0.5) }} teaspoon salt, plus more for seasoning</li>
+        <li>{{ controlled(0.25) }} teaspoon freshly ground black pepper, plus more for seasoning</li>
+        <li>{{ controlled(1) }} small onion, diced</li>
+        <li>{{ controlled(1.5) }} tablespoons all-purpose flour</li>
+        <li>{{ controlled(350) }} ml chicken stock</li>
+        <li>{{ controlled(90) }} grams yellow cherry tomatoes, halved</li>
         <li>Rice, coucous, or other cooked grain</li>
     </ul>
 
@@ -49,18 +49,26 @@ totaltime: 50 mins
     <h2>Method</h2>
 
     <ol>
-        <li>{{ doneToggle() }} Finely zest and juice the lemons. Reserve the juice and half the zest.</li>
-        <li>{{ doneToggle() }} In a small bowl, combine the remaining zest with the {{ tooltipAmount('olives', 75, 'g') }}, {{ controlledAmount(1) }} tablespoon of the olive oil, {{ controlledAmount(2) }} tablespoons of the chopped coriander leaves, {{ controlledAmount(1) }} clove garlic, and the {{ tooltipAmount('red pepper flakes', 1, 'teaspoon') }} until incorporated.</li>
-        <li>{{ doneToggle() }} Bring a small pot of water to a boil over medium-high heat. Use a knife to separate the leaves from the chard stems so you have 2 leaves from each stem. Thinly slice the stems crosswise. Dip the chard leaves in the boiling water for 10 seconds to soften; drain, cool slightly, and pat dry.</li>
-        <li>{{ doneToggle() }} Cut the fish into 8 equal-sized pieces, season with salt and pepper, and spread {{ controlledAmount(2) }} teaspoons of the olive mixture on each piece of fish.</li>
-        <li>{{ doneToggle() }} Place 1 piece of fish on a piece of chard and roll it up; use the extra leaves to patch any parts that need extra wrapping.</li>
-        <li>{{ doneToggle() }} Heat the remaining {{ controlledAmount(3) }} tablespoons olive oil in a large skillet over medium heat. Add the onion and cook, stirring, until tender and lightly golden, 8 to 9 minutes.</li>
-        <li>{{ doneToggle() }} Add the chard stems with the remaining {{ controlledAmount(3) }} cloves garlic and cook, stirring, until softened, 3 to 4 minutes.</li>
-        <li>{{ doneToggle() }} Add the {{ tooltipAmount('flour', 1.5, 'tablespoons') }} and cook, stirring, until absorbed, 1 minute.</li>
-        <li>{{ doneToggle() }} Add the reserved lemon zest and juice with the {{ tooltipAmount('stock', 350, 'ml') }}, {{ tooltipAmount('salt', 1, 'teaspoon') }}, and pepper and cook, stirring, until the liquid thickens and bubbles, 2 to 3 minutes.</li>
-        <li>{{ doneToggle() }} Stir in most of the remaining coriander.</li>
-        <li>{{ doneToggle() }} Nestle the fish in the skillet, scatter the {{ tooltipAmount('tomatoes', 90, 'g') }} and {{ tooltipAmount('whole olives', 12, '') }} over the fish, reduce the heat to medium-low, cover, and cook until the fish is opaque and the chard can be cut easily, 10 minutes.</li>
-        <li>{{ doneToggle() }} Serve over the grain of your choice with sauce spooned over the top; garnish with coriander.</li>
+        <li>{{ dT() }} Finely zest and juice the lemons. Add half the zest to a small bowl; keep the other half and the juice for later.</li>
+        <li>{{ dT() }} In the small bowl, combine the zest with the {{ tooltipAmount('chopped olives', 75, 'g') }}, {{ controlled(1) }} tablespoon of the olive oil, half of the chopped coriander, {{ controlled(1) }} clove garlic, and the {{ tooltipAmount('red pepper flakes', 1, 'teaspoon') }} until incorporated.</li>
+        <li>{{ dT() }} Bring a small pot of water to a boil over medium-high heat. Use a knife to separate the leaves from the chard stems so you have 2 leaves from each stem. Thinly slice the stems crosswise. Dip the chard leaves in the boiling water for 10 seconds to soften; drain, cool slightly, and pat dry. Keep the water to make the rice/grains in a bit.</li>
+        <li>{{ dT() }} Cut the fish into equal-sized pieces (one for each chard piece), season with salt and pepper, and spread the olive mixture evenly over the pieces.</li>
+        <li>{{ dT() }} Place each piece of fish on a piece of chard and roll it up; use the extra leaves to patch any parts that need extra wrapping.</li>
+        <li>{{ dT() }} Heat the remaining {{ controlled(3) }} tablespoons olive oil in a large skillet over medium heat. Add the onion and cook, stirring, until tender and lightly golden, 8 to 9 minutes.</li>
+        <li>{{ dT() }} Add the chard stems with the remaining {{ controlled(3) }} cloves garlic and cook, stirring, until softened, 3 to 4 minutes.</li>
+        <li>{{ dT() }} Add the {{ tooltipAmount('flour', 1.5, 'tablespoons') }} and cook, stirring, until absorbed, 1 minute.</li>
+        <li>{{ dT() }} Add the reserved lemon zest and juice with the {{ tooltipAmount('stock', 350, 'ml') }}, {{ tooltipAmount('salt', 0.5, 'teaspoon') }}, and {{ tooltipAmount('pepper', 0.25, 'teaspoon') }} and cook, stirring, until the liquid thickens and bubbles, 2 to 3 minutes.</li>
+        <li>{{ dT() }} Stir in most of the remaining coriander.</li>
+        <li>{{ dT() }} Nestle the fish in the skillet, scatter the {{ tooltipAmount('tomatoes', 90, 'g') }} and {{ tooltipAmount('whole olives', 12, '') }} over the fish, reduce the heat to medium-low, cover, and cook until the fish is opaque and the chard can be cut easily, 10 minutes.</li>
+        <li>{{ dT() }} Serve over the grain of your choice with sauce spooned over the top; garnish with coriander.</li>
     </ol>
+
+    <hr/>
+
+    <h2>Notes</h2>
+
+    <ul>
+        <li>You can use salmon instead of white fish, it will just be more salmony. 🙃</li>
+    </ul>
 
 </article>
