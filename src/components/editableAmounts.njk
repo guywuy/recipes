@@ -27,35 +27,42 @@
         @keydown.window.escape="disableEditing"
         x-cloak
     >
-      <button
-          @click.prevent="increment(-0.01)"
-      >
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M0 0h24v24H0z" stroke="none"/>
-              <path d="M12 5v14M18 13l-6 6M6 13l6 6"/>
-          </svg>
-      </button>
-      <input
-          type="range"
-          name="{{ name }}"
-          min="0.1"
-          max="2.5"
-          step="0.01"
-          id="{{ name }}"
-          x-model="modifier"
-          x-ref="input"
-          class="rangeInput"
-      >
-      <button
-          @click.prevent="increment(0.01)"
-      >
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M0 0h24v24H0z" stroke="none"/>
-          <path d="M12 5v14M18 11l-6-6M6 11l6-6"/>
-          </svg>
-      </button>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="editable__waves" :height="30 * modifier" preserveAspectRatio="none" aria-hidden="true">
-        <path fill="#fff" fill-opacity="1" d="M0,288L34.3,250.7C68.6,213,137,139,206,112C274.3,85,343,107,411,144C480,181,549,235,617,229.3C685.7,224,754,160,823,122.7C891.4,85,960,75,1029,96C1097.1,117,1166,171,1234,208C1302.9,245,1371,267,1406,277.3L1440,288L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"></path>
-      </svg>
+        <button @click.prevent="snapping ? increment(-0.1): increment(-0.01)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M0 0h24v24H0z" stroke="none"/>
+                <path d="M12 5v14M18 13l-6 6M6 13l6 6"/>
+            </svg>
+        </button>
+        <div class="editable__range-holder">
+            <input
+                type="range"
+                name="{{ name }}"
+                min="0.1"
+                max="2.5"
+                :step="snapping ? 0.1 : 0.01"
+                id="{{ name }}"
+                x-model="modifier"
+                x-ref="input"
+                class="rangeInput"
+            >
+            <datalist x-show="snapping">
+                <option value="0.1" label="0.1">0.1</option>
+                <option value="0.5" label="0.5">0.5</option>
+                <option value="1" label="1">1</option>
+                <option value="1.5" label="1.5">1.5</option>
+                <option value="2" label="2">2</option>
+                <option value="2.5" label="2.5">2.5</option>
+            </datalist>
+        </div>
+        <button @click.prevent="snapping ? increment(0.1) : increment(0.01)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M0 0h24v24H0z" stroke="none"/>
+            <path d="M12 5v14M18 11l-6-6M6 11l6-6"/>
+            </svg>
+        </button>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" class="editable__waves" :height="30 * modifier" preserveAspectRatio="none" aria-hidden="true">
+            <path fill="#fff" d="M0,288L48,272C96,256,192,224,288,186.7C384,149,480,107,576,74.7C672,43,768,21,864,42.7C960,64,1056,128,1152,133.3C1248,139,1344,85,1392,58.7L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+        </svg>
+        <p class="editable__snapping-indicator">Rounding is <strong @click="toggleSnapping" x-text="snapping ? 'On' : 'Off'"></strong></p>
     </div>
 {% endmacro %}

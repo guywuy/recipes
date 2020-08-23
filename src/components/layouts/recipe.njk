@@ -34,21 +34,25 @@
       return {
         modifier: 1,
         modified() { return this.modifier != 1 },
+        snapping: false,
         isEditing: false,
         editingName: '',
         enableEditing(name) {
-            this.isEditing = true;
-            this.editingName = name;
+          this.isEditing = true;
+          this.editingName = name;
         },
         disableEditing() {
-            this.isEditing = false;
+          this.isEditing = false;
         },
         increment(amount) {
-            return this.modifier = Number(this.modifier) + Number(amount);
+          return this.modifier = Number(this.modifier) + Number(amount);
+        },
+        toggleSnapping(){
+          return this.snapping = !this.snapping;
         },
         format(amount) {
           let newAmount = amount * this.modifier;
-          return newAmount <= 20 ? newAmount.toPrecision(2) / 1 : Math.round(newAmount);
+          return newAmount <= 20 ? newAmount.toPrecision(this.snapping ? 1 : 2) / 1 : Math.round(newAmount);
         }
       }
     }
