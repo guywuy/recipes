@@ -79,7 +79,6 @@
         favourites: [],
         fetchFavourites: function(){
           const favourites = JSON.parse(localStorage.getItem('favourites'));
-          console.log(favourites);
           if (favourites) {
             this.favourites = favourites;
             favourites.forEach (f => {
