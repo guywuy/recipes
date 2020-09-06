@@ -4,25 +4,26 @@
 
   {% include "header.njk" %}
 
-  <main x-data="wakeLock()" x-init="initWakeLock">
+  <main>
 
-    <button
-      x-cloak
-      x-show="wlAvailable"
-      class="wakelock-toggle"
-      @click="wlActive ? removeWakeLock() : addWakeLock()"
-      title="Toggle WakeLock"
-      x-text="wlActive ? '💡' : '😴'"
-    ></button>
-
-    {% if title %}
-      <h1 class="recipe-title" x-data="favourite()" x-init="fetchFavourites">
-        {{ title }}
+    <div x-data="wakeLock()" x-init="initWakeLock">
+      <div class="wakelock" x-cloak x-show="wlAvailable">
+        <span>Toggle wake lock</span>
+        <button
+          class="wakelock__toggle"
+          @click="wlActive ? removeWakeLock() : addWakeLock()"
+          title="Toggle WakeLock"
+          x-text="wlActive ? '📱💡' : '📱😴'"
+        ></button>
+        <span x-text="status"></span>
+      </div>
+      <div x-data="favourite()" x-init="fetchFavourites" class="favouritable">
+        <span>Favourite this recipe</span>
         <button
           x-cloak
           x-show="loaded"
-          class="favourite-btn"
-          :class="{ 'favourite-btn--favourited': favourited }"
+          class="favouritable__toggle"
+          :class="{ 'favouritable__toggle--favourited': favourited }"
           @click="toggleFavourite"
           title="Toggle favourite"
         >
@@ -31,6 +32,12 @@
           </svg>
           <span x-show="favourited" x-transition:enter="scaleup">😍</span>
         </button>
+      </div>
+    </div>
+
+    {% if title %}
+      <h1>
+        {{ title }}
       </h1>
     {% endif %}
 
@@ -133,13 +140,10 @@
           wlSentinal = navigator.wakeLock.request('screen')
           .then( r => {
             r.addEventListener('release', (e) => {
-              console.log(e);
-              this.status = 'Wake Lock was released';
-              console.log('Wake Lock was released');
+              this.status = 'Screen will turn off normally';
             });
             this.wl = r;
-            this.status = 'Wake Lock is active';
-            console.log('Wake Lock is active');
+            this.status = 'Screen should stay on';
           })
           .catch (e => {
             this.status = `${e.name}, ${e.message}`;
@@ -153,19 +157,15 @@
             document.addEventListener('visibilitychange', this.handleVisibilityChange);
             return this.wlAvailable = true;
           } else {
-            this.status = 'Wake Lock API not supported.';
-            console.error('Wake Lock API not supported.');
+            this.status = 'Wake Lock API not supported :/';
             return this.wlAvailable = false;
           }
         },
         addWakeLock: function() {
-          console.log(this.wlActive)
           this.wlActive = this.requestWakeLock();
         },
         removeWakeLock: function() {
-          console.log(this.wlActive)
           if (this.wlActive) {
-            console.log('release')
             this.wl.release();
             this.wlActive = false;
             return this.wl = null;

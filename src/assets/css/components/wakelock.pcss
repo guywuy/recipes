@@ -1,0 +1,39 @@
+.wakelock {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  &>span {
+    font-size: 12px;
+  }
+
+  &__toggle {
+    display: grid;
+    place-items: center;
+    padding: 0.2em;
+    background: none;
+    font-size: 32px;
+    line-height: 1;
+    border: none;
+
+    & + span {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+      background-color: #fff;
+      top: 100%;
+      right: 0;
+      padding: 1em;
+      border-radius: 5px;
+      width: max-content;
+      transition: opacity 0.2s ease;z-index: 10;
+    }
+
+    &:focus {
+      & + span {
+        opacity: 1;
+      }
+    }
+  }
+}
