@@ -10,7 +10,7 @@
       x-cloak
       x-show="wlAvailable"
       class="wakelock-toggle"
-      @click="toggleWakeLock"
+      @click="wlActive ? removeWakeLock() : addWakeLock()"
       title="Toggle WakeLock"
       x-text="wlActive ? '💡' : '😴'"
     ></button>
@@ -124,30 +124,29 @@
         status: '',
         wl: null,
         wlActive: false,
-        handleVisibilityChange: () => {
+        handleVisibilityChange: function() {
           if (this.wl !== null && document.visibilityState === 'visible') {
-            this.wl = this.requestWakeLock();
+            this.wlActive = this.requestWakeLock();
           }
         },
-        requestWakeLock: async () => {
-          try {
-            wlSentinal = await navigator.wakeLock.request('screen');
-            wlSentinal.addEventListener('release', (e) => {
+        requestWakeLock: function() {
+          wlSentinal = navigator.wakeLock.request('screen')
+          .then( r => {
+            r.addEventListener('release', (e) => {
               console.log(e);
               this.status = 'Wake Lock was released';
               console.log('Wake Lock was released');
-              this.wlActive = false;
             });
-            console.log(wlSentinal);
-            this.wl = wlSentinal;
+            this.wl = r;
             this.status = 'Wake Lock is active';
-            this.wlActive = true;
             console.log('Wake Lock is active');
-          } catch (e) {
+          })
+          .catch (e => {
             this.status = `${e.name}, ${e.message}`;
             console.error(`${e.name}, ${e.message}`);
-            return this.wlActive = false;
-          }
+            return false;
+          });
+          return true;
         },
         initWakeLock: function() {
           if ('wakeLock' in navigator && 'request' in navigator.wakeLock) {
@@ -159,14 +158,17 @@
             return this.wlAvailable = false;
           }
         },
-        toggleWakeLock: function() {
+        addWakeLock: function() {
+          console.log(this.wlActive)
+          this.wlActive = this.requestWakeLock();
+        },
+        removeWakeLock: function() {
           console.log(this.wlActive)
           if (this.wlActive) {
             console.log('release')
             this.wl.release();
+            this.wlActive = false;
             return this.wl = null;
-          } else {
-            this.wl = this.requestWakeLock();
           }
         },
       }
