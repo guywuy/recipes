@@ -4,7 +4,16 @@
 
   {% include "header.njk" %}
 
-  <main>
+  <main x-data="wakeLock()" x-init="initWakeLock">
+
+    <button
+      x-cloak
+      x-show="wlAvailable"
+      class="wakelock-toggle"
+      @click="toggleWakeLock"
+      title="Toggle WakeLock"
+      x-text="wlActive ? '💡' : '😴'"
+    ></button>
 
     {% if title %}
       <h1 class="recipe-title" x-data="favourite()" x-init="fetchFavourites">
@@ -105,6 +114,60 @@
           }
           localStorage.setItem('favourites', JSON.stringify(this.favourites));
           this.favourited = !this.favourited;
+        },
+      }
+    };
+
+    function wakeLock() {
+      return {
+        wlAvailable: false,
+        status: '',
+        wl: null,
+        wlActive: false,
+        handleVisibilityChange: () => {
+          if (this.wl !== null && document.visibilityState === 'visible') {
+            this.wl = this.requestWakeLock();
+          }
+        },
+        requestWakeLock: async () => {
+          try {
+            wlSentinal = await navigator.wakeLock.request('screen');
+            wlSentinal.addEventListener('release', (e) => {
+              console.log(e);
+              this.status = 'Wake Lock was released';
+              console.log('Wake Lock was released');
+              this.wlActive = false;
+            });
+            console.log(wlSentinal);
+            this.wl = wlSentinal;
+            this.status = 'Wake Lock is active';
+            this.wlActive = true;
+            console.log('Wake Lock is active');
+          } catch (e) {
+            this.status = `${e.name}, ${e.message}`;
+            console.error(`${e.name}, ${e.message}`);
+            return this.wlActive = false;
+          }
+        },
+        initWakeLock: function() {
+          if ('wakeLock' in navigator && 'request' in navigator.wakeLock) {
+            document.addEventListener('visibilitychange', this.handleVisibilityChange);
+            return this.wlAvailable = true;
+          } else {
+            this.status = 'Wake Lock API not supported.';
+            console.error('Wake Lock API not supported.');
+            return this.wlAvailable = false;
+          }
+        },
+        toggleWakeLock: function() {
+          console.log(this.wlActive)
+          if (this.wlActive) {
+            console.log('release')
+            this.wl.release();
+            return this.wl = null;
+          } else {
+            this.wl = this.requestWakeLock();
+          }
         },
       }
     }
