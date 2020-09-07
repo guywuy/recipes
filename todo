@@ -1,6 +1,6 @@
-- Add cooking/prep times - at top of recipe. Prep time. Cook time.
+- Add cooking/prep times - at top of recipe. 
+- Also move favourite and screen lock toggles to this area. Make into checkboxes instead of buttons.
 
-- Check print media if recipe is to be printed - hide js things
 - Move recipe post files to folders for extra categorisation? e.g. /main/chicken-recipe, /drink/sloe-gin etc
 - Add veggie/vegan data?
 
