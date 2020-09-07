@@ -1,19 +1,59 @@
-<header x-data="nav()">
+<header class="header" :class="{ 'header--open' : isOpen }" x-data="nav()">
   <a href="/" class="homelink">🏠 <strong>DW<span class="accent">CC</span></strong></a>
 
-  <button class="nav-toggle" @click="toggleNav" x-cloak>👨🏼‍🍳</button>
+  <button class="nav-toggle" @click="toggleNav" x-cloak>👨🏼‍🍳⚙️</button>
 
-  {% if navigation.items %}
-    <nav x-show.transition.origin.top.right="isOpen" x-cloak>
-      <ul>
-        {% for item in navigation.items %}
-            <li>
-                <a href="{{ item.url }}" class="nav-link">{{ item.text }}</a>
-            </li>
-          {% endfor %}
-      </ul>
-    </nav>
-  {% endif %}
+  <div x-show.transition.origin.top.right="isOpen" x-cloak class="header__info-actions">
+    <dl>
+      {% if preptime %}
+        <div>
+          <dt>Prep:</dt>
+          <dd>{{ preptime }}</dd>
+        </div>
+      {% endif %}
+      {% if cooktime %}
+        <div>
+          <dt>Cook:</dt>
+          <dd>{{ cooktime }}</dd>
+        </div>
+      {% endif %}
+      {% if totaltime %}
+        <div>
+          <dt>Total:</dt>
+          <dd><strong>{{ totaltime }}</strong></dd>
+        </div>
+      {% endif %}
+    </dl>
+    <div class="prefs">
+      <div x-data="wakeLock()" x-init="initWakeLock">
+        <div class="wakelock pref-checkbox" x-show="wlAvailable">
+          <label for="wl-toggle">Keep screen on</label>
+          <input
+            type="checkbox"
+            class="wakelock__toggle"
+            @click="wlActive ? removeWakeLock() : addWakeLock()"
+            id="wl-toggle"
+          />
+          <span x-text="status" class="pref-checkbox__status"></span>
+        </div>
+      </div>
+      <div x-data="favourite()" x-init="fetchFavourites" class="favouritable">
+        <div class="pref-checkbox">
+          <label for="fav-toggle">Favourite this recipe</label>
+          <input
+            type="checkbox"
+            x-show="loaded"
+            x-model="favourited"
+            class="favouritable__toggle"
+            @click="toggleFavourite"
+            id="fav-toggle"
+          />
+          <span x-text="status" class="pref-checkbox__status"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </header>
 
 <script>
@@ -25,4 +65,93 @@
       },
     }
   }
+
+    function favourite() {
+      return {
+        loaded: false,
+        favourited: false,
+        favourites: [],
+        status: 'Not favourited',
+        fetchFavourites: function(){
+          const favourites = JSON.parse(localStorage.getItem('favourites'));
+          if (favourites) {
+            this.favourites = favourites;
+            favourites.forEach (f => {
+              if (f.url == '{{ page.url }}') {
+                this.loaded = true;
+                this.status = "Favourited";
+                return this.favourited = true;
+              }
+            })
+          }
+          return this.loaded = true;
+        },
+        toggleFavourite: function() {
+          if (this.favourited) {
+            this.favourites = this.favourites.filter( f => f.url != '{{ page.url }}' );
+          } else {
+            this.favourites = [
+            ...this.favourites,
+              {
+                url: '{{ page.url }}',
+                title: '{{ title }}',
+                icon: '{{ icon }}'
+              }
+            ]
+          }
+          localStorage.setItem('favourites', JSON.stringify(this.favourites));
+          this.favourited = !this.favourited;
+          this.status = this.favourited ? "Favourited" : "Not favourited";
+        },
+      }
+    };
+
+    function wakeLock() {
+      return {
+        wlAvailable: false,
+        status: 'Screen will turn off normally',
+        wl: null,
+        wlActive: false,
+        handleVisibilityChange: function() {
+          if (this.wl !== null && document.visibilityState === 'visible') {
+            this.wlActive = this.requestWakeLock();
+          }
+        },
+        requestWakeLock: function() {
+          wlSentinal = navigator.wakeLock.request('screen')
+          .then( r => {
+            r.addEventListener('release', (e) => {
+              this.status = 'Screen will turn off normally';
+            });
+            this.wl = r;
+            this.status = 'Screen should stay on';
+          })
+          .catch (e => {
+            this.status = `${e.name}, ${e.message}`;
+            console.error(`${e.name}, ${e.message}`);
+            return false;
+          });
+          return true;
+        },
+        initWakeLock: function() {
+          if ('wakeLock' in navigator && 'request' in navigator.wakeLock) {
+            document.addEventListener('visibilitychange', this.handleVisibilityChange);
+            return this.wlAvailable = true;
+          } else {
+            this.status = 'Wake Lock API not supported :/';
+            return this.wlAvailable = false;
+          }
+        },
+        addWakeLock: function() {
+          this.wlActive = this.requestWakeLock();
+        },
+        removeWakeLock: function() {
+          if (this.wlActive) {
+            this.wl.release();
+            this.wlActive = false;
+            return this.wl = null;
+          }
+        },
+      }
+    };
 </script>

@@ -6,35 +6,6 @@
 
   <main>
 
-    <div x-data="wakeLock()" x-init="initWakeLock">
-      <div class="wakelock" x-cloak x-show="wlAvailable">
-        <span>Toggle wake lock</span>
-        <button
-          class="wakelock__toggle"
-          @click="wlActive ? removeWakeLock() : addWakeLock()"
-          title="Toggle WakeLock"
-          x-text="wlActive ? '📱💡' : '📱😴'"
-        ></button>
-        <span x-text="status"></span>
-      </div>
-      <div x-data="favourite()" x-init="fetchFavourites" class="favouritable">
-        <span>Favourite this recipe</span>
-        <button
-          x-cloak
-          x-show="loaded"
-          class="favouritable__toggle"
-          :class="{ 'favouritable__toggle--favourited': favourited }"
-          @click="toggleFavourite"
-          title="Toggle favourite"
-        >
-          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-star" width="32" height="32" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" :fill="favourited ? '#fcd632' : 'none'" stroke-linecap="round" stroke-linejoin="round" x-show="!favourited">
-            <path d="M12 17.75l-6.172 3.245 1.179-6.873-4.993-4.867 6.9-1.002L12 2l3.086 6.253 6.9 1.002-4.993 4.867 1.179 6.873z" />
-          </svg>
-          <span x-show="favourited" x-transition:enter="scaleup">😍</span>
-        </button>
-      </div>
-    </div>
-
     {% if title %}
       <h1>
         {{ title }}
@@ -87,91 +58,5 @@
         }
       }
     };
-
-    function favourite() {
-      return {
-        loaded: false,
-        favourited: false,
-        favourites: [],
-        fetchFavourites: function(){
-          const favourites = JSON.parse(localStorage.getItem('favourites'));
-          if (favourites) {
-            this.favourites = favourites;
-            favourites.forEach (f => {
-              if (f.url == '{{ page.url }}') {
-                this.loaded = true;
-                return this.favourited = true;
-              }
-            })
-          }
-          return this.loaded = true;
-        },
-        toggleFavourite: function() {
-          if (this.favourited) {
-            this.favourites = this.favourites.filter( f => f.url != '{{ page.url }}' );
-          } else {
-            this.favourites = [
-            ...this.favourites,
-              {
-                url: '{{ page.url }}',
-                title: '{{ title }}',
-                icon: '{{ icon }}'
-              }
-            ]
-          }
-          localStorage.setItem('favourites', JSON.stringify(this.favourites));
-          this.favourited = !this.favourited;
-        },
-      }
-    };
-
-    function wakeLock() {
-      return {
-        wlAvailable: false,
-        status: '',
-        wl: null,
-        wlActive: false,
-        handleVisibilityChange: function() {
-          if (this.wl !== null && document.visibilityState === 'visible') {
-            this.wlActive = this.requestWakeLock();
-          }
-        },
-        requestWakeLock: function() {
-          wlSentinal = navigator.wakeLock.request('screen')
-          .then( r => {
-            r.addEventListener('release', (e) => {
-              this.status = 'Screen will turn off normally';
-            });
-            this.wl = r;
-            this.status = 'Screen should stay on';
-          })
-          .catch (e => {
-            this.status = `${e.name}, ${e.message}`;
-            console.error(`${e.name}, ${e.message}`);
-            return false;
-          });
-          return true;
-        },
-        initWakeLock: function() {
-          if ('wakeLock' in navigator && 'request' in navigator.wakeLock) {
-            document.addEventListener('visibilitychange', this.handleVisibilityChange);
-            return this.wlAvailable = true;
-          } else {
-            this.status = 'Wake Lock API not supported :/';
-            return this.wlAvailable = false;
-          }
-        },
-        addWakeLock: function() {
-          this.wlActive = this.requestWakeLock();
-        },
-        removeWakeLock: function() {
-          if (this.wlActive) {
-            this.wl.release();
-            this.wlActive = false;
-            return this.wl = null;
-          }
-        },
-      }
-    }
   </script>
 {% endblock %}
