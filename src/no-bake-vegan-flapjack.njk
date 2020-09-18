@@ -1,0 +1,56 @@
+---
+layout: recipe
+title: No Bake Vegan Flapjack
+icon: 🍯 
+tags: snack
+ingredients:
+  - oats
+  - peanut butter
+  - coconut oil
+  - golden syrup
+preptime: 10 mins
+cooktime: 10 mins
+totaltime: 20 mins
+---
+
+{% from "editableAmounts.njk" import amountControls, editableAmount, controlledAmount as controlled %}
+
+<article x-data="amounts()">
+
+    <h2>Ingredients</h2>
+
+    <p>
+        Makes {{ editableAmount('total', 350) }}g.
+    </p>
+
+    <ul>
+        <li>{{ controlled(120) }}g oats</li>
+        <li>{{ controlled(90) }}g golden syrup</li>
+        <li>{{ controlled(95) }}g peanut butter</li>
+        <li>{{ controlled(45) }}g coconut oil</li>
+    </ul>
+
+    <hr/>
+
+    <h2>Method</h2>
+
+    <ol>
+        <li>Prepare a baking tray by scrunching greaseproof paper and using it to line the tray, pushing it into the corners and smoothing it to lie flat.</li>
+        <li>Melt the peanut butter on gentle heat in saucepan.</li>
+        <li>Add coconut oil & melt, stirring.</li>
+        <li>Add syrup & melt, stirring.</li>
+        <li>Add oats and stir.</li>
+        <li>Pour the mixture into the lined baking tray, flattening down with a spatula.</li>
+        <li>Refrigerate until "set", and then cut into pieces.</li>
+    </ol>
+
+    <h2>Notes</h2>
+
+    <ol>
+        <li>You can add dessicated coconut, sultanas and/or other dried fruits and seeds if you want.</li>
+    </ol>
+
+
+    {{ amountControls() }}
+
+</article>
