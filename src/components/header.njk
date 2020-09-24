@@ -26,7 +26,7 @@
     </dl>
     <div class="prefs">
       <div x-data="wakeLock()" x-init="initWakeLock">
-        <div class="wakelock pref-checkbox" x-show="wlAvailable">
+        <div class="wakelock pref-checkbox" x-show="wlAvailable" x-on:visibilitychange.document="handleVisibilityChange">
           <label for="wl-toggle">Keep screen on</label>
           <input
             type="checkbox"
@@ -135,7 +135,6 @@
         },
         initWakeLock: function() {
           if ('wakeLock' in navigator && 'request' in navigator.wakeLock) {
-            document.addEventListener('visibilitychange', this.handleVisibilityChange);
             return this.wlAvailable = true;
           } else {
             this.status = 'Wake Lock API not supported :/';
