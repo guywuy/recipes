@@ -1,0 +1,55 @@
+---
+layout: recipe
+title: One Pot Quick Pasta Sauce
+icon: 🍝
+tags: meal
+ingredients:
+  - linguine
+  - capers
+  - tomatoes
+  - mushrooms
+sources:
+  - https://getpocket.com/explore/item/these-magical-one-pot-pasta-recipes-only-need-5-ingredients-and-a-glance
+preptime: 5 mins
+cooktime: 10 mins
+totaltime: 15 mins
+---
+
+{% from "editableAmounts.njk" import amountControls, editableAmount, controlledAmount %}
+
+<article x-data="amounts()">
+
+    <h2>Ingredients</h2>
+
+    <p>
+        Makes {{ editableAmount('total', 4) }} portions. Add a mix of ready or quick cooking ingredients to the pasta, as you like.
+    </p>
+
+    <ul>
+        <li>{{ editableAmount('linguine', 340) }}g linguine (other other, similar pasta)</li>
+        <li>{{ controlledAmount(1060) }}ml water</li>
+        <li>{{ controlledAmount(1) }}tbsp salt</li>
+        <li>Pepper</li>
+        <li>Veg and protein (chopped tomatoes, capers, cooked chicken, mushrooms, beans, chorizo, basil, olives, garlic, pepper, fennel, etc )</li>
+    </ul>
+
+    <hr/>
+
+    <h2>Method</h2>
+
+    <ol>
+        <li>Put all ingredients in a large skillet/pan/kadai.</li>
+        <li>Bring to the boil. Cook, stirring and mixing, for approx 9 mins, or until the pasta is al dente and most of the liquid has evaporated.</li>
+    </ol>
+
+    <hr/>
+
+    <h2>Notes</h2>
+
+    <ul>
+        <li>The starch from the pasta will give the sauce a creamy texture.</li>
+    </ul>
+
+    {{ amountControls() }}
+
+</article>
