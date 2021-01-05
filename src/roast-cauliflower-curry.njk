@@ -1,0 +1,65 @@
+---
+layout: recipe
+title: Roast Cauliflower Curry
+icon: 🍲
+tags: meal
+ingredients:
+  - cauliflower
+  - puy lentils
+  - cashew nuts
+  - natural yoghurt
+  - sultanas
+sources:
+  - https://www.gousto.co.uk/cookbook/vegetarian-recipes/caramelised-roast-cauli-curry
+preptime: 30 mins
+cooktime: 30 mins
+totaltime: 60 mins
+---
+
+{% from "editableAmounts.njk" import amountControls, editableAmount, controlledAmount as controlled, tooltipAmount %}
+{% from "methodMacros.njk" import doneToggle as dT %}
+
+<article x-data="amounts()">
+
+    <h2>Ingredients</h2>
+
+    <p>
+        Makes {{ editableAmount('total', 2) }} portions.
+    </p>
+
+    <ul>
+        <li>{{ controlled(1) }} cauliflower</li>
+        <li>{{ controlled(150) }}g green/puy lentils</li>
+        <li>{{ controlled(150) }}g Greek-style yoghurt</li>
+        <li>{{ controlled(1) }} onion</li>
+        <li>{{ controlled(1) }} carrot</li>
+        <li>{{ controlled(2) }} garlic cloves</li>
+        <li>{{ controlled(30) }}g sultanas</li>
+        <li>{{ controlled(30) }}g cashew nuts</li>
+        <li>{{ controlled(1) }} vegetable stock cube</li>
+        <li>{{ controlled(2) }}tsp ground coriander</li>
+        <li>{{ controlled(2) }}tbsp curry powder</li>
+        <li>{{ controlled(20) }}g chopped fresh coriander</li>
+    </ul>
+
+    <hr/>
+
+    <h2>Method</h2>
+
+    <ol>
+        <li>{{ dT() }} Preheat fan oven to 200℃, and boil kettle.</li>
+        <li>{{ dT() }} Rinse the {{ tooltipAmount('lentils', 150, 'g') }} under cold running water, and add to a pot with {{ controlled(500) }}ml cold water. Bring to a boil and cook for 20-25 min, until tender; then drain and set aside.</li>
+        <li>{{ dT() }} Cut the cauliflower into bite-sized pieces and put on a baking tray. Drizzle with vegetable oil and add salt and pepper. Bake for 20 mins.</li>
+        <li>{{ dT() }} Meanwhile, finely slice the {{ tooltipAmount('onion', 1, '') }}, finely chop the {{ tooltipAmount('garlic', 2, 'cloves') }}, and chop the {{ tooltipAmount('carrot', 1, '') }} to 2cm pieces.</li>
+        <li>{{ dT() }} Heat a large, lidded pan with {{ controlled(2) }}tbsp vegetable oil over medium heat. Once hot, add the onion, {{ tooltipAmount('ground coriander', 2, 'tsp') }} and {{ tooltipAmount('curry powder', 2, 'tbsp') }}. Cook for 2 mins before adding the garlic and carrots. Cook for 4 more mins until starting to colour</li>
+        <li>{{ dT() }} Meanwhile, dissolve the {{ tooltipAmount('stock cube', 1, '') }} in {{ controlled(400) }}ml boiled water.</li>
+        <li>{{ dT() }} Add the stock and {{ tooltipAmount('sultanas', 30, 'g') }} to the pan, cover and cook for 10 mins.</li>
+        <li>{{ dT() }} Meanwhile, roast the {{ tooltipAmount('cashews', 30, 'g') }} for 5 mins or until starting to brown.</li>
+        <li>{{ dT() }} Chop the {{ tooltipAmount('coriander', 20, 'g') }} finely, and chop the warm cashews coarsely.</li>
+        <li>{{ dT() }} Remove the vegetables from the heat and stir in the drained lentils, {{ tooltipAmount('yoghurt', 150, 'g') }}, coriander and roast cauliflower.</li>
+        <li>{{ dT() }} Serve and enjoy.</li>
+    </ol>
+
+    {{ amountControls() }}
+
+</article>

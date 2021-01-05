@@ -16,6 +16,7 @@ title: Don't Worry Chicken Curry
         <p class="homepage-section__links">
             <a href="#list" class="homepage-section__link">🧾 Recipe List</a>
             <a href="#search" class="homepage-section__link">🔍 Search by ingredient</a>
+            <a href="#favourites" class="homepage-section__link">⭐ My Favourites</a>
         </p>
     </div>
 </section>
@@ -127,6 +128,38 @@ title: Don't Worry Chicken Curry
                     return matched;
                 });
             }
+        }
+    }
+</script>
+
+<hr/>
+
+<section x-data="favourites()" x-init="fetchFavourites" class="homepage-section text-center favourites" id="favourites">
+    <div>
+        <h2>⭐Favourites</h2>
+        <div class="favourites__no-results"  x-show="!favouriteRecipes.length">
+            <p>No favourite recipes yet. <a href="#list" class="accent bold">🧾 View All Recipes?</a></p>
+        </div>
+        <ul class="favourites__results" x-show="favouriteRecipes.length">
+            <template x-for="item in favouriteRecipes" :key="item.url">
+                <li>
+                    <a class="nav-link" :href="item.url">
+                        <h4 x-text="item.icon + ' ' + item.title"></h4>
+                    </a>
+                </li>
+            </template>
+        </ul>
+    </div>
+</section>
+
+<script>
+    function favourites() {
+        return {
+            favouriteRecipes: [],
+            fetchFavourites: function(){
+                const favourites = JSON.parse(localStorage.getItem('favourites'));
+                if (favourites) return this.favouriteRecipes = favourites;
+            },
         }
     }
 </script>

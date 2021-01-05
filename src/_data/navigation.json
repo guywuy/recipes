@@ -7,6 +7,10 @@
     {
       "text": "🔍 Search by ingredient",
       "url": "/#search"
+    },
+    {
+      "text": "⭐ My Favourites",
+      "url": "/#favourites"
     }
   ]
 }

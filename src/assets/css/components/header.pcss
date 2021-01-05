@@ -1,9 +1,16 @@
-header {
+.header {
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
   justify-content: space-between;
   padding: var(--space-2);
+
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+
+  &--open {
+    background-color: #0e50d229;
+    box-shadow: 0 0 0 2px var(--accent);
+  }
 
   .homelink,
   .nav-toggle {
@@ -12,22 +19,95 @@ header {
     color: var(--primary);
     font-size: 1.2em;
   }
-  
+
   .nav-toggle {
     background: none;
     border: 1px solid var(--accent);
     border-radius: 5px;
   }
 
-  & > nav {
+  &__info-actions {
     width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
 
-    & > ul {
+    &>* {
       padding-top: var(--space);
-      max-width: unset;
+      margin: var(--space-2) 0;
+    }
 
-      & > li {
-        margin-left: auto
+    & > dl {
+
+      & > div {
+        display: flex;
+        align-items: center;
+        margin-bottom: var(--space-1);
+
+        dd {
+          margin: 0 0 0 0.5em;
+        }
+      }
+    }
+  }
+
+  .pref-checkbox {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: var(--space-2);
+
+    label {
+      margin-right: var(--space-2);
+    }
+
+    input[type="checkbox"] {
+      width: 1.5em;
+      height: 1.5em;
+      border-radius: 4px;
+      position: relative;
+
+      & + span {
+        position: absolute;
+        opacity: 0;
+        pointer-events: none;
+        background-color: #fff;
+        top: 100%;
+        right: 0;
+        padding: 1em;
+        border-radius: 5px;
+        width: max-content;
+        transition: opacity 0.2s ease;z-index: 10;
+        font-size: 12px;
+      }
+
+      &:focus {
+        & + span {
+          opacity: 1;
+        }
+      }
+
+      &:checked {
+        background: transparent;
+        border: none;
+        appearance: none;
+
+        &:after {
+          content: "😍";
+          position: absolute;
+          left: 50%;
+          top: 48%;
+          transform: translate(-50%, -50%);
+          font-size: 1.6em;
+        }
+      }
+
+      &#wl-toggle {
+        &:checked {
+          &:after {
+            content: "💡"
+          }
+        }
       }
     }
   }
@@ -36,15 +116,11 @@ header {
 
 @media (min-width:40em) {
 
-  header {
+  .header {
     margin-bottom: 44px;
 
-    & > nav > ul {
+    &__info-actions > * {
       justify-content: flex-end;
-
-      & > li {
-        margin-left: unset;
-      }
     }
   }
 }

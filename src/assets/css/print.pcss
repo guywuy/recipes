@@ -1,0 +1,39 @@
+@page {
+  margin: 1.5cm;
+}
+
+@media print {
+
+  body {
+    display: block;
+    width: 100%;
+    padding: 0;
+    background-color: #fff;
+    background-image: none;
+
+    &>header,
+    .favourite-btn,
+    .done-toggle {
+      display: none;
+    }
+  }
+
+  main {
+    max-width: 75ch;
+    width: 100%;
+    margin: 0 auto;
+    padding: 30px 18px 100px;
+  }
+
+  h1, h2, h3, h4, h5 {
+    line-height: 1.2;
+  }
+
+  .turbolinks-progress-bar {
+    display: none;
+  }
+
+  li {
+    break-inside: avoid;
+  }
+}

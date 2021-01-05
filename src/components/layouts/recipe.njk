@@ -7,7 +7,9 @@
   <main>
 
     {% if title %}
-      <h1>{{ title }}</h1>
+      <h1>
+        {{ title }}
+      </h1>
     {% endif %}
 
     {{ content | safe }}
@@ -55,6 +57,6 @@
           return newAmount <= 20 ? newAmount.toPrecision(this.snapping ? 1 : 2) / 1 : Math.round(newAmount);
         }
       }
-    }
+    };
   </script>
 {% endblock %}
