@@ -1,0 +1,73 @@
+---
+layout: recipe
+title: Beef, Coconut and Spinach Pilau
+icon: 🐄
+tags: meal
+ingredients:
+  - beef
+  - coconut milk
+  - madras paste
+  - tomato
+  - spinach
+  - almonds
+sources:
+  - https://www.simplybeefandlamb.co.uk/recipes/beef-coconut-and-spinach-pilau/
+preptime: 10 mins
+cooktime: 1h 40 mins
+totaltime: 1h 50 mins
+---
+
+{% from "editableAmounts.njk" import amountControls, editableAmount, controlledAmount as controlled, tooltipAmount %}
+{% from "methodMacros.njk" import doneToggle as dT %}
+
+<article x-data="amounts()">
+
+    <h2>Ingredients</h2>
+
+    <p>
+        Makes {{ editableAmount('total', 4) }} portions.
+    </p>
+
+    <ul>
+        <li>{{ editableAmount('steak', 675) }} g lean braising or stewing steak, cut into 2.5cm cubes</li>
+        <li>{{ controlled(2) }} tablespoons neutral-tasting oil</li>
+        <li>{{ controlled(2) }} onions, sliced</li>
+        <li>{{ controlled(2) }} garlic cloves, peeled and finely chopped</li>
+        <li>{{ controlled(3) }} tablespoons <a href="https://www.bbcgoodfood.com/recipes/tom-kerridges-madras-curry-paste">madras curry paste</a></li>
+        <li>{{ controlled(1) }} green chilli, finely chopped</li>
+        <li>{{ controlled(1) }} 400g can of coconut milk</li>
+        <li>{{ controlled(850) }} g hot beef stock</li>
+        <li>{{ controlled(300) }} g basmati rice</li>
+        <li>{{ controlled(100) }} g (baby) spinach leaves, loosely chopped if not small</li>
+        <li>{{ controlled(2) }} medium tomatoes, quartered</li>
+        <li>Handful chopped coriander, to garnish</li>
+        <li>Handful toasted flaked almonds, to garnish</li>
+    </ul>
+
+    <hr/>
+
+    <h2>Method</h2>
+
+    <ol>
+        <li>Heat {{ tooltipAmount('half the oil', 1, 'tablespoons') }} in a casserole dish and brown the beef in batches. Remove from the pan and set aside.</li>
+        <li>Add the remaining oil and cook the onions and garlic until lightly brown. Stir in the {{ tooltipAmount('curry paste', 3, 'tablespoons') }} and cook for 2-3 minutes.</li>
+        <li>Preheat the oven to 160-170°C fan.</li>
+        <li>{{ dT() }} Return the beef to the dish and add the chilli, {{ tooltipAmount('coconut milk', 1, '400ml can') }} and {{ tooltipAmount('stock', 850, 'ml') }}. Season. Bring to the boil, reduce the heat, cover and cook in the oven for 1 hour.</li>
+        <li>{{ dT() }} In the meantime, rinse the rice well to remove starch and let it soak in cold water to soften until the next step.</li>
+        <li>{{ dT() }} Stir the (drained) rice into the casserole dish, cover and return to the oven for a further 15/20 minutes until all the liquid has been absorbed. Turn off the oven.</li>
+        <li>Mix in the spinach and tomatoes, cover and leave to stand - off the heat - for 5-10 mins. Now is a good time to toast the flaked almonds and chop the coriander.</li>
+        <li>Serve with the almonds and coriander as a garnish.</li>
+    </ol>
+
+    <hr/>
+
+    <h2>Notes</h2>
+
+    <ul>
+        <li>It's best to prepare some things in advance to make the first stage of the recipe easier - chop the onion, garlic, chilli. Make the stock. Or have one person preparing as the other browns the beef.</li>
+        <li>Pilau / pulao / pilaf is rice cooked with meat (and maybe vegetables, nuts, dried fruits, spices). It differs from <em>biryani</em> in that pulao the rice absorbs the stock while cooking, whereas biryani the rice is cooked separately and layered in later. I think. :)</li>
+    </ul>
+
+    {{ amountControls() }}
+
+</article>
