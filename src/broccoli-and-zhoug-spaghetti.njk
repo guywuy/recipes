@@ -1,0 +1,68 @@
+---
+layout: recipe
+title: Broccoli and zhoug spaghetti
+icon: 🥦
+tags: meal
+ingredients:
+  - broccoli
+  - coriander
+  - peanuts
+  - spaghetti
+sources:
+  - https://www.theguardian.com/food/2021/mar/06/meera-sodha-vegan-recipe-broccoli-zhoug-spaghetti
+preptime: 10 mins
+cooktime: 40 mins
+totaltime: 50 mins
+dietstatus: vegan
+---
+
+{% from "editableAmounts.njk" import amountControls, editableAmount, controlledAmount as controlled, tooltipAmount %}
+
+<article x-data="amounts()">
+
+    <h2>Ingredients</h2>
+
+    <p>
+        Makes {{ editableAmount('total', 4) }} portions.
+    </p>
+
+    <ul>
+        <li>{{ editableAmount('broccolihead', 1) }} broccoli head (about {{ editableAmount('broccoligrams', 350) }}) }}g</li>
+        <li>{{ controlled(60) }}g fresh coriander, roughly chopped</li>
+        <li>{{ controlled(30) }}g fresh parsley, roughly chopped</li>
+        <li>{{ controlled(3) }} green chillies, deseeded and finely chopped</li>
+        <li>{{ controlled(1.5) }}tsp ground cumin</li>
+        <li>{{ controlled(1.5) }}tsp ground coriander</li>
+        <li>{{ controlled(0.5) }}tsp ground cardamom</li>
+        <li>{{ controlled(1.5) }}tbsp lemon juice</li>
+        <li>{{ controlled(5) }}tbsp olive oil (plus extra for frying)</li>
+        <li>{{ controlled(300) }}g spaghetti</li>
+        <li>Salt</li>
+        <li>Handful peanuts, to garnish</li>
+    </ul>
+
+    <hr/>
+
+    <h2>Method</h2>
+
+    <ol>
+        <li>Peel or remove the woody bits of the broccoli, chop roughly and blitz to a mince with a blender.</li>
+        <li>In a large nonstick frying pan, heat some oil and, when hot, add the blitzed broccoli and a half-teaspoon of salt. Cook, stirring every now and then, for about 10 minutes, until sweet and soft, then turn off the heat.</li>
+        <li>Meanwhile, cook the spaghetti in salted boiling water until al dente. While it’s cooking, carefully dip a mug into the pot and collect a mugful of the hot pasta water.</li>
+        <li>Meanwhile, make the zhoug. Put the {{ tooltipAmount('fresh coriander', 60, 'g') }}, {{ tooltipAmount('parsley', 30, 'g') }}, {{ tooltipAmount('chillies', 3, '') }}, {{ tooltipAmount('cumin', 1.5, 'tsp') }}, {{ tooltipAmount('ground coriander', 1.5, 'tsp') }}, {{ tooltipAmount('cardamom', 0.5, 'tsp') }}, {{ tooltipAmount('lemon juice', 1.5, 'tbsp') }}, {{ tooltipAmount('oil', 5, 'tbsp') }} and {{ controlled(0.5) }} tsp of salt into the food processor and blitz to a smooth paste.</li>
+        <li>Drain the pasta, tip into the broccoli pan, add the zhoug and toss to combine. Add some of the reserved pasta cooking water to loosen it until it looks nice and saucy.</li>
+        <li>Check for seasoning, adjusting the salt, chilli or lemon as you wish, garnish with peanuts, then serve on plates or bowls and eat hot.</li>
+    </ol>
+
+    <hr/>
+
+    <h2>Notes</h2>
+
+    <ul>
+        <li>Peanuts go well, but you can replace with other nuts and seeds for taste, texture and protein.</li>
+        <li>You can add garlic if you like, and feel free to substitute spices. Spinach or other leafy greens can also go in with the zhoug, blended.</li>
+    </ul>
+
+    {{ amountControls() }}
+
+</article>
