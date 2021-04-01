@@ -1,22 +1,5 @@
 {
   "plugins": {
     "postcss-nested": {},
-    "postcss-preset-env": {
-      "stage": 0
-    },
-    "cssnano": {
-      "preset": [
-        "advanced",
-        {
-          "discardComments": {
-            "removeAll": true
-          },
-          "reduceIdents": false
-        }
-      ]
-    },
-    "postcss-reporter": {
-      "clearReportedMessages": true
-    }
   }
 }
