@@ -25,7 +25,7 @@ title: Don't Worry Chicken Curry
 
 <section x-data="tags()" class="homepage-section" id="list">
     <div>
-        <p class="bold">Type:</p>
+        <p class="bold">Diet:</p>
         <ul class="mb-6 filter-tags">
             <li class="filter-tag">
                 <input type="radio" name="filter" value="all" id="all" x-model="filter">
@@ -33,7 +33,7 @@ title: Don't Worry Chicken Curry
                     All
                 </label>
             </li>
-            {% for type in collections.tagList %}
+            {% for type in collections.dietTypeList %}
             <li class="filter-tag">
                 <input type="radio" name="filter" value="{{ type }}" id="{{ type }}" x-model="filter">
                 <label for="{{ type }}">
@@ -46,7 +46,7 @@ title: Don't Worry Chicken Curry
         <nav class="mb">
             <ul>
                 {% for recipe in collections.recipes %}
-                <li x-show="filter == 'all' || filter == '{{ recipe.data.tags }}'">
+                <li x-show="filter == 'all' || filter == '{{ recipe.data.diettype }}'">
                     <a href="{{ recipe.url }}" class="nav-link">
                     {{ recipe.data.icon }} {{ recipe.data.nav_title if recipe.data.nav_title else recipe.data.title }}
                     </a>

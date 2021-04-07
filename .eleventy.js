@@ -22,11 +22,11 @@ module.exports = function (eleventyConfig) {
    * @link https://www.11ty.io/docs/copy/
    */
   eleventyConfig.addPassthroughCopy({
-    './static': '.'
+    './static': '.',
   })
   eleventyConfig.addPassthroughCopy(`./src/assets/css/recipe-theme.css`)
   eleventyConfig.addPassthroughCopy({
-    bundle: 'assets'
+    bundle: 'assets',
   })
 
   /**
@@ -34,55 +34,86 @@ module.exports = function (eleventyConfig) {
    *
    * @link https://www.11ty.dev/docs/collections/#collection-api-methods
    */
-  eleventyConfig.addCollection("recipes", function(collectionApi) {
-    return collectionApi.getAllSorted().filter( i => {
-      return i.data.layout == 'recipe'
-    });
+  eleventyConfig.addCollection('recipes', function (collectionApi) {
+    return collectionApi
+      .getAllSorted()
+      .filter((i) => {
+        return i.data.layout == 'recipe'
+      })
+      .sort((a, b) => a.data.title.localeCompare(b.data.title))
+  })
 
-  });
+  // eleventyConfig.addCollection('categorisedRecipes', function (collectionApi) {
+  //   let grouped = collectionApi
+  //     .getAllSorted()
+  //     .filter((i) => {
+  //       return i.data.layout == 'recipe'
+  //     })
+  //     .reduce((recipes, item) => {
+  //       item.data.tags.forEach((tag) => {
+  //         if (!recipes[tag]) recipes[tag] = [];
+  //         recipes[tag] = [...recipes[tag], item]
+  //       })
+  //       return recipes
+  //     }, [])
+  //     console.log(typeof(grouped));
+  //   return grouped
+  // })
 
-  eleventyConfig.addCollection("tagList", function(collectionApi) {
-    let tagSet = new Set();
-    collectionApi.getAllSorted().forEach(function(item) {
-      if( "tags" in item.data ) {
-        let tags = item.data.tags;
+  eleventyConfig.addCollection('tagList', function (collectionApi) {
+    let tagSet = new Set()
+    collectionApi.getAllSorted().forEach(function (item) {
+      if ('tags' in item.data) {
+        let tags = item.data.tags
 
-        tags = tags.filter(function(item) {
-          switch(item) {
+        tags = tags.filter(function (item) {
+          switch (item) {
             // this list should match the `filter` list in tags.njk
-            case "all":
-            case "nav":
-            case "post":
-            case "posts":
-              return false;
+            case 'all':
+            case 'nav':
+            case 'post':
+            case 'posts':
+              return false
           }
 
-          return true;
-        });
+          return true
+        })
 
         for (const tag of tags) {
-          tagSet.add(tag);
+          tagSet.add(tag)
         }
       }
-    });
+    })
 
     // returning an array in addCollection works in Eleventy 0.5.3
-    return [...tagSet];
-  });
+    return [...tagSet]
+  })
 
-  eleventyConfig.addCollection("ingredientList", function(collectionApi) {
-    let ingredientSet = new Set();
-    collectionApi.getAll().forEach(function(item) {
-      if( "ingredients" in item.data ) {
-        let ingredients = item.data.ingredients;
+  eleventyConfig.addCollection('ingredientList', function (collectionApi) {
+    let ingredientSet = new Set()
+    collectionApi.getAll().forEach(function (item) {
+      if ('ingredients' in item.data) {
+        let ingredients = item.data.ingredients
         for (const ingredient of ingredients) {
-          ingredientSet.add(ingredient);
+          ingredientSet.add(ingredient)
         }
       }
-    });
+    })
 
-    return [...ingredientSet].sort();
-  });
+    return [...ingredientSet].sort()
+  })
+
+  eleventyConfig.addCollection('dietTypeList', function (collectionApi) {
+    let dietTypeSet = new Set()
+    collectionApi.getAll().forEach(function (item) {
+      if ('diettype' in item.data) {
+        let dietType = item.data.diettype
+        dietTypeSet.add(dietType)
+      }
+    })
+
+    return [...dietTypeSet].sort()
+  })
 
   /**
    * Add filters
@@ -90,7 +121,6 @@ module.exports = function (eleventyConfig) {
    * @link https://www.11ty.io/docs/filters/
    */
 
-   
   /**
    * Add Transforms
    *
@@ -145,7 +175,7 @@ module.exports = function (eleventyConfig) {
    * Disable use gitignore for avoiding ignoring of /bundle folder during watch
    * https://www.11ty.dev/docs/ignores/#opt-out-of-using-.gitignore
    */
-  eleventyConfig.setUseGitIgnore(false);
+  eleventyConfig.setUseGitIgnore(false)
 
   /**
    * Eleventy configuration object
