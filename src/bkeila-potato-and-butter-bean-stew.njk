@@ -1,0 +1,74 @@
+---
+layout: recipe
+title: Bkeila, potato and butter bean stew
+icon: 🥬
+tags: meal
+ingredients:
+  - spinach
+  - butter beans
+  - potatoes
+  - lemons
+sources:
+  - https://www.theguardian.com/food/2020/feb/29/yotam-ottolenghi-winter-vegetable-recipes-celeriac-cafe-de-paris-sauce-tomato-barley-stew-tunisian-potato-beans
+preptime: 35 mins
+cooktime: 1h 10 mins
+totaltime: 1h 45 mins
+diettype: vegan
+---
+
+{% from "editableAmounts.njk" import amountControls, editableAmount, controlledAmount as controlled, tooltipAmount %}
+{% from "methodMacros.njk" import doneToggle as dT %}
+
+<article x-data="amounts()">
+
+    <h2>Ingredients</h2>
+
+    <p>
+        Makes {{ editableAmount('total', 4) }} portions.
+    </p>
+
+    <ul>
+        <li>{{ editableAmount('spinach', 600) }} g, roughly chopped</li>
+        <li>{{ controlled(30) }}g parsley</li>
+        <li>{{ controlled(80) }}g coriander plus extra to serve, roughly chopped</li>
+        <li>{{ controlled(120) }}ml olive oil</li>
+        <li>{{ controlled(1) }} onion, finely chopped</li>
+        <li>{{ controlled(5) }} garlic cloves, peeled and crushed</li>
+        <li>{{ controlled(2) }} green chillies, finely chopped</li>
+        <li>{{ controlled(1.25) }} tablespoons ground cumin</li>
+        <li>{{ controlled(1) }} tablespoon ground coriander</li>
+        <li>{{ controlled(0.75) }} teaspoon ground cinnamon</li>
+        <li>{{ controlled(1.5) }} teaspoon caster sugar</li>
+        <li>{{ controlled(2) }} tablespoons lemon juice, plus wedges to serve</li>
+        <li>{{ controlled(1) }} litre vegetable stock</li>
+        <li>{{ editableAmount('potatoes', 500) }}g waxy potatoes, cut into 3cm pieces</li>
+        <li>{{ editableAmount('beans', 425) }}g butter beans (drained weight) </li>
+    </ul>
+
+    <hr/>
+
+    <h2>Method</h2>
+
+    <ol>
+        <li>In a food processor, pulse the {{ tooltipAmount('coriander', 80, 'g') }}, {{ tooltipAmount('parsley', 30, 'g') }} and {{ tooltipAmount('spinach', 600, 'g') }} in batches, until finely chopped (or do so by hand), then scrape into a bowl.</li>
+
+        <li>Put {{ controlled(75) }}ml oil in a large, heavy-based pot on a medium heat. Add the onion and fry gently, stirring occasionally, for eight minutes, until soft and golden.</li>
+
+        <li>Add the {{ tooltipAmount('garlic', 5, 'cloves') }}, chilli and spices, and cook, stirring regularly, for six minutes. Turn up the heat to high, add the chopped spinach mix and {{ controlled(3) }} more tablespoons of oil, and cook, stirring occasionally, for 10 minutes, until the spinach turns a dark green, almost grey colour. You want it to catch a bit, but not to burn, so turn down the heat if need be.</li>
+
+        <li>Stir in the {{ tooltipAmount('sugar', 1.5, 'tsp') }}, {{ tooltipAmount('lemon juice', 2, 'tbsp') }}, {{ tooltipAmount('stock', 1, 'l') }} and {{ controlled(2) }} teaspoons of salt, scraping the bottom of the pan with a spatula as you do so. Bring to a rapid simmer, then lower the heat to medium, add the {{ tooltipAmount('potatoes', 500, 'g') }} and cook gently for 25 minutes, until they are soft all the way through. Stir in the {{ tooltipAmount('butter beans', 425, 'g') }} and cook for five minutes, until warmed through.</li>
+
+        <li>Off the heat, stir in the roughly chopped extra coriander, then divide the stew between four bowls. Drizzle over some more oil and serve with the lemon wedges.</li>
+    </ol>
+
+    <hr/>
+
+    <h2>Notes</h2>
+
+    <ul>
+        <li>Bkeila is a Tunisian Jewish condiment made by cooking lots of spinach in lots of oil for many hours, leaving you with a very dark, intense paste that’s traditionally used to flavour soups and stews. This version is simpler – less oil, fewer hours – but it still delivers on the flavour front. It will keep in the fridge for up to three days or in the freezer for up to a month.</li>
+    </ul>
+
+    {{ amountControls() }}
+
+</article>
