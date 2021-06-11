@@ -1,4 +1,65 @@
 ---
 label: Recipe
 hide_body: true
-fields: []
+fields:
+- name: title
+  type: text
+  config:
+    required: false
+  label: TItle
+- name: icon
+  type: text
+  config:
+    required: false
+  label: Icon
+  description: Use an emoji
+- name: tags
+  type: tag_list
+  default: []
+  label: Tags
+- name: ingredients
+  type: tag_list
+  default: []
+  label: Ingredients
+  description: Main ingredients used in the recipe, used for the homepage search only
+    e.g. 'chicken'
+- name: sources
+  type: tag_list
+  default: []
+  label: Sources
+  description: Links, people etc
+- name: preptime
+  type: text
+  config:
+    required: false
+  label: Preptime
+- name: cooktime
+  type: text
+  config:
+    required: false
+  label: Cooktime
+- name: totaltime
+  type: text
+  config:
+    required: false
+  label: Totaltime
+- name: diettype
+  type: select
+  default: omnivore
+  config:
+    required: false
+    options:
+    - omnivore
+    - vegan
+    - vegetarian
+    source:
+      type: simple
+      section: 
+      file: 
+      path: 
+  label: DietType
+- name: is_markdown
+  type: boolean
+  label: Is Markdown
+  hidden: true
+  default: true
