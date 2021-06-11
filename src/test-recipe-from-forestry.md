@@ -17,3 +17,22 @@ cooktime: 1hr
 totaltime: ''
 
 ---
+## Ingredients
+
+Makes {% editable 4 %} portions
+
+* {% controlled 250 %}ml white wine 
+
+***
+
+## Method
+
+1. Add the {% tooltip 'wine', 250, 'ml' %}
+2. Second step
+
+***
+
+## Notes
+
+* Cashews are optional
+* Amounts are approximate
