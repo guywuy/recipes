@@ -63,3 +63,10 @@ fields:
   label: Is Markdown
   hidden: true
   default: true
+- name: layout
+  type: text
+  config:
+    required: false
+  label: Layout
+  hidden: true
+  default: recipe
