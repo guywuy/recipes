@@ -9,7 +9,7 @@ sections:
   label: Recipes
   create: documents
   match: "*.md"
-  new_doc_ext: ".md"
+  new_doc_ext: md
   templates:
   - recipe
 - type: heading
