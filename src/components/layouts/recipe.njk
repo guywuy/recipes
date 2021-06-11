@@ -1,5 +1,7 @@
 {% extends 'layouts/base.njk' %}
 
+{% from "editableAmounts.njk" import amountControls %}
+
 {% block content %}
 
   {% include "header.njk" %}
@@ -12,7 +14,20 @@
       </h1>
     {% endif %}
 
-    {{ content | safe }}
+    {% if is_markdown %}
+
+      <article x-data="amounts()">
+
+        {{ content | safe }}
+
+        {{ amountControls() }}
+      </article>
+
+    {% else %}
+
+        {{ content | safe }}
+
+    {% endif %}
 
     {% if sources %}
 
@@ -52,9 +67,12 @@
         toggleSnapping(){
           return this.snapping = !this.snapping;
         },
-        format(amount) {
+        format(amount, unit) {
           let newAmount = amount * this.modifier;
-          return newAmount <= 20 ? newAmount.toPrecision(this.snapping ? 1 : 2) / 1 : Math.round(newAmount);
+          return unit ? 
+          `${newAmount <= 20 ? newAmount.toPrecision(this.snapping ? 1 : 2) / 1 : Math.round(newAmount)} ${unit}`
+          :
+          newAmount <= 20 ? newAmount.toPrecision(this.snapping ? 1 : 2) / 1 : Math.round(newAmount);
         }
       }
     };

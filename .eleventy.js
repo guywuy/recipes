@@ -2,6 +2,7 @@ const htmlMinTransform = require('./utils/transforms/htmlmin.js')
 const contentParser = require('./utils/transforms/contentParser.js')
 const pwaPlugin = require('eleventy-plugin-pwa')
 const fs = require('fs')
+let markdownIt = require('markdown-it')
 
 /**
  * Import site configuration
@@ -42,23 +43,6 @@ module.exports = function (eleventyConfig) {
       })
       .sort((a, b) => a.data.title.localeCompare(b.data.title))
   })
-
-  // eleventyConfig.addCollection('categorisedRecipes', function (collectionApi) {
-  //   let grouped = collectionApi
-  //     .getAllSorted()
-  //     .filter((i) => {
-  //       return i.data.layout == 'recipe'
-  //     })
-  //     .reduce((recipes, item) => {
-  //       item.data.tags.forEach((tag) => {
-  //         if (!recipes[tag]) recipes[tag] = [];
-  //         recipes[tag] = [...recipes[tag], item]
-  //       })
-  //       return recipes
-  //     }, [])
-  //     console.log(typeof(grouped));
-  //   return grouped
-  // })
 
   eleventyConfig.addCollection('tagList', function (collectionApi) {
     let tagSet = new Set()
@@ -113,6 +97,25 @@ module.exports = function (eleventyConfig) {
     })
 
     return [...dietTypeSet].sort()
+  })
+
+  /**
+   * Add shortcodes
+   *
+   * @link https://www.11ty.io/docs/shortcodes/
+   */
+  eleventyConfig.addShortcode('editable', function (defaultAmount) {
+    return `<span class="editable-amount" :class="{ 'editable-amount--editing': isEditing }">
+<strong x-on:click="enableEditing()" x-text="format\( ${ defaultAmount } \)" class="editable-amount__amount" :class="{ highlight: isEditing}">${defaultAmount}</strong>
+</span>`
+  })
+
+  eleventyConfig.addShortcode('controlled', function (defaultAmount) {
+    return `<strong x-text="format(${defaultAmount})" :class="{ 'highlight': isEditing }">${defaultAmount}</strong>`
+  })
+
+  eleventyConfig.addShortcode('tooltip', function (ingredient, defaultAmount, unit) {
+    return `<button class="tooltipped">${ ingredient } <span class="tooltip" x-text="format(${defaultAmount}, '${unit}')"></span></button>`
   })
 
   /**
@@ -176,6 +179,12 @@ module.exports = function (eleventyConfig) {
    * https://www.11ty.dev/docs/ignores/#opt-out-of-using-.gitignore
    */
   eleventyConfig.setUseGitIgnore(false)
+
+  let options = {
+    html: true,
+  }
+  let markdownLib = markdownIt(options).disable('code')
+  eleventyConfig.setLibrary('md', markdownLib)
 
   /**
    * Eleventy configuration object
