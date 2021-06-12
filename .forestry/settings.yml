@@ -12,8 +12,6 @@ sections:
   new_doc_ext: md
   templates:
   - recipe
-- type: heading
-  label: Recipes
 upload_dir: uploads
 public_path: "/uploads"
 front_matter_path: ''
