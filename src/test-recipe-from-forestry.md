@@ -21,7 +21,7 @@ totaltime: ''
 
 Makes {% editable 4 %} portions
 
-* {% controlled 250 %}ml white wine 
+* {% controlled 250 %}ml white wine
 
 ***
 
@@ -34,5 +34,4 @@ Makes {% editable 4 %} portions
 
 ## Notes
 
-* Cashews are optional
 * Amounts are approximate
