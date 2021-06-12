@@ -11,17 +11,22 @@ fields:
 - name: icon
   type: text
   config:
-    required: false
+    required: true
+    max: 1
   label: Icon
-  description: Use an emoji
+  description: Copy and paste an emoji <a href="https://getemoji.com/#food-drink"
+    title="" target="_blank">from here</a>
+  default: "\U0001F35B"
 - name: tags
   type: tag_list
-  default: []
+  default:
+  - meal
   label: Tags
+  description: Current options:<br>meal<br>sauce<br>baking<br>snack<br>drink
 - name: ingredients
   type: tag_list
   default: []
-  label: Ingredients
+  label: Main ingredients
   description: Main ingredients used in the recipe, used for the homepage search only
     e.g. 'chicken'
 - name: sources
