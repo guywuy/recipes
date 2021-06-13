@@ -10,10 +10,10 @@ diettype: omnivore
 is_markdown: true
 layout: recipe
 title: Test Recipe from Forestry
-icon: t
+icon: "\U0001F9C4"
 preptime: 12mins
 cooktime: 1hr
-totaltime: ''
+totaltime: 1hr12mins
 
 ---
 ## Ingredients
