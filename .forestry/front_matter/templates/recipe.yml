@@ -12,7 +12,7 @@ fields:
   type: text
   config:
     required: true
-    max: 1
+    max: 
   label: Icon
   description: Copy and paste an emoji <a href="https://getemoji.com/#food-drink"
     title="" target="_blank">from here</a>
