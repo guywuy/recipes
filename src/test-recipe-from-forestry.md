@@ -1,6 +1,5 @@
 ---
-tags:
-- meal
+tags: []
 ingredients:
 - chicken
 - prunes
@@ -11,7 +10,7 @@ diettype: omnivore
 is_markdown: true
 layout: recipe
 title: Test Recipe from Forestry
-icon: "\U0001F423"
+icon: t
 preptime: 12mins
 cooktime: 1hr
 totaltime: ''
