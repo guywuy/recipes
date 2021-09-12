@@ -4,7 +4,7 @@ Progressive Web App of collected recipes with changeable quantities.
 
 ## Live site
 
-[https://dwcc.netlify.app/](https://dwcc.netlify.app/)
+[https://recipes.guywuy.com/](https://recipes.guywuy.com/)
 
 ### Running the local development mode
 
