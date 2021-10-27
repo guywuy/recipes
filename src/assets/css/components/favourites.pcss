@@ -1,5 +1,4 @@
 .favourites {
-
   &__results {
     padding: var(--space) 0;
     margin: 0;
@@ -13,5 +12,23 @@
         margin: 0;
       }
     }
+  }
+
+  &__toggle-btn,
+  &__delete-btn {
+    appearance: none;
+    border: none;
+    background: none;
+    text-decoration: underline;
+    color: var(--highlight);
+    font-size: 0.9rem;
+    font-weight: bold;
+    padding: var(--space-2);
+  }
+
+  &__delete-btn {
+    text-decoration: none;
+    color: var(--highlight);
+    font-size: 1.2rem;
   }
 }

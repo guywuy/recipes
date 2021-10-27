@@ -148,7 +148,7 @@ title: Don't Worry Chicken Curry
 <section x-data="favourites()" x-init="fetchFavourites" class="homepage-section text-center favourites" id="favourites">
     <div>
         <h2>⭐Favourites</h2>
-        <div class="favourites__no-results"  x-show="!favouriteRecipes.length">
+        <div class="favourites__no-results" x-show="!favouriteRecipes.length">
             <p>No favourite recipes yet. <a href="#list" class="accent bold">🧾 View All Recipes?</a></p>
         </div>
         <ul class="favourites__results" x-show="favouriteRecipes.length">
@@ -157,9 +157,12 @@ title: Don't Worry Chicken Curry
                     <a class="nav-link" :href="item.url">
                         <h4 x-text="item.icon + ' ' + item.title"></h4>
                     </a>
+                    <button x-show="inDeleteMode" @click="() => deleteFavourite(item.url)" class="favourites__delete-btn">x</button>
                 </li>
             </template>
         </ul>
+        <button x-text="inDeleteMode ? 'Finished!' : 'Remove favourites'" @click="toggleDeleteMode" x-show="favouriteRecipes.length" class="favourites__toggle-btn"></button>
+
     </div>
 </section>
 
@@ -167,9 +170,17 @@ title: Don't Worry Chicken Curry
     function favourites() {
         return {
             favouriteRecipes: [],
-            fetchFavourites: function(){
+            inDeleteMode: false,
+            toggleDeleteMode: function() {
+                this.inDeleteMode = !this.inDeleteMode;
+            },
+            fetchFavourites: function() {
                 const favourites = JSON.parse(localStorage.getItem('favourites'));
                 if (favourites) return this.favouriteRecipes = favourites;
+            },
+            deleteFavourite: function(recipeItemUrl){
+                this.favouriteRecipes = this.favouriteRecipes.filter( f => f.url != recipeItemUrl );
+                localStorage.setItem('favourites', JSON.stringify(this.favouriteRecipes));
             },
         }
     }
