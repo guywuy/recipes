@@ -1,12 +1,12 @@
-<html lang="{{ config.lang }}" prefix="og: http://ogp.me/ns#">
+<html lang="{{ config.lang }}">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     {% include "meta.njk" %}
     <link rel="icon" href="/favicon.png" type="image/png"/>
     <link rel="manifest" href="/manifest.webmanifest">
-    <link rel="preconnect" href="https://cdn.jsdelivr.net">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-normalize@0.6.0/modern-normalize.min.css"/>
+    <link rel="stylesheet" href="/normalize.css"/>
+
     <link href="https://fonts.googleapis.com/css2?family=Literata:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"> 
      {% block head %}{% endblock %}
 
@@ -17,7 +17,7 @@
     {% endif %}
 
     <script src="/assets/js/app.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+    <script src="/alpine-3.4.2.min.js" defer></script>
   </head>
   <body>
     {% block content %}{% endblock content %}

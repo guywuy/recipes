@@ -81,7 +81,7 @@ title: Don't Worry Chicken Curry
 
 <hr/>
 
-<section x-data="search()" x-init="fetchRecipes" class="homepage-section search" id="search">
+<section x-data="search()" class="homepage-section search" id="search">
     <div>
         <label for="myIngredient">What can I make with...?</label>
         <input list="ingredients" id="myIngredient" name="myIngredient" @input="handleChange" x-model="query" />
@@ -103,7 +103,7 @@ title: Don't Worry Chicken Curry
                     <a class="nav-link hit-item" :href="item.url">
                         <h4 x-text="item.icon + ' ' + item.title"></h4>
                         <ul class="hit-item__ingredients">
-                            <template x-for="ing in item.ingredients" :key="ing" x-if="matchingRecipes.length">
+                            <template x-for="ing in item.ingredients" :key="ing">
                                 <li x-text="ing" :class="{ 'bold': ing.includes(query.toLowerCase()) }"></li>
                             </template>
                         </ul>
@@ -120,6 +120,9 @@ title: Don't Worry Chicken Curry
             matchingRecipes: [],
             allRecipes: {},
             query: '',
+            init() {
+                this.fetchRecipes()
+            },
             fetchRecipes: function(){
                 fetch('/recipe-list.json')
                 .then( r => r.json() )
