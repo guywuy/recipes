@@ -14,6 +14,27 @@
       </h1>
     {% endif %}
 
+    <dl class="recipe-timings">
+      {% if preptime %}
+        <div>
+          <dt>Prep:</dt>
+          <dd>{{ preptime }}</dd>
+        </div>
+      {% endif %}
+      {% if cooktime %}
+        <div>
+          <dt>Cook:</dt>
+          <dd>{{ cooktime }}</dd>
+        </div>
+      {% endif %}
+      {% if totaltime %}
+        <div>
+          <dt>Total:</dt>
+          <dd><strong>{{ totaltime }}</strong></dd>
+        </div>
+      {% endif %}
+    </dl>
+
     {% if is_markdown %}
 
       <article x-data="amounts()">

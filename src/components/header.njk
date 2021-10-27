@@ -1,29 +1,8 @@
-<header class="header" :class="{ 'header--open' : isOpen }" x-data="nav()">
+<header class="header">
   <a href="/" class="homelink">🏠 <strong>DW<span class="accent">CC</span></strong></a>
 
-  <button class="nav-toggle" @click="toggleNav" x-cloak>👨🏼‍🍳⚙️</button>
-
-  <div x-show.transition.origin.top.right="isOpen" x-cloak class="header__info-actions">
-    <dl>
-      {% if preptime %}
-        <div>
-          <dt>Prep:</dt>
-          <dd>{{ preptime }}</dd>
-        </div>
-      {% endif %}
-      {% if cooktime %}
-        <div>
-          <dt>Cook:</dt>
-          <dd>{{ cooktime }}</dd>
-        </div>
-      {% endif %}
-      {% if totaltime %}
-        <div>
-          <dt>Total:</dt>
-          <dd><strong>{{ totaltime }}</strong></dd>
-        </div>
-      {% endif %}
-    </dl>
+  <div x-cloak class="header__info-actions">
+ 
     <div class="prefs">
       <div x-data="wakeLock()" x-init="initWakeLock">
         <div class="wakelock pref-checkbox" x-show="wlAvailable" x-on:visibilitychange.document="handleVisibilityChange">
@@ -53,19 +32,9 @@
       </div>
     </div>
   </div>
-
 </header>
 
 <script>
-  function nav() {
-    return {
-      isOpen: false,
-      toggleNav: function() {
-        this.isOpen = !this.isOpen
-      },
-    }
-  }
-
     function favourite() {
       return {
         loaded: false,
