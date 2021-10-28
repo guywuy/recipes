@@ -1,8 +1,8 @@
 const htmlMinTransform = require('./utils/transforms/htmlmin.js')
 const contentParser = require('./utils/transforms/contentParser.js')
-const pwaPlugin = require('eleventy-plugin-pwa')
 const fs = require('fs')
 let markdownIt = require('markdown-it')
+const swBuild = require('./worker-builder.js')
 
 /**
  * Import site configuration
@@ -106,7 +106,7 @@ module.exports = function (eleventyConfig) {
    */
   eleventyConfig.addShortcode('editable', function (defaultAmount) {
     return `<span class="editable-amount" :class="{ 'editable-amount--editing': isEditing }">
-<strong x-on:click="enableEditing()" x-text="format\( ${ defaultAmount } \)" class="editable-amount__amount" :class="{ highlight: isEditing}">${defaultAmount}</strong>
+<strong x-on:click="enableEditing()" x-text="format\( ${defaultAmount} \)" class="editable-amount__amount" :class="{ highlight: isEditing}">${defaultAmount}</strong>
 </span>`
   })
 
@@ -114,9 +114,12 @@ module.exports = function (eleventyConfig) {
     return `<strong x-text="format(${defaultAmount})" :class="{ 'highlight': isEditing }">${defaultAmount}</strong>`
   })
 
-  eleventyConfig.addShortcode('tooltip', function (ingredient, defaultAmount, unit) {
-    return `<button class="tooltipped">${ ingredient } <span class="tooltip" x-text="format(${defaultAmount}, '${unit}')"></span></button>`
-  })
+  eleventyConfig.addShortcode(
+    'tooltip',
+    function (ingredient, defaultAmount, unit) {
+      return `<button class="tooltipped">${ingredient} <span class="tooltip" x-text="format(${defaultAmount}, '${unit}')"></span></button>`
+    }
+  )
 
   /**
    * Add filters
@@ -138,11 +141,8 @@ module.exports = function (eleventyConfig) {
 
   /**
    * Add Plugins
-   * @link https://github.com/okitavera/eleventy-plugin-pwa
+   *
    */
-  if (process.env.ELEVENTY_ENV === 'production') {
-    eleventyConfig.addPlugin(pwaPlugin)
-  }
 
   /**
    * Override BrowserSync Server options
@@ -185,6 +185,12 @@ module.exports = function (eleventyConfig) {
   }
   let markdownLib = markdownIt(options).disable('code')
   eleventyConfig.setLibrary('md', markdownLib)
+
+  // Generate Service Worker after build
+  eleventyConfig.on('afterBuild', () => {
+    const options = {};
+    swBuild(options, siteConfig.paths.output).then((res) => console.log(res))
+  })
 
   /**
    * Eleventy configuration object
