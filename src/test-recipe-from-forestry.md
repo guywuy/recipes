@@ -1,11 +1,12 @@
 ---
 tags: []
 ingredients:
-- chicken
-- prunes
+  - chicken
+  - prunes
 sources:
-- https://www.thespruceeats.com/chicken-catalan-style-pollo-a-la-catalana-3083360
-- Test source
+  - >-
+    https://www.thespruceeats.com/chicken-catalan-style-pollo-a-la-catalana-3083360
+  - Test source
 diettype: omnivore
 is_markdown: true
 layout: recipe
@@ -14,13 +15,14 @@ icon: "\U0001F9C4"
 preptime: 12mins
 cooktime: 1hr
 totaltime: 1hr12mins
-
 ---
+
 ## Ingredients
 
 Makes {% editable 4 %} portions
 
 * {% controlled 250 %}ml white wine
+* Test
 
 ***
 

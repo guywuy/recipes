@@ -25,6 +25,8 @@
     "update:cssdb": "npx browserslist@latest --update-db"
   },
   "dependencies": {
+    "@tinacms/cli": "^1.5.6",
+    "tinacms": "^1.4.6",
     "turbolinks": "5.2.0"
   },
   "devDependencies": {
