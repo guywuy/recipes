@@ -14,7 +14,7 @@ cooktime: '20'
 totaltime: '30'
 diettype: omnivore
 is_markdown: true
-draft: true
+draft: false
 layout: recipe
 ---
 
