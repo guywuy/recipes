@@ -94,6 +94,12 @@
           `${newAmount <= 20 ? newAmount.toPrecision(this.snapping ? 1 : 2) / 1 : Math.round(newAmount)} ${unit}`
           :
           newAmount <= 20 ? newAmount.toPrecision(this.snapping ? 1 : 2) / 1 : Math.round(newAmount);
+        },
+        toHoursAndMinutes(totalMinutes) {
+          const hours = Math.floor(totalMinutes / 60);
+          const minutes = Math.floor(totalMinutes % 60);
+
+          return `${hours > 0 ? ` ${hours}h` : ''}${minutes > 0 ? ` ${minutes}m` : ''}`;
         }
       }
     };

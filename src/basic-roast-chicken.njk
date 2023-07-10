@@ -20,6 +20,13 @@ diettype: omnivore
 
 <article x-data="amounts()">
 
+    <h2>Roast time</h2>
+
+    <p>My chicken weighs {{ editableAmount('g', 1500) }}g: roast time is: <strong x-text="toHoursAndMinutes((3.33 * modifier * 20) + 20)" :class="{ 'highlight': isEditing }">1 hour 20 mins</strong></p>
+    <p>Chicken roast time is &mdash;&gt;&nbsp; <code>20 minutes + (20 minutes per 450g)</code> &mdash; at fan 170C.</p>
+
+    <hr/>
+
     <h2>Ingredients</h2>
 
     <ul>
@@ -34,12 +41,11 @@ diettype: omnivore
     <h2>Method</h2>
 
     <ol>
-        <li>Preheat fan oven to 170 degrees celcius</li>
+        <li>Preheat fan oven to <strong>170 degrees celcius</strong></li>
         <li>Roughly chop a couple of onions and some carrots, place on the base of a large roasting tin. Add a few garlic cloves and or other root veg if desired.</li>
         <li>Rub the chicken on all skin with olive oil, salt and pepper, and add salt, pepper and (optionally) thyme and lemon to the cavity.</li>
         <li>Ensure the chicken legs are crossed or held together (with string or by making holes in the thigh skin and stuffing through).</li>
-        <li>Put the chicken on the veg so that the veg is mostly covered with the chicken, then put in the middle of the oven.</li>
-        <li>20 Minutes per 500g + 20 mins.</li>
+        <li>Put the chicken on the veg so that the veg is mostly covered with the chicken, then put in the middle of the oven. Roast for <strong x-text="toHoursAndMinutes((3.33 * modifier * 20) + 20)" :class="{ 'highlight': isEditing }">1 hour 20 mins</strong>.</li>
         <li>Meanwhile, parboil the potatoes. After about 20 mins of boiling, drain the potatoes and shake in the colander/seive to make the skin and flesh a bit 'roughed up'. This will help get a nice texture from roasting.</li>
         <li>Halfway through roasting the chicken, take out the oven, move the veg around to make sure none is burning, and baste the chicken with some juices/oil from the roasting tin.</li>
         <li>When about 20 mins left of roasting, add a shallow baking tray with vegetable oil into the oven, in prep for potatoes. After a few minutes, when the oil is very hot, take out and add the potatoes. Season with salt/pepper/herbs and put in the oven. You can check the chicken cooking progress at the same time.</li>
@@ -57,6 +63,9 @@ diettype: omnivore
 
     <ul>
         <li>If you want smoother gravy, remove the veg in the tray and strain it into the saucepan.</li>
+        <li>You can turn up the oven heat for the last 15 mins of chicken roasting time to get crispier skin if you want.</li>
     </ul>
+
+    {{ amountControls() }}
 
 </article>
