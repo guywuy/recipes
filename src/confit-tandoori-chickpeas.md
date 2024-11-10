@@ -15,7 +15,7 @@ cooktime: 1hr 20
 totaltime: 1hr 50
 diettype: vegetarian
 is_markdown: true
-draft: true
+draft: false
 layout: recipe
 ---
 
