@@ -15,7 +15,7 @@ draft: false
 layout: recipe
 ---
 
-This recipe is adapted for a slow cooker but can be cooked quicker (2 hours) - check the [original site recipe](#sources).
+This recipe is adapted for a slow cooker but can be cooked quicker (2 hours) - check the [original site recipe](https://www.indianhealthyrecipes.com/lamb-curry/).
 
 ## Ingredients
 
@@ -25,9 +25,10 @@ Makes {% editable 6 %} portions. Gather the ingredients first for ease!
 
 * {% controlled 1 %}kg **diced lamb**
 * {% controlled 70 %}g **yoghurt** (lime juice/vinegar as alternative)
-* {% controlled 0.5 %} tablespoons **kasuri methi **(dried **fenugreeks leaves**, optional)
+* {% controlled 0.5 %} tablespoons **kasuri methi** (dried **fenugreeks leaves**, optional)
 * {% controlled 1 %} tablespoon **ginger paste** (or equivalent minced, or finely chopped) - half for marinade
 * {% controlled 1 %} tablespoon **garlic paste** (or equivalent minced, or finely chopped) - half for marinade
+* Ground spices as below
 
 #### Ground spices - use half for marinade
 
@@ -44,7 +45,7 @@ Makes {% editable 6 %} portions. Gather the ingredients first for ease!
 
 * {% controlled 1 %} **bay leaf**
 * {% controlled 6 %} **green cardamom pods**
-* {% controlled 3 %} inch **cinnamon piece**
+* A piece of **cinnamon**
 * {% controlled 2 %} **black cardamom pods** (optional)
 * {% controlled 1 %} to {% controlled 2 %} **star anise** (optional)
 
@@ -55,7 +56,7 @@ Makes {% editable 6 %} portions. Gather the ingredients first for ease!
 * {% controlled 300 %}g **chopped tomatoes** (fresh or tinned)
 * {% controlled 1 %} to {% controlled 2 %} **green chilli**, slit and deseeded (optional)
 * {% controlled 4 %} tablespoons **mint leaves** (pudina, fine chopped)
-* ** Spinach** (optional, frozen or fresh)
+* **Spinach** (optional, frozen or fresh)
 * **Coriander leaves** (finely chopped, optional)
 
 ***
@@ -72,14 +73,14 @@ Makes {% editable 6 %} portions. Gather the ingredients first for ease!
   * **half** of the garlic paste ({% controlled 0.5 %}tbsp)
   * {% tooltip 'salt', 2, 'tsp' %}
   * {% tooltip 'kasuri methi', 0.5, 'tbsp' %}
-* Cover and set aside for at least 2 hours, or overnight in the fridge. This can be in the slow cooker if easiest.
+* Cover and set aside for at least 2 hours, or overnight in the fridge.
 
 ### Cook whole spices and start lamb
 
 * Heat a 1 or 2 tablespoons of oil in the slow cooker on 'fry' setting (or a pan if the lamb was marinating in the slow cooker) and add the whole spices:
   * **star anise, bay leaf, black cardamom, green cardamom & cinnamon.**
 * Once the spices begin to sizzle, add the **mint leaves** and immediately stir in the **marinated lamb** and cook on a medium heat for about 5 minutes.
-* Pour enough hot water to nearly cover the lamb and mix well. Cover and start cooking on high while you prep the tomato/onion curry sauce below.
+* Pour enough **hot water** to nearly cover the lamb and mix well. Cover and start cooking on high while you prep the tomato/onion curry sauce below.
   * *This can cook like this for about an hour if you want to delay the next step at all, or proceed straight away.*
 
 ### Make the curry sauce
