@@ -14,7 +14,6 @@
     "clean:cache": "rimraf ./.parcel-cache",
     "clean:dist": "rimraf ./dist",
     "clean:bundle": "rimraf ./bundle",
-    "cms": "npx tinacms dev -c 'npm run serve'",
     "build": "cross-env ELEVENTY_ENV=production run-s clean:* build:assets build:html",
     "build:html": "eleventy",
     "build:assets": "parcel build ./src/assets/css/app.pcss ./src/assets/js/app.js --dist-dir ./bundle --no-source-maps",
@@ -25,8 +24,6 @@
     "update:cssdb": "npx browserslist@latest --update-db"
   },
   "dependencies": {
-    "@tinacms/cli": "^1.10.0",
-    "tinacms": "^2.8.0",
     "turbolinks": "5.2.0"
   },
   "devDependencies": {
