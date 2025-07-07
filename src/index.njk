@@ -90,7 +90,7 @@ title: Don't Worry Chicken Curry
             <option value="{{ ingredient }}">
         {% endfor %}
         </datalist>
-        <div class="search__no-results"  x-show="queryEntered() && !matchingRecipes.length">
+        <div class="search__no-results"  x-show="queryEntered() && !matchingRecipes.length > 0">
             <p>😬👨‍🍳 No recipes with that 🤦‍♂🤷‍♀️</p>
             <p>Try searching <a :href="'https://www.bbcgoodfood.com/search/recipes?q=' + encodeURIComponent(query)" target="_blank">BBC Good Food</a> for <strong x-text="query"></strong>?</p>
         </div>
