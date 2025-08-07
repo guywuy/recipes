@@ -25,7 +25,8 @@ Makes 1 loaf
 * 1 medium egg
 * 150g porridge oats
 * 100g mixed dried fruit, larger fruits roughly chopped
-* 100g mixed seeds, such as pumpkin, sunfiower, poppy, linseed, or buckwheat, plus an extra small handful to finish 50g nuts, such as walnuts, hazelnuts, almonds or cashews, roughly chopped
+* 100g mixed seeds, such as pumpkin, sunfiower, poppy, linseed, or buckwheat, plus an extra small handful to finish
+* 50g nuts, such as walnuts, hazelnuts, almonds or cashews, roughly chopped
 * 1 tsp caraway seeds (optional)
 * 50ml milk
 * ½ tsp bicarbonate of soda
