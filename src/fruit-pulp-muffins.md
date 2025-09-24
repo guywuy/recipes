@@ -1,6 +1,6 @@
 ---
 title: Fruit Pulp Muffins
-icon: "🍞"
+icon: "🧁"
 tags: baking
 ingredients:
   - fruit
