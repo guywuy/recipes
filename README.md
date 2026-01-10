@@ -8,7 +8,7 @@ Progressive Web App of collected recipes with changeable quantities.
 
 ### Running the local development mode
 
-This command will run `parcel` and the local server (with [Browsersync][]) with auto reload.
+This command will run `parcel` and the local server with auto reload.
 
 ```bash
 npm run dev
