@@ -1,8 +1,8 @@
-const htmlmin = require('html-minifier')
+import { minify } from 'html-minifier'
 
-module.exports = function(content, outputPath) {
+export default function (content, outputPath) {
   if (outputPath && outputPath.endsWith('.html')) {
-    let minified = htmlmin.minify(content, {
+    let minified = minify(content, {
       useShortDoctags: true,
       removeComments: true,
       collapseWhitespace: true,

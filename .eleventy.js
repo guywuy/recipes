@@ -1,15 +1,16 @@
-const htmlMinTransform = require('./utils/transforms/htmlmin.js')
-const contentParser = require('./utils/transforms/contentParser.js')
-const fs = require('fs')
-let markdownIt = require('markdown-it')
-const swBuild = require('./worker-builder.js')
+import htmlMinTransform from './utils/transforms/htmlmin.js'
+import contentParser from './utils/transforms/contentParser.js'
+import { readFileSync } from 'fs'
+import markdownIt from 'markdown-it'
+import swBuild from './worker-builder.js'
 
 /**
  * Import site configuration
  */
-const siteConfig = require('./src/_data/config.json')
+const config = JSON.parse(readFileSync('./src/_data/config.json', 'utf8'))
+const { paths } = config
 
-module.exports = function (eleventyConfig) {
+export default function (eleventyConfig) {
   /**
    * Add custom watch targets
    *
@@ -171,36 +172,6 @@ module.exports = function (eleventyConfig) {
    *
    */
 
-  /**
-   * Override BrowserSync Server options
-   *
-   * @link https://www.11ty.dev/docs/config/#override-browsersync-server-options
-   */
-  eleventyConfig.setBrowserSyncConfig({
-    notify: false,
-    open: true,
-    snippetOptions: {
-      rule: {
-        match: /<\/head>/i,
-        fn: function (snippet, match) {
-          return snippet + match
-        },
-      },
-    },
-    // Set local server 404 fallback
-    callbacks: {
-      ready: function (err, browserSync) {
-        const content_404 = fs.readFileSync('dist/404.html')
-
-        browserSync.addMiddleware('*', (req, res) => {
-          // Provides the 404 content without redirect.
-          res.write(content_404)
-          res.end()
-        })
-      },
-    },
-  })
-
   /*
    * Disable use gitignore for avoiding ignoring of /bundle folder during watch
    * https://www.11ty.dev/docs/ignores/#opt-out-of-using-.gitignore
@@ -216,7 +187,7 @@ module.exports = function (eleventyConfig) {
   // Generate Service Worker after build
   eleventyConfig.on('afterBuild', () => {
     const options = {}
-    swBuild(options, siteConfig.paths.output).then((res) => console.log(res))
+    swBuild(options, paths.output).then((res) => console.log(res))
   })
 
   /**
@@ -224,10 +195,10 @@ module.exports = function (eleventyConfig) {
    */
   return {
     dir: {
-      input: siteConfig.paths.src,
-      includes: siteConfig.paths.includes,
-      layouts: `${siteConfig.paths.includes}/layouts`,
-      output: siteConfig.paths.output,
+      input: paths.src,
+      includes: paths.includes,
+      layouts: `${paths.includes}/layouts`,
+      output: paths.output,
     },
     passthroughFileCopy: true,
     templateFormats: ['njk', 'md'],

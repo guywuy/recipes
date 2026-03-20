@@ -7,13 +7,13 @@
     <link rel="manifest" href="/manifest.webmanifest">
     <link rel="stylesheet" href="/normalize.css"/>
 
-    <link href="https://fonts.googleapis.com/css2?family=Literata:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css2?family=Literata:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
      {% block head %}{% endblock %}
 
     {% if env.IS_DEV %}
       <link rel="stylesheet" href="/assets/css/app.css" />
     {% else %}
-      <style>{% include "../../../dist/assets/css/app.css" %}</style>
+      <style>{% include "../../../bundle/css/app.css" %}</style>
     {% endif %}
 
     <script src="/assets/js/app.js" defer></script>
