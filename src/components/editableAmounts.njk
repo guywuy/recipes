@@ -14,7 +14,8 @@
 {% endmacro %}
 
 {% macro tooltipAmount(ingredient, defaultAmount, unit) %}
-<button class="tooltipped">{{ ingredient }} <span class="tooltip">{{ controlledAmount(defaultAmount) }}{{ unit }}</span></button>
+<button class="tooltipped" popovertarget="pop-{{ ingredient }}">{{ ingredient }}</button>
+<span id="pop-{{ ingredient }}" popover>{{ controlledAmount(defaultAmount) }}{{ unit }}</span>
 {% endmacro %}
 
 

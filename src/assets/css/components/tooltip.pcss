@@ -5,23 +5,21 @@
   background: none;
   border: none;
   border-bottom: 2px dotted var(--accent);
+}
 
-  .tooltip {
-    display: none;
-    position: absolute;
-    background-color: #fff;
-    top: calc(-100% - 14px);
-    left: 50%;
-    padding: .3em;
-    border-radius: 5px;
-    width: max-content;
-    transform: translateX(-50%);
-  }
+.tooltipped + span {
+  margin: 0;
+  inset: auto;
+  /* bottom: calc(anchor(top) + 2px);
+  justify-self: anchor-center;*/
+  position-area: top;
+  padding: 0.3em;
+  border-radius: 5px;
+  background-color: var(--accent);
+  color: #fff;
+  font-size: 1.1em;
 
-  &:focus,
-  &:hover {
-    .tooltip {
-      display: inline-block;
-    }
+  &::backdrop {
+    background-color: #0001;
   }
 }
