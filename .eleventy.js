@@ -145,7 +145,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addShortcode(
     'tooltip',
     function (ingredient, defaultAmount, unit) {
-      return `<button class="tooltipped">${ingredient} <span class="tooltip" x-text="format(${defaultAmount}, '${unit}')"></span></button>`
+      return `<button class="tooltipped" popovertarget="pop-${ingredient}">${ingredient}</button><span id="pop-${ingredient}" popover x-text="format(${defaultAmount}, '${unit}')"></span>`
     }
   )
 
